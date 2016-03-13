@@ -4,8 +4,9 @@
 
 var nflCsApp = angular.module('nflCsApp', [
   'ngRoute',
+  'directive',
   'nflCsControllers',
-  'phonecatServices'
+  'nflCsServices'
 ]);
 
 nflCsApp.config(['$routeProvider',
@@ -17,6 +18,10 @@ nflCsApp.config(['$routeProvider',
       }).
       when('/about', {
         templateUrl: 'views/about.html'
+      }).
+      when('/teams/:teamAbrv', {
+        templateUrl: 'views/team.html',
+        controller: 'TeamCtrl'
       }).
       when('/', {
         templateUrl: 'views/splash.html'

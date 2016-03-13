@@ -2,11 +2,16 @@
 
 /* Services */
 
-var phonecatServices = angular.module('phonecatServices', ['ngResource']);
+var nflCsServices = angular.module('nflCsServices', ['ngResource']);
 
-phonecatServices.factory('Phone', ['$resource',
+nflCsServices.factory('Players',
   function($resource){
-    return $resource('phones/:phoneId.json', {}, {
-      query: {method:'GET', params:{phoneId:'phones'}, isArray:true}
-    });
-  }]);
+    return $resource('db_scripts/players.json');
+  });
+
+nflCsServices.factory('Crimes',
+  function($resource){
+    return $resource('db_scripts/crimes.json');
+  });
+  
+  
