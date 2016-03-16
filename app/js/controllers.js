@@ -29,12 +29,30 @@ nflCsControllers.controller('PlayersCtrl', ['$scope', 'Players',
 	});
   }]);
 
-nflCsControllers.controller('TeamCtrl', ['$scope', '$routeParams', 'Crimes',
+nflCsControllers.controller('TeamCtrl', ['$scope', 'Teams',
+  function($scope, Teams) {
+
+    $scope.teams = [];
+
+    var teams = Teams.getTeams();
+
+    for(var each in teams) {
+
+      var team = {};
+      team.teamName = teams[each];
+      team.img = 'img/Teams/' + teams[each] + '.gif';
+      team.url = '#teams/' + teams[each];
+
+      $scope.teams.push(team);
+    }
+  }]);
+
+nflCsControllers.controller('SingleTeamCtrl', ['$scope', '$routeParams', 'Crimes',
   function($scope, $routeParams, Crimes) {
   	
   	var dtData = [];
   	$scope.teamName = $routeParams.teamAbrv;
-  	$scope.img = 'img/teamImg.png';
+  	$scope.img = 'img/Teams/' + $scope.teamName + '.gif';
   	console.log(Crimes);
   	
   	Crimes.get(function(data){

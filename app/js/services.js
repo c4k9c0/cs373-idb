@@ -14,4 +14,12 @@ nflCsServices.factory('Crimes',
     return $resource('db_scripts/crimes.json');
   });
   
-  
+nflCsServices.service('Teams',
+  function(){
+    
+  	this.getTeams = function() {
+		return ['MIN','DEN','CIN','TEN','TB','JAC','IND','CHI','CLE','KC','MIA','SD',
+			'BAL','NO','PIT','SEA','SF','OAK','GB','WAS','NE','ATL','CAR','ARI',
+			'DET','NYJ','BUF','DAL','PHI','NYG','HOU','STL']
+  	}
+  });

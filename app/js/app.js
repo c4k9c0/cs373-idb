@@ -19,9 +19,13 @@ nflCsApp.config(['$routeProvider',
       when('/about', {
         templateUrl: 'views/about.html'
       }).
-      when('/teams/:teamAbrv', {
-        templateUrl: 'views/team.html',
+      when('/teams', {
+        templateUrl: 'views/teams.html',
         controller: 'TeamCtrl'
+      }).
+      when('/teams/:teamAbrv', {
+        templateUrl: 'views/single_team.html',
+        controller: 'SingleTeamCtrl'
       }).
       when('/', {
         templateUrl: 'views/splash.html'
