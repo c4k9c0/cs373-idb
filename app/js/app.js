@@ -19,6 +19,14 @@ nflCsApp.config(['$routeProvider',
       when('/about', {
         templateUrl: 'views/about.html'
       }).
+      when('/crimes', {
+        templateUrl: 'views/crimes.html',
+        controller: 'CrimeCtrl'
+      }).
+      when('/crimes/:crime', {
+        templateUrl: 'views/single_crime.html',
+        controller: 'SingleCrimeCtrl'
+      }).
       when('/teams', {
         templateUrl: 'views/teams.html',
         controller: 'TeamCtrl'

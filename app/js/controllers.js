@@ -19,14 +19,61 @@ nflCsControllers.controller('PlayersCtrl', ['$scope', 'Players',
 		$('table').dataTable({
 		  "aaData": dtData,
 		  "aoColumnDefs":[{
-				"aTargets": [ 1 ]
-			  , "bSortable": false
+				"aTargets": [ 0, 1 ]
+			  , "bSortable": true
 			  , "mRender": function ( url, type, full )  {
 				  return  '<a href="#teams/'+url+'">' + url + '</a>';
 			  }
 		  }]
 		})
 	});
+  }]);
+
+nflCsControllers.controller('SingleCrimeCtrl', ['$scope', '$routeParams', 'Crimes',
+  function($scope, $routeParams, Crimes) {
+
+    var dtData = [];
+
+    $scope.teamName = $routeParams.crime;
+    $scope.img = 'img/crime.jpg'
+
+    Crimes.get(function(data){
+
+      for(var each in data) {
+
+        //console.log(data[each][0]['Category']);
+        if(data[each][0] != undefined && data[each][0]['Category'] == $routeParams.crime)
+          dtData.push([each,data[each][0]['Position'],data[each][0]['Category'],data[each][0]['Encounter'],data[each][0]['Outcome']]);
+      }
+    
+      $('table').dataTable({
+        "aaData": dtData,
+        "aoColumnDefs":[{
+          "aTargets": [ 0 ]
+          , "bSortable": true
+          , "mRender": function ( url, type, full )  {
+            return  '<a href="#teams/'+url+'">' + url + '</a>';
+          }
+        }]
+      })
+    })
+  }]);
+
+nflCsControllers.controller('CrimeCtrl', ['$scope', 'Types',
+  function($scope, Types) {
+
+    $scope.crimes = [];
+    $scope.img = 'img/crime.jpg'
+
+    var crimes = Types.getCrimes();
+
+    for(var each in crimes) {
+
+      var crime = {}
+      crime.crimeName = crimes[each];
+      crime.url = '#crimes/' + crime.crimeName;
+      $scope.crimes.push(crime);
+    }
   }]);
 
 nflCsControllers.controller('TeamCtrl', ['$scope', 'Teams',
@@ -65,11 +112,11 @@ nflCsControllers.controller('SingleTeamCtrl', ['$scope', '$routeParams', 'Crimes
 		$('table').dataTable({
 		  "aaData": dtData,
 		  "aoColumnDefs":[{
-				"aTargets": [ 1 ]
-			  , "bSortable": false
-			  , "mRender": function ( url, type, full )  {
-				  return  '<a href="#teams/'+url+'">' + url + '</a>';
-			  }
+				"aTargets": [ 0 ]
+			  , "bSortable": true
+        , "mRender": function ( url, type, full )  {
+          return  '<a href="#teams/'+url+'">' + url + '</a>';
+        }
 		  }]
 		})
 		
