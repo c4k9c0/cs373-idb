@@ -33,19 +33,21 @@ manager = Manager(app)
 db = SQLAlchemy(app)
 
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/')
+@app.route('/index')
 def index():
     logger.debug("index")
 
-    if request.method == 'POST':
-        name = request.form['name']
-        guest = Guest(name=name)
-        db.session.add(guest)
-        db.session.commit()
-        return redirect(url_for('index'))
+    
+    return render_template('splash.html')
 
-    return render_template('index.html', guests=Guest.query.all())
 
+@app.route('/players')
+def players():
+    logger.debug("index")
+
+    
+    return render_template('players.html')
 
 class Guest(db.Model):
     __tablename__ = 'guests'

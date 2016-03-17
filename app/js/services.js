@@ -41,3 +41,32 @@ nflCsServices.service('Types',
       "Failure to Appear","Dogfighting","Attempted murder","Pimping","Evading police","Gambling"].sort()
     }
   });
+  
+nflCsServices.service('GetPieChartData',
+  function(){
+    
+    this.getPieChartData = function(tableData, columnToDisplay) {
+    
+		var data = []
+						
+		for(var each in tableData) {
+
+			if(tableData[each][columnToDisplay] in data) {
+				data[tableData[each][columnToDisplay]].y +=1
+			} else {
+				data[tableData[each][columnToDisplay]] = 
+					{
+						name: tableData[each][columnToDisplay],
+						y: 1
+					};
+			}
+		}
+	
+		var formattedData = [];
+		for(var each in data) {
+			formattedData.push(data[each]);
+		}		
+	
+		return formattedData;
+  }
+});
