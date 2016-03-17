@@ -16,12 +16,28 @@ nflCsApp.config(['$routeProvider',
         templateUrl: 'views/players.html',
         controller: 'PlayersCtrl'
       }).
+      when('/players/:playerName', {
+        templateUrl: 'views/single_player.html',
+        controller: 'SinglePlayerCtrl'
+      }).
       when('/about', {
         templateUrl: 'views/about.html'
       }).
-      when('/teams/:teamAbrv', {
-        templateUrl: 'views/team.html',
+      when('/crimes', {
+        templateUrl: 'views/crimes.html',
+        controller: 'CrimeCtrl'
+      }).
+      when('/crimes/:crime', {
+        templateUrl: 'views/single_crime.html',
+        controller: 'SingleCrimeCtrl'
+      }).
+      when('/teams', {
+        templateUrl: 'views/teams.html',
         controller: 'TeamCtrl'
+      }).
+      when('/teams/:teamAbrv', {
+        templateUrl: 'views/single_team.html',
+        controller: 'SingleTeamCtrl'
       }).
       when('/', {
         templateUrl: 'views/splash.html'

@@ -1,1 +1,14 @@
-/* app css stylesheet */
+.zoom center{
+	-moz-transition:-moz-transform .2s ease-in; 
+	-webkit-transition:-webkit-transform .2s ease-in; 
+	-o-transition:-o-transform .2s ease-in;
+}
+.zoom center:hover{
+	-moz-transform:scale(1.1); 
+	-webkit-transform:scale(1.1);
+	-o-transform:scale(1.1);
+}
+
+.teamLink {
+	color: #333;
+}
