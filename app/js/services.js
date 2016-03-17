@@ -33,10 +33,10 @@ nflCsServices.service('Types',
       "Handicap parking","Solicitation","Obstruction","Theft","License","Disorderly conduct","Coercion",
       "Public intoxication","Reckless driving","Sex","Battery","Public urination","Manslaughter",
       "Breach of peace","Probation violation","Child support","Harassment","Criminal mischief",
-      "False name","Sexual assault","Hit-and-run","Murder","Trespassing","Violating court order",
+      "False name","Sexual assault","Murder","Trespassing","Violating court order",
       "Evading arrest","Leaving scene.","Weapon","Animal neglect","Guns","Child abuse","Resisting officer",
       "Sexual battery","Resisting Arrest","Domestic","Indecent exposure","Interfering with police",
-      "Domestic dispute","Fraud","Stalking","Property destruction","Hit and Run","Assasult",
+      "Domestic dispute","Fraud","Stalking","Property destruction","Hit-and-Run","Assasult",
       "Reckless endangerment","Disturbing the peace","Animal abuse","Traffic warrants","Animal cruelty",
       "Failure to Appear","Dogfighting","Attempted murder","Pimping","Evading police","Gambling"].sort()
     }

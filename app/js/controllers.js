@@ -35,13 +35,17 @@ nflCsControllers.controller('SingleCrimeCtrl', ['$scope', '$routeParams', 'Crime
     var dtData = [];
 
     $scope.teamName = $routeParams.crime;
-    $scope.img = 'img/crime.jpg'
+    $scope.img = 'img/crime.png'
+
+    console.log($scope.teamName);
 
     Crimes.get(function(data){
 
       for(var each in data) {
-
-        //console.log(data[each][0]['Category']);
+        if(data[each][0] != undefined) {
+          console.log(data[each][0]['Category']);
+        }
+        
         if(data[each][0] != undefined && data[each][0]['Category'] == $routeParams.crime)
           dtData.push([each,data[each][0]['Position'],data[each][0]['Category'],data[each][0]['Encounter'],data[each][0]['Outcome']]);
       }
@@ -63,7 +67,7 @@ nflCsControllers.controller('CrimeCtrl', ['$scope', 'Types',
   function($scope, Types) {
 
     $scope.crimes = [];
-    $scope.img = 'img/crime.jpg'
+    $scope.img = 'img/crime.png'
 
     var crimes = Types.getCrimes();
 
