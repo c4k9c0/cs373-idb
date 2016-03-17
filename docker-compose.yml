@@ -20,6 +20,7 @@ services:
     volumes:
       # Mount the app dir in the container as /src so our changes to the app code
       # are also changed in the container
+      # THIS MIGHT BE THE PROBLEM?
       - ./app:/src
     environment:
       # Environment variables to configure the app on startup.
