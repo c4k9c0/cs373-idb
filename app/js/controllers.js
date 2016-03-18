@@ -40,6 +40,7 @@ nflCsControllers.controller('SinglePlayerCtrl', ['$scope', '$routeParams', 'Crim
     var dtData = [];
 
     $scope.playerName = $routeParams.playerName;
+    //Use if we mine pictures for every player
     //$scope.img
 
     Crimes.get(function(data){
@@ -73,7 +74,7 @@ nflCsControllers.controller('SingleCrimeCtrl', ['$scope', '$routeParams', 'Crime
     Crimes.get(function(data){
 
       for(var each in data) {
-        
+
         if(data[each][0] != undefined && data[each][0]['Category'] == $routeParams.crime)
           dtData.push([each,data[each][0]['Position'],data[each][0]['Encounter'],data[each][0]['Outcome']]);
       }
