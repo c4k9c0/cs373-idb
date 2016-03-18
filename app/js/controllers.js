@@ -33,7 +33,7 @@ nflCsControllers.controller('PlayersCtrl', ['$scope', 'Players',
 		})
 	});
   }]);
-  
+
 nflCsControllers.controller('SinglePlayerCtrl', ['$scope', '$routeParams', 'Crimes',
   function($scope, $routeParams, Crimes) {
 
@@ -46,8 +46,14 @@ nflCsControllers.controller('SinglePlayerCtrl', ['$scope', '$routeParams', 'Crim
     Crimes.get(function(data){
 
       for(var each in data) {
-        if(data[each][0] != undefined && each == $routeParams.playerName)
-          dtData.push([data[each][0]['Category'],data[each][0]['Encounter'],data[each][0]['Outcome']]);
+        //why are we checking undefined?
+        //data[each][0] != undefined && 
+        if(each == $routeParams.playerName) {
+          var player = data[each];
+          for(var crime in player) {
+            dtData.push([player[crime]['Category'],player[crime]['Encounter'],player[crime]['Outcome']]);
+          }
+        }
       }
     
       $('table').dataTable({
@@ -75,8 +81,16 @@ nflCsControllers.controller('SingleCrimeCtrl', ['$scope', '$routeParams', 'Crime
 
       for(var each in data) {
 
-        if(data[each][0] != undefined && data[each][0]['Category'] == $routeParams.crime)
-          dtData.push([each,data[each][0]['Position'],data[each][0]['Encounter'],data[each][0]['Outcome']]);
+        if(data[each][0] != undefined) {
+          var player = data[each];
+          for(var crime in player) {
+            if(player[crime]['Category'] == $routeParams.crime) {
+              dtData.push([each,player[crime]['Position'],player[crime]['Encounter'],player[crime]['Outcome']]);
+            }
+          }
+          // old
+          //dtData.push([each,data[each][0]['Position'],data[each][0]['Encounter'],data[each][0]['Outcome']]);
+        }
       }
     
       $('table').dataTable({
@@ -137,8 +151,19 @@ nflCsControllers.controller('SingleTeamCtrl', ['$scope', '$routeParams', 'Crimes
   	Crimes.get(function(data){
   	
   		for(var each in data) {
-  			if(data[each][0] != undefined && data[each][0]['Team'] == $routeParams.teamAbrv)
-  				dtData.push([each,data[each][0]['Position'],data[each][0]['Category'],data[each][0]['Encounter'],data[each][0]['Outcome']]);
+  			
+        if(data[each][0] != undefined) {
+          var player = data[each];
+          for(var crime in player) {
+            if(player[crime]['Team'] == $routeParams.teamAbrv) {
+              dtData.push([each,player[crime]['Position'],player[crime]['Category'],player[crime]['Encounter'],player[crime]['Outcome']]);
+            }
+          }
+        }
+
+        // old if
+        //if(data[each][0] != undefined && data[each][0]['Team'] == $routeParams.teamAbrv)
+  			//	dtData.push([each,data[each][0]['Position'],data[each][0]['Category'],data[each][0]['Encounter'],data[each][0]['Outcome']]);
   		}
   	
 		$('table').dataTable({
