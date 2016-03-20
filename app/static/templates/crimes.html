@@ -1,0 +1,15 @@
+<div class="jumbotron">
+	<center> 
+		<h1>Crimes</h1> 
+	</center>
+</div>
+<div ng-repeat="crime in crimes">
+	<a ng-href="{{crime.url}}" class="teamLink">
+		<div class="col-sm-4 col-xs-6 zoom">
+			<center> 
+				<h3 style="height: 50px;">{{crime.crimeName}}</h3>
+				<img ng-src="{{img}}" class="img-responsive">
+			</center>
+		</div>
+	</a>
+</div>
