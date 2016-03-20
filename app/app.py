@@ -49,6 +49,13 @@ def players():
     
     return render_template('players.html')
 
+#@app.route('/about')
+#def about():
+    #logger.debug("index")
+
+    
+#    return render_template('about.html')
+
 #class Guest(db.Model):
 #    __tablename__ = 'guests'
 
