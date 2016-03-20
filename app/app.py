@@ -37,24 +37,7 @@ app = Flask(__name__, static_url_path='')
 @app.route('/index')
 def index():
     #logger.debug("index")
-
-    
     return render_template('index.html')
-
-
-@app.route('/players')
-def players():
-    #logger.debug("index")
-
-    
-    return render_template('players.html')
-
-#@app.route('/about')
-#def about():
-    #logger.debug("index")
-
-    
-#    return render_template('about.html')
 
 #class Guest(db.Model):
 #    __tablename__ = 'guests'
