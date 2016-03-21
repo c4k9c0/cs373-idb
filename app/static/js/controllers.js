@@ -106,39 +106,83 @@ nflCsControllers.controller('SingleCrimeCtrl', ['$scope', '$routeParams', 'Crime
     })
   }]);
 
-nflCsControllers.controller('CrimeCtrl', ['$scope', 'Types',
-  function($scope, Types) {
+nflCsControllers.controller('CrimeCtrl', ['$scope', 'Crimes',
+  function($scope, Crimes) {
 
     $scope.crimes = [];
     $scope.img = 'img/crime.png'
 
-    var crimes = Types.getCrimes();
+    var dtData = [];
+    
+    Crimes.get(function(data){
 
-    for(var each in crimes) {
+      for(var each in data) {
 
-      var crime = {}
-      crime.crimeName = crimes[each];
-      crime.url = '#crimes/' + crime.crimeName;
-      $scope.crimes.push(crime);
-    }
+        if(data[each][0] != undefined) {
+          var player = data[each];
+          for(var crime in player) {
+              dtData.push([each,player[crime]['Category'],player[crime]['Position'],player[crime]['Encounter'],player[crime]['Outcome']]);
+          }
+          // old
+          //dtData.push([each,data[each][0]['Position'],data[each][0]['Encounter'],data[each][0]['Outcome']]);
+        }
+      }
+    
+      $('table').dataTable({
+        "aaData": dtData,
+        "aoColumnDefs":[{
+          "aTargets": [ 0 ]
+          , "bSortable": true
+          , "mRender": function ( url, type, full )  {
+            return  '<a href="#players/'+url+'">' + url + '</a>';}
+          },
+          {
+          "aTargets": [ 1 ]
+          , "bSortable": true
+          , "mRender": function ( url, type, full )  {
+            return  '<a href="#crimes/'+url+'">' + url + '</a>';}
+          }]
+      })
+    })
   }]);
 
 nflCsControllers.controller('TeamCtrl', ['$scope', 'Teams',
   function($scope, Teams) {
 
-    $scope.teams = [];
+    //$scope.teams = [];
 
-    var teams = Teams.getTeams();
+    var dtData = [];
 
-    for(var each in teams) {
+    Teams.get(function(data){
 
-      var team = {};
-      team.teamName = teams[each];
-      team.img = 'img/Teams/' + teams[each] + '.gif';
-      team.url = '#teams/' + teams[each];
+      for(var team in data) {
+          if(data[team]['City'] != undefined){
+            dtData.push([team,data[team]['City'],data[team]['State'],data[team]['Mascot'],data[team]['Division'], data[team]['Championships']]);
+          }
+        }
 
-      $scope.teams.push(team);
-    }
+      $('table').dataTable({
+        "aaData": dtData,
+        "aoColumnDefs":[{
+            "aTargets": [ 0 ]
+            , "bSortable": true
+              , "mRender": function ( url, type, full )  {
+                  return  '<a href="#teams/'+url+'">' + url + '</a>';}
+        }]
+      })
+      });
+
+
+
+    // for(var each in teams) {
+
+    //   var team = {};
+    //   team.teamName = teams[each];
+    //   team.img = 'img/Teams/' + teams[each] + '.gif';
+    //   team.url = '#teams/' + teams[each];
+
+    //   $scope.teams.push(team);
+    // }
   }]);
 
 nflCsControllers.controller('SingleTeamCtrl', ['$scope', '$routeParams', 'Crimes', 'GetPieChartData',
