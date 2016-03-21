@@ -1,80 +1,126 @@
 FORMAT: 1A
-HOST: http://polls.apiblueprint.org/
 
 # NFL Arrests
 
-Polls is a simple API allowing consumers to view polls and vote in them.
+This is a basic API to collect crime data on NFL players and teams.
 
-## Questions Collection [/questions]
+## Teams Collection [/teams]
 
-### List All Questions [GET]
+### List All Teams [GET]
+Responds with a json object listing all the teams in alphabetic order
 
 + Response 200 (application/json)
 
-        [
-            {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 2048
-                    }, {
-                        "choice": "Python",
-                        "votes": 1024
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 512
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 256
-                    }
-                ]
-            }
-        ]
-
-### Create a New Question [POST]
-
-You may create your own question using this action. It takes a JSON
-object containing a question and a collection of answers in the
-form of choices.
-
-+ Request (application/json)
-
         {
-            "question": "Favourite programming language?",
-            "choices": [
-                "Swift",
-                "Python",
-                "Objective-C",
-                "Ruby"
-            ]
+            "ARI": {"City":"Phoenix", "State": "Arizona", "Mascot":"Cardinals","Divison":"NFC","Championships":3},
+            "ATL": {"City":"Atlanta", "State": "Georgia", "Mascot":"Falcons","Divison":"NFC","Championships":0},
+            "BAL": {"City":"Baltimore", "State": "Maryland", "Mascot":"Ravens","Divison":"AFC","Championships":2}
+            ...
+        }
+## Specific Team [/teams/{name}]
+Responds with a json object that contains the information for the team who's
+abbreviation matches name
+
++ Parameters
+    + name (required,string) - Abbreviation of the team
+
+### Retrieve a Team by Name[GET]
+
++ Response 200 (application/json)
+        
+        {
+            "ARI": {"City":"Phoenix", "State": "Arizona", "Mascot":"Cardinals","Divison":"NFC","Championships":3}
         }
 
-+ Response 201 (application/json)
+## Crimes Collection [/crimes]
 
-    + Headers
+### List All Crimes [GET]
+Responds with a json object listing all players and the crimes the committed
 
-            Location: /questions/2
++ Response 200 (application/json)
 
-    + Body
+        {
+            "Thomas Hamner": [{"Category": "Animal Cruelty","Encounter": "Charged","Date": "2001-04-04","Description": "Accused of beating his pit pull in New Jersey, the second time since November 2000.","Outcome": "Pleaded guilty, put the dog up for adoption, fined $1,000.","Team": "PHI","Position": "RB"},{"Category": "Animal Cruelty","Encounter": "Charged","Date": "2000-11-12","Description": "Investigated for animal cruelty involving his pit bull in New Jersey.","Outcome": "Pleaded guilty, $300 fine.","Team": "PHI","Position": "RB"}],
+            "Charlie Rogers": [{"Category": "Assault","Encounter": "Arrested","Date": "2002-07-13","Description": "Accused of punching a cop and resisting arrest in brawl at a go-go bar in New Jersey.","Outcome": "Acquitted.","Team": "BUF","Position": "RB"}],
+            "Bryan Pittman": [{"Category": "DUI","Encounter": "Arrested","Date": "2004-12-03","Description": "Accused of driving while intoxicated.","Outcome": "Acquitted.","Team": "HOU","Position": "C"}]
+            ...
+        }
 
-            {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 0
-                    }, {
-                        "choice": "Python",
-                        "votes": 0
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 0
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 0
-                    }
-                ]
-            }
+## Specific Crime [/crimes/{crime_name}]
+
+Responds with a json object that contains information about players who have committed
+a specific crime
+
++ Parameters
+    + crime_name (required,string) - Name of the Crime, case sensitive
+
+### Retrieve a Crime by Name [GET]
+
++ Response 200 (application/json)
+        
+        {
+            "Corey Fuller":[{"Category": "Gambling","Encounter": "Arrested","Date": "2004-04-20","Description": "Accused of hosting lucrative card games at his house, where police raid found him carrying a holstered gun.","Outcome": "Acquitted by jury. He had a permit for the gun.","Team": "BAL","Position": "CB"}]
+        }
+
+## Specific Player's Crimes [/crimes/player/{player_name}]
+
+Responds with a json object that contains all the crimes a specific player has committed
+
++ Parameters
+    + player_name (required,string) - Name of the player, case sensitive
+    
+### Retrieve a Crime by Player Name [GET]
+
++ Response 200 (application/json)
+
+        {
+            "Ricky Williams":[{"Category": "License","Encounter": "Cited","Date": "2002-06-18","Description": "Pulled over in Fort Lauderdale, accused of acting incoherently and driving his Hummer with expired tags, no license or proof of insurance. Handcuffed and ticketed.","Outcome": "Guilty on traffic tickets.","Team": "MIA","Position": "RB"},{"Category": "Reckless driving","Encounter": "Arrested","Date": "2002-02-24","Description": "Pulled over, arrested and accused of driving 126 mph on Interstate 10 in Louisiana.","Outcome": "Pleaded to a reduced charge of speeding, $500 fine.","Team": "MIA","Position": "RB"},{"Category": "Failure to appear","Encounter": "Arrested","Date": "2000-02-21","Description": "Pulled over in Austin, Texas, accused of improperly signaling lane change, failure to appear in court for previous traffic incidents.","Outcome": "Guilty, pleaded $429 in fines.","Team": "NO","Position": "RB"}]
+        }
+
+## Specific Team's Crimes [/crimes/team/{team_name}]
+
+Responds with a json object that contains all the crimes players on team 
+{team_name} have committed
+
++ Parameters
+    + team_name (required, string)
+    
+### Retrievs Crimes by Team Name [GET]
+
++ Response 200 (application/json)
+        
+        {
+            "Alex Okafor": [{"Category": "Evading arrest", "Encounter": "Arrested", "Date": "2015-03-09", "Description": "Accused of running from the scene after police received a report of a disturbance and then tried to detain him in Austin, Texas.", "Outcome": "Resolution undetermined.", "Team": "ARI", "Position": "LB"}],
+            "Daryl Washington": [{"Category": "Domestic violence", "Encounter": "Arrested", "Date": "2013-05-03", "Description": "Accused of assaulting ex-girlfriend, grabbing her by throat and shoving her to the ground.", "Outcome": "Pleaded guilty to aggravated assault, one year of supervised probation.", "Team": "ARI", "Position": "LB"}]
+            ...
+        }
+
+## Players Collection [/players]
+
+### List All Players [GET]
+Responds with a json object that contains information about every player in the
+NFL who has committed a crime since 2000.
+
++ Response 200 (application/json)
+
+        {
+            "Lance Louis":{"Last_Arrest": "2009-10-13","id": 318,"Name": "Lance Louis","Pos": "OT","First_Name": "Lance","Team": "CHI","Last_Name": "Louis","Num_Arrests": "1"},
+            "Jeremy Newberry":{"Last_Arrest": "2002-05-24","id": 31,"Name": "Jeremy Newberry","Pos": "C","First_Name": "Jeremy","Team": "SF","Last_Name": "Newberry","Num_Arrests": "1"},
+            "Jammal Brown":{"Last_Arrest": "2006-06-22","id": 445,"Name": "Jammal Brown","Pos": "OT","First_Name": "Jammal","Team": "NO","Last_Name": "Brown","Num_Arrests": "1"}
+            ...
+        }
+        
+## Specific Player [/players/{name}]
+
+Responds with a json object that contains information about a specific player
+
++ Parameters
+    + name (required,string) - Name of the player
+    
+### Retrieve a Player by Name [GET]
+
++ Response 200 (application/json)
+    
+        {
+            "Lance Louis":{"Last_Arrest": "2009-10-13","id": 318,"Name": "Lance Louis","Pos": "OT","First_Name": "Lance","Team": "CHI","Last_Name": "Louis","Num_Arrests": "1"}
+        }
