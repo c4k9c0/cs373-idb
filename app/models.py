@@ -35,8 +35,20 @@ Models for Teams
 class Teams(db.Model):
 	__tablename__ = 'teams'
 
-	teams_id = db.Column(db.Integer, primary_key=True)
+	team_id       = db.Column(db.Integer, primary_key = True)
+    city          = db.Column(db.String(80))
+    state         = db.Column(db.String(80))
+    mascot        = db.Column(db.String(80))
+    division      = db.Column(db.String(80))
+    championships = db.Column(db.Integer)
 
+    def __init__(self, team_id, city, state, mascot, division, championships):
+        self.team_id       = team_id
+        self.city          = city
+        self.state         = state
+        self.mascot        = mascot
+        self.division      = division
+        self.championships = championships
 
 """
 Models for Crimes
