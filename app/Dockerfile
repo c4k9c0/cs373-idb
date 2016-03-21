@@ -3,13 +3,13 @@ FROM python:3.4
 ENV PYTHONUNBUFFERED 1
 
 
-ADD . /app
+ADD . /src
 
 RUN echo “About to cat”
 
 RUN ls
 
-WORKDIR /app
+WORKDIR /src
 
 RUN ls
 
