@@ -34,12 +34,16 @@ nflCsControllers.controller('PlayersCtrl', ['$scope', 'Players',
 	});
   }]);
 
-nflCsControllers.controller('SinglePlayerCtrl', ['$scope', '$routeParams', 'Crimes',
-  function($scope, $routeParams, Crimes) {
+nflCsControllers.controller('SinglePlayerCtrl', ['$scope', '$routeParams', 'Crimes', 'Players',
+  function($scope, $routeParams, Crimes, Players) {
 
     var dtData = [];
 
     $scope.playerName = $routeParams.playerName;
+    Players.get(function(data) {
+      $scope.player = data[$scope.playerName]
+      
+    })
     //Use if we mine pictures for every player
     //$scope.img
 
