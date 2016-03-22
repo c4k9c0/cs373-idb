@@ -1,17 +1,17 @@
 <div class='row'>
-  <div class="col-md-4">
+  <div class="col-md-12">
     <div class="jumbotron">
       <center> 
-        <h1>{{teamName}}</h1> 
- 	    <img ng-src="{{img}}">  
+        <h1>{{teamName}} <img ng-src="{{team_img}}"> </h1> 
       </center>
+      <p class="text-center"><b>City: </b>{{team.City}} <b>| State: </b>{{team.State}} <b>| Mascot: </b>{{team.Mascot}} <b>| Division:</b> {{team.Division}} <b>| Championships:</b> {{team.Championships}}</p>
     </div>
   </div>
-  <div class="col-md-8">
-    <center> 
-      <crime-categories-pie></crime-categories-pie>
-    </center>
-  </div>
+</div>
+<div class="col-md-8">
+  <center> 
+    <crime-categories-pie></crime-categories-pie>
+  </center>
 </div>
 
 <table id="table">

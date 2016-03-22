@@ -90,7 +90,7 @@ nflCsControllers.controller('SingleCrimeCtrl', ['$scope', '$routeParams', 'Crime
           var player = data[each];
           for(var crime in player) {
             if(player[crime]['Category'] == $routeParams.crime) {
-              dtData.push([each,player[crime]['Position'],player[crime]['Encounter'],player[crime]['Outcome']]);
+              dtData.push([each,player[crime]['Team'],player[crime]['Position'],player[crime]['Date'],player[crime]['Encounter'],player[crime]['Description'],player[crime]['Outcome']]);
             }
           }
           // old
@@ -104,9 +104,14 @@ nflCsControllers.controller('SingleCrimeCtrl', ['$scope', '$routeParams', 'Crime
           "aTargets": [ 0 ]
           , "bSortable": true
           , "mRender": function ( url, type, full )  {
-            return  '<a href="#players/'+url+'">' + url + '</a>';
-          }
-        }]
+            return  '<a href="#players/'+url+'">' + url + '</a>';}
+          },
+          {
+          "aTargets": [ 1 ]
+          , "bSortable": true
+          , "mRender": function ( url, type, full )  {
+            return  '<a href="#teams/'+url+'">' + url + '</a>';}
+          }]
       })
     })
   }]);
@@ -126,7 +131,7 @@ nflCsControllers.controller('CrimeCtrl', ['$scope', 'Crimes',
         if(data[each][0] != undefined) {
           var player = data[each];
           for(var crime in player) {
-              dtData.push([each,player[crime]['Category'],player[crime]['Position'],player[crime]['Encounter'],player[crime]['Outcome']]);
+              dtData.push([each,player[crime]['Category'],player[crime]['Position'],player[crime]['Date'],player[crime]['Encounter'],player[crime]['Description'],player[crime]['Outcome']]);
           }
           // old
           //dtData.push([each,data[each][0]['Position'],data[each][0]['Encounter'],data[each][0]['Outcome']]);
@@ -190,12 +195,17 @@ nflCsControllers.controller('TeamCtrl', ['$scope', 'Teams',
     // }
   }]);
 
-nflCsControllers.controller('SingleTeamCtrl', ['$scope', '$routeParams', 'Crimes', 'GetPieChartData',
-  function($scope, $routeParams, Crimes, GetPieChartData) {
+nflCsControllers.controller('SingleTeamCtrl', ['$scope', '$routeParams', 'Crimes', 'Teams', 'GetPieChartData',
+  function($scope, $routeParams, Crimes, Teams, GetPieChartData) {
   	
   	var dtData = [];
   	$scope.teamName = $routeParams.teamAbrv;
-  	$scope.img = 'img/Teams/' + $scope.teamName + '.gif';
+    $scope.team_img = 'img/Teams/' + $scope.teamName + '.gif';
+
+    Teams.get(function(data) {
+      $scope.team = data[$scope.teamName]
+      
+    })
   	
   	Crimes.get(function(data){
   	
