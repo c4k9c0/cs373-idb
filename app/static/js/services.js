@@ -13,15 +13,12 @@ nflCsServices.factory('Crimes',
   function($resource){
     return $resource('db_scripts/crimes.json');
   });
+
+
   
-nflCsServices.service('Teams',
-  function(){
-    
-  	this.getTeams = function() {
-		return ['DEN','MIN', 'CIN','TEN','TB','JAC','IND','CHI','CLE','KC','MIA','SD',
-			'BAL','NO','PIT','SEA','SF','OAK','GB','WAS','NE','ATL','CAR','ARI',
-			'DET','NYJ','BUF','DAL','PHI','NYG','HOU','STL'].sort()
-  	}
+nflCsServices.factory('Teams',
+  function($resource){
+    return $resource('db_scripts/teams.json');
   });
 
 nflCsServices.service('Types',
@@ -41,6 +38,8 @@ nflCsServices.service('Types',
       "Dogfighting","Attempted murder","Pimping","Evading police","Gambling"].sort()
     }
   });
+
+
   
 nflCsServices.service('GetPieChartData',
   function(){
