@@ -1,0 +1,1 @@
+[Players]<>1-many*>[Crimes], [Teams]<>1--many*>[Players],[Teams]<>1-many*>[Crimes]
