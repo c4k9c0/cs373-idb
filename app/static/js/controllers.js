@@ -126,7 +126,7 @@ nflCsControllers.controller('CrimeCtrl', ['$scope', 'Crimes',
         if(data[each][0] != undefined) {
           var player = data[each];
           for(var crime in player) {
-              dtData.push([each,player[crime]['Category'],player[crime]['Position'],player[crime]['Encounter'],player[crime]['Outcome']]);
+              dtData.push([each,player[crime]['Category'],player[crime]['Position'],player[crime]['Date'],player[crime]['Encounter'],player[crime]['Description'],player[crime]['Outcome']]);
           }
           // old
           //dtData.push([each,data[each][0]['Position'],data[each][0]['Encounter'],data[each][0]['Outcome']]);
