@@ -34,12 +34,17 @@ nflCsControllers.controller('PlayersCtrl', ['$scope', 'Players',
 	});
   }]);
 
-nflCsControllers.controller('SinglePlayerCtrl', ['$scope', '$routeParams', 'Crimes',
-  function($scope, $routeParams, Crimes) {
+nflCsControllers.controller('SinglePlayerCtrl', ['$scope', '$routeParams', 'Crimes', 'Players',
+  function($scope, $routeParams, Crimes, Players) {
 
     var dtData = [];
 
     $scope.playerName = $routeParams.playerName;
+    Players.get(function(data) {
+      $scope.player = data[$scope.playerName]
+      $scope.team_img = 'img/Teams/' + $scope.player.Team + '.gif'
+      
+    })
     //Use if we mine pictures for every player
     //$scope.img
 
@@ -51,7 +56,7 @@ nflCsControllers.controller('SinglePlayerCtrl', ['$scope', '$routeParams', 'Crim
         if(each == $routeParams.playerName) {
           var player = data[each];
           for(var crime in player) {
-            dtData.push([player[crime]['Category'],player[crime]['Encounter'],player[crime]['Outcome']]);
+            dtData.push([player[crime]['Category'],player[crime]['Date'],player[crime]['Encounter'],player[crime]['Description'],player[crime]['Outcome']]);
           }
         }
       }
