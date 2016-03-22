@@ -90,7 +90,7 @@ nflCsControllers.controller('SingleCrimeCtrl', ['$scope', '$routeParams', 'Crime
           var player = data[each];
           for(var crime in player) {
             if(player[crime]['Category'] == $routeParams.crime) {
-              dtData.push([each,player[crime]['Position'],player[crime]['Encounter'],player[crime]['Outcome']]);
+              dtData.push([each,player[crime]['Team'],player[crime]['Position'],player[crime]['Date'],player[crime]['Encounter'],player[crime]['Description'],player[crime]['Outcome']]);
             }
           }
           // old
