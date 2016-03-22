@@ -42,6 +42,7 @@ nflCsControllers.controller('SinglePlayerCtrl', ['$scope', '$routeParams', 'Crim
     $scope.playerName = $routeParams.playerName;
     Players.get(function(data) {
       $scope.player = data[$scope.playerName]
+      $scope.team_img = 'img/Teams/' + $scope.player.Team + '.gif'
       
     })
     //Use if we mine pictures for every player
