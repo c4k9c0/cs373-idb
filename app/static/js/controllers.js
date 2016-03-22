@@ -104,9 +104,14 @@ nflCsControllers.controller('SingleCrimeCtrl', ['$scope', '$routeParams', 'Crime
           "aTargets": [ 0 ]
           , "bSortable": true
           , "mRender": function ( url, type, full )  {
-            return  '<a href="#players/'+url+'">' + url + '</a>';
-          }
-        }]
+            return  '<a href="#players/'+url+'">' + url + '</a>';}
+          },
+          {
+          "aTargets": [ 1 ]
+          , "bSortable": true
+          , "mRender": function ( url, type, full )  {
+            return  '<a href="#teams/'+url+'">' + url + '</a>';}
+          }]
       })
     })
   }]);
