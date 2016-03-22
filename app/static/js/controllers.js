@@ -190,12 +190,17 @@ nflCsControllers.controller('TeamCtrl', ['$scope', 'Teams',
     // }
   }]);
 
-nflCsControllers.controller('SingleTeamCtrl', ['$scope', '$routeParams', 'Crimes', 'GetPieChartData',
-  function($scope, $routeParams, Crimes, GetPieChartData) {
+nflCsControllers.controller('SingleTeamCtrl', ['$scope', '$routeParams', 'Crimes', 'Teams', 'GetPieChartData',
+  function($scope, $routeParams, Crimes, Teams, GetPieChartData) {
   	
   	var dtData = [];
   	$scope.teamName = $routeParams.teamAbrv;
-  	$scope.img = 'img/Teams/' + $scope.teamName + '.gif';
+    $scope.team_img = 'img/Teams/' + $scope.teamName + '.gif';
+
+    Teams.get(function(data) {
+      $scope.team = data[$scope.teamName]
+      
+    })
   	
   	Crimes.get(function(data){
   	
