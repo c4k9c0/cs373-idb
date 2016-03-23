@@ -4,17 +4,17 @@ from sqlalchemy import *
 from app.app import db
 
 """
-Models for Players
+Models for Player
 """
-class Players(db.Model):
-	__tablename__ = 'players'
+class player(db.Model):
+	__tablename__ = 'player'
 
 	player_id     = db.Column(db.Integer, primary_key = True)
 	last_arrest   = db.Column(db.Date)
 	name          = db.Column(db.String(80))
 	pos           = db.Column(db.String(5))
 	first_name    = db.Column(db.String(80))
-	team          = db.Column(db.ForeignKey("teams.team_id")) # This is a foriegn key
+	team          = db.Column(db.ForeignKey("team.team_id")) # This is a foriegn key
 	last_name     = db.Column(db.String(80))
 	num_arrests   = db.Column(db.Integer)
 
@@ -31,19 +31,21 @@ class Players(db.Model):
 		self.num_arrest  = num_arrest
 
 """
-Models for Teams
+Models for Team
 """
-class Teams(db.Model):
-	__tablename__ = 'teams'
+class team(db.Model):
+	__tablename__ = 'team'
 
 	team_id       = db.Column(db.Integer, primary_key = True)
+	name 		  = db.Column(db.String(80))
 	city          = db.Column(db.String(80))
 	state         = db.Column(db.String(80))
 	mascot        = db.Column(db.String(80))
 	division      = db.Column(db.String(80))
 	championships = db.Column(db.Integer)
 
-	def __init__(self, team_id, city, state, mascot, division, championships):
+	def __init__(self, team_id, city, state, mascot, division, championships, name):
+		self.name 		   = name
 		self.team_id       = team_id
 		self.city          = city
 		self.state         = state
@@ -52,21 +54,21 @@ class Teams(db.Model):
 		self.championships = championships
 
 """
-Models for Crimes
+Models for Crime
 """
-class Crimes(db.Model):
-	__tablename__ = 'crimes'
+class crime(db.Model):
+	__tablename__ = 'crime'
 
 	crime_id      = db.Column(db.Integer, primary_key = True)
 
-	team          = db.Column(db.ForeignKey("teams.team_id")) # F Key
+	team          = db.Column(db.ForeignKey("team.team_id")) # F Key
 	date          = db.Column(db.Date)
 	description   = db.Column(db.Text)
 	position      = db.Column(db.String(5))
 	outcome       = db.Column(db.Text)
 	category      = db.Column(db.String(80))
 	encounter     = db.Column(db.String(10))
-	name  		  = db.Column(db.ForeignKey("players.player_id"))
+	name  		  = db.Column(db.ForeignKey("player.player_id"))
 
 	def __init__(self, crime_id, team, date, description, position, outcome, category, encounter, name):
 		self.crime_id    = crime_id

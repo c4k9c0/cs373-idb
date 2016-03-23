@@ -23,3 +23,5 @@ before_script:
 script:
     - date
     - ls -al
+    - make check
+    # - make test (commented out for part 1)
