@@ -17,7 +17,8 @@ nflCsControllers.controller('PlayersCtrl', ['$scope', 'Players',
   		}
   	
 		$('table').dataTable({
-		  "aaData": dtData,
+		  "responsive": true,
+      "aaData": dtData,
 		  "aoColumnDefs":[{
 				"aTargets": [ 0 ]
 			  , "bSortable": true
@@ -45,14 +46,10 @@ nflCsControllers.controller('SinglePlayerCtrl', ['$scope', '$routeParams', 'Crim
       $scope.team_img = 'img/Teams/' + $scope.player.Team + '.gif'
       
     })
-    //Use if we mine pictures for every player
-    //$scope.img
 
     Crimes.get(function(data){
 
       for(var each in data) {
-        //why are we checking undefined?
-        //data[each][0] != undefined && 
         if(each == $routeParams.playerName) {
           var player = data[each];
           for(var crime in player) {
@@ -62,6 +59,7 @@ nflCsControllers.controller('SinglePlayerCtrl', ['$scope', '$routeParams', 'Crim
       }
     
       $('table').dataTable({
+        "responsive": true,
         "aaData": dtData,
         "aoColumnDefs":[{
           "aTargets": [ 0 ]
@@ -93,12 +91,11 @@ nflCsControllers.controller('SingleCrimeCtrl', ['$scope', '$routeParams', 'Crime
               dtData.push([each,player[crime]['Position'],player[crime]['Encounter'],player[crime]['Outcome']]);
             }
           }
-          // old
-          //dtData.push([each,data[each][0]['Position'],data[each][0]['Encounter'],data[each][0]['Outcome']]);
         }
       }
     
       $('table').dataTable({
+        "responsive": true,
         "aaData": dtData,
         "aoColumnDefs":[{
           "aTargets": [ 0 ]
@@ -128,12 +125,11 @@ nflCsControllers.controller('CrimeCtrl', ['$scope', 'Crimes',
           for(var crime in player) {
               dtData.push([each,player[crime]['Category'],player[crime]['Position'],player[crime]['Encounter'],player[crime]['Outcome']]);
           }
-          // old
-          //dtData.push([each,data[each][0]['Position'],data[each][0]['Encounter'],data[each][0]['Outcome']]);
         }
       }
     
       $('table').dataTable({
+        "responsive": true,
         "aaData": dtData,
         "aoColumnDefs":[{
           "aTargets": [ 0 ]
@@ -154,8 +150,6 @@ nflCsControllers.controller('CrimeCtrl', ['$scope', 'Crimes',
 nflCsControllers.controller('TeamCtrl', ['$scope', 'Teams',
   function($scope, Teams) {
 
-    //$scope.teams = [];
-
     var dtData = [];
 
     Teams.get(function(data){
@@ -167,6 +161,7 @@ nflCsControllers.controller('TeamCtrl', ['$scope', 'Teams',
         }
 
       $('table').dataTable({
+        "responsive": true,
         "aaData": dtData,
         "aoColumnDefs":[{
             "aTargets": [ 0 ]
@@ -175,19 +170,7 @@ nflCsControllers.controller('TeamCtrl', ['$scope', 'Teams',
                   return  '<a href="#teams/'+url+'">' + url + '</a>';}
         }]
       })
-      });
-
-
-
-    // for(var each in teams) {
-
-    //   var team = {};
-    //   team.teamName = teams[each];
-    //   team.img = 'img/Teams/' + teams[each] + '.gif';
-    //   team.url = '#teams/' + teams[each];
-
-    //   $scope.teams.push(team);
-    // }
+    });
   }]);
 
 nflCsControllers.controller('SingleTeamCtrl', ['$scope', '$routeParams', 'Crimes', 'GetPieChartData',
@@ -209,13 +192,10 @@ nflCsControllers.controller('SingleTeamCtrl', ['$scope', '$routeParams', 'Crimes
             }
           }
         }
-
-        // old if
-        //if(data[each][0] != undefined && data[each][0]['Team'] == $routeParams.teamAbrv)
-  			//	dtData.push([each,data[each][0]['Position'],data[each][0]['Category'],data[each][0]['Encounter'],data[each][0]['Outcome']]);
   		}
   	
 		$('table').dataTable({
+      "responsive": true,
 		  "aaData": dtData,
 		  "aoColumnDefs":[{
 				  "aTargets": [ 0 ]
@@ -232,34 +212,34 @@ nflCsControllers.controller('SingleTeamCtrl', ['$scope', '$routeParams', 'Crimes
 		})
 		
 		// Build the chart
-        $('#container').highcharts({
-            chart: {
-                plotBackgroundColor: null,
-                plotBorderWidth: null,
-                plotShadow: false,
-                type: 'pie'
-            },
-            title: {
-                text: 'Number of Crimes Committed'
-            },
-            tooltip: {
-                pointFormat: '{series.name}: <b>{point.y}</b><br>{point.percentage:.1f}%</br>'
-            },
-            plotOptions: {
-                pie: {
-                    allowPointSelect: true,
-                    cursor: 'pointer',
-                    dataLabels: {
-                        enabled: false
-                    },
-                    showInLegend: true
-                }
-            },
-            series: [{
-                name: 'Crime Categories',
-                colorByPoint: true,
-                data: GetPieChartData.getPieChartData(dtData, 2)
-            }]
-        })
+    $('#container').highcharts({
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            type: 'pie'
+        },
+        title: {
+            text: 'Number of Crimes Committed'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.y}</b><br>{point.percentage:.1f}%</br>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: false
+                },
+                showInLegend: true
+            }
+        },
+        series: [{
+            name: 'Crime Categories',
+            colorByPoint: true,
+            data: GetPieChartData.getPieChartData(dtData, 2)
+        }]
+    })
 	});
-  }]);
+}]);
