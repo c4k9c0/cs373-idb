@@ -21,10 +21,9 @@
 	display:block;
 }
 
-.panel-body > dl > dd{
-	margin: 0 auto;
-}
-
-.panel-body > dl > dt{
-	margin: 0 auto;
+@media screen and (max-width: 640px) {
+	table {
+		overflow-x: auto;
+		display: block;
+	}
 }
