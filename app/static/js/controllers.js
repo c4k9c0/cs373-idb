@@ -17,7 +17,8 @@ nflCsControllers.controller('PlayersCtrl', ['$scope', 'Players',
   		}
   	
 		$('table').dataTable({
-		  "aaData": dtData,
+		  "responsive": true,
+      "aaData": dtData,
 		  "aoColumnDefs":[{
 				"aTargets": [ 0 ]
 			  , "bSortable": true
@@ -34,29 +35,31 @@ nflCsControllers.controller('PlayersCtrl', ['$scope', 'Players',
 	});
   }]);
 
-nflCsControllers.controller('SinglePlayerCtrl', ['$scope', '$routeParams', 'Crimes',
-  function($scope, $routeParams, Crimes) {
+nflCsControllers.controller('SinglePlayerCtrl', ['$scope', '$routeParams', 'Crimes', 'Players',
+  function($scope, $routeParams, Crimes, Players) {
 
     var dtData = [];
 
     $scope.playerName = $routeParams.playerName;
-    //Use if we mine pictures for every player
-    //$scope.img
+    Players.get(function(data) {
+      $scope.player = data[$scope.playerName]
+      $scope.team_img = 'img/Teams/' + $scope.player.Team + '.gif'
+      
+    })
 
     Crimes.get(function(data){
 
       for(var each in data) {
-        //why are we checking undefined?
-        //data[each][0] != undefined && 
         if(each == $routeParams.playerName) {
           var player = data[each];
           for(var crime in player) {
-            dtData.push([player[crime]['Category'],player[crime]['Encounter'],player[crime]['Outcome']]);
+            dtData.push([player[crime]['Category'],player[crime]['Date'],player[crime]['Encounter'],player[crime]['Description'],player[crime]['Outcome']]);
           }
         }
       }
     
       $('table').dataTable({
+        "responsive": true,
         "aaData": dtData,
         "aoColumnDefs":[{
           "aTargets": [ 0 ]
@@ -85,68 +88,107 @@ nflCsControllers.controller('SingleCrimeCtrl', ['$scope', '$routeParams', 'Crime
           var player = data[each];
           for(var crime in player) {
             if(player[crime]['Category'] == $routeParams.crime) {
-              dtData.push([each,player[crime]['Position'],player[crime]['Encounter'],player[crime]['Outcome']]);
+              dtData.push([each,player[crime]['Team'],player[crime]['Position'],player[crime]['Date'],player[crime]['Encounter'],player[crime]['Description'],player[crime]['Outcome']]);
             }
           }
-          // old
-          //dtData.push([each,data[each][0]['Position'],data[each][0]['Encounter'],data[each][0]['Outcome']]);
         }
       }
     
       $('table').dataTable({
+        "responsive": true,
         "aaData": dtData,
         "aoColumnDefs":[{
           "aTargets": [ 0 ]
           , "bSortable": true
           , "mRender": function ( url, type, full )  {
-            return  '<a href="#players/'+url+'">' + url + '</a>';
-          }
-        }]
+            return  '<a href="#players/'+url+'">' + url + '</a>';}
+          },
+          {
+          "aTargets": [ 1 ]
+          , "bSortable": true
+          , "mRender": function ( url, type, full )  {
+            return  '<a href="#teams/'+url+'">' + url + '</a>';}
+          }]
       })
     })
   }]);
 
-nflCsControllers.controller('CrimeCtrl', ['$scope', 'Types',
-  function($scope, Types) {
+nflCsControllers.controller('CrimeCtrl', ['$scope', 'Crimes',
+  function($scope, Crimes) {
 
     $scope.crimes = [];
     $scope.img = 'img/crime.png'
 
-    var crimes = Types.getCrimes();
+    var dtData = [];
+    
+    Crimes.get(function(data){
 
-    for(var each in crimes) {
+      for(var each in data) {
 
-      var crime = {}
-      crime.crimeName = crimes[each];
-      crime.url = '#crimes/' + crime.crimeName;
-      $scope.crimes.push(crime);
-    }
+        if(data[each][0] != undefined) {
+          var player = data[each];
+          for(var crime in player) {
+              dtData.push([each,player[crime]['Category'],player[crime]['Position'],player[crime]['Date'],player[crime]['Encounter'],player[crime]['Description'],player[crime]['Outcome']]);
+          }
+        }
+      }
+    
+      $('table').dataTable({
+        "responsive": true,
+        "aaData": dtData,
+        "aoColumnDefs":[{
+          "aTargets": [ 0 ]
+          , "bSortable": true
+          , "mRender": function ( url, type, full )  {
+            return  '<a href="#players/'+url+'">' + url + '</a>';}
+          },
+          {
+          "aTargets": [ 1 ]
+          , "bSortable": true
+          , "mRender": function ( url, type, full )  {
+            return  '<a href="#crimes/'+url+'">' + url + '</a>';}
+          }]
+      })
+    })
   }]);
 
 nflCsControllers.controller('TeamCtrl', ['$scope', 'Teams',
   function($scope, Teams) {
 
-    $scope.teams = [];
+    var dtData = [];
 
-    var teams = Teams.getTeams();
+    Teams.get(function(data){
 
-    for(var each in teams) {
+      for(var team in data) {
+          if(data[team]['City'] != undefined){
+            dtData.push([team,data[team]['City'],data[team]['State'],data[team]['Mascot'],data[team]['Division'], data[team]['Championships']]);
+          }
+        }
 
-      var team = {};
-      team.teamName = teams[each];
-      team.img = 'img/Teams/' + teams[each] + '.gif';
-      team.url = '#teams/' + teams[each];
-
-      $scope.teams.push(team);
-    }
+      $('table').dataTable({
+        "responsive": true,
+        "aaData": dtData,
+        "aoColumnDefs":[{
+            "aTargets": [ 0 ]
+            , "bSortable": true
+              , "mRender": function ( url, type, full )  {
+                  return  '<a href="#teams/'+url+'">' + url + '</a>';}
+        }]
+      })
+    });
   }]);
 
-nflCsControllers.controller('SingleTeamCtrl', ['$scope', '$routeParams', 'Crimes', 'GetPieChartData',
-  function($scope, $routeParams, Crimes, GetPieChartData) {
+nflCsControllers.controller('SingleTeamCtrl', ['$scope', '$routeParams', 'Crimes', 'Teams', 'GetPieChartData',
+  function($scope, $routeParams, Crimes, Teams, GetPieChartData) {
   	
   	var dtData = [];
   	$scope.teamName = $routeParams.teamAbrv;
-  	$scope.img = 'img/Teams/' + $scope.teamName + '.gif';
+    $scope.team_img = 'img/Teams/' + $scope.teamName + '.gif';
+
+    Teams.get(function(data) {
+      $scope.team = data[$scope.teamName]
+      
+    })
   	
   	Crimes.get(function(data){
   	
@@ -160,13 +202,10 @@ nflCsControllers.controller('SingleTeamCtrl', ['$scope', '$routeParams', 'Crimes
             }
           }
         }
-
-        // old if
-        //if(data[each][0] != undefined && data[each][0]['Team'] == $routeParams.teamAbrv)
-  			//	dtData.push([each,data[each][0]['Position'],data[each][0]['Category'],data[each][0]['Encounter'],data[each][0]['Outcome']]);
   		}
   	
 		$('table').dataTable({
+      "responsive": true,
 		  "aaData": dtData,
 		  "aoColumnDefs":[{
 				  "aTargets": [ 0 ]
@@ -183,34 +222,34 @@ nflCsControllers.controller('SingleTeamCtrl', ['$scope', '$routeParams', 'Crimes
 		})
 		
 		// Build the chart
-        $('#container').highcharts({
-            chart: {
-                plotBackgroundColor: null,
-                plotBorderWidth: null,
-                plotShadow: false,
-                type: 'pie'
-            },
-            title: {
-                text: 'Number of Crimes Committed'
-            },
-            tooltip: {
-                pointFormat: '{series.name}: <b>{point.y}</b><br>{point.percentage:.1f}%</br>'
-            },
-            plotOptions: {
-                pie: {
-                    allowPointSelect: true,
-                    cursor: 'pointer',
-                    dataLabels: {
-                        enabled: false
-                    },
-                    showInLegend: true
-                }
-            },
-            series: [{
-                name: 'Crime Categories',
-                colorByPoint: true,
-                data: GetPieChartData.getPieChartData(dtData, 2)
-            }]
-        })
+    $('#container').highcharts({
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            type: 'pie'
+        },
+        title: {
+            text: 'Number of Crimes Committed'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.y}</b><br>{point.percentage:.1f}%</br>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: false
+                },
+                showInLegend: true
+            }
+        },
+        series: [{
+            name: 'Crime Categories',
+            colorByPoint: true,
+            data: GetPieChartData.getPieChartData(dtData, 2)
+        }]
+    })
 	});
-  }]);
+}]);

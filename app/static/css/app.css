@@ -12,3 +12,7 @@
 .teamLink {
 	color: #333;
 }
+
+.panel-body > img {
+	margin: 0 auto;
+}
