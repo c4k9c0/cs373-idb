@@ -21,9 +21,9 @@
 <dt><font face="helvetica, arial">flask_sqlalchemy.Model(<a href="flask_sqlalchemy.html#Model">flask_sqlalchemy.Model</a>)
 </font></dt><dd>
 <dl>
-<dt><font face="helvetica, arial"><a href="models.html#Crimes">Crimes</a>
-</font></dt><dt><font face="helvetica, arial"><a href="models.html#Players">Players</a>
-</font></dt><dt><font face="helvetica, arial"><a href="models.html#Teams">Teams</a>
+<dt><font face="helvetica, arial"><a href="models.html#crime">crime</a>
+</font></dt><dt><font face="helvetica, arial"><a href="models.html#player">player</a>
+</font></dt><dt><font face="helvetica, arial"><a href="models.html#team">team</a>
 </font></dt></dl>
 </dd>
 </dl>
@@ -31,18 +31,18 @@
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ffc8d8">
 <td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><a name="Crimes">class <strong>Crimes</strong></a>(flask_sqlalchemy.Model)</font></td></tr>
+<font color="#000000" face="helvetica, arial"><a name="crime">class <strong>crime</strong></a>(flask_sqlalchemy.Model)</font></td></tr>
     
 <tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><dl><dt>Method resolution order:</dt>
-<dd><a href="models.html#Crimes">Crimes</a></dd>
+<dd><a href="models.html#crime">crime</a></dd>
 <dd>flask_sqlalchemy.Model</dd>
 <dd><a href="flask_sqlalchemy.html#Model">flask_sqlalchemy.Model</a></dd>
 <dd><a href="builtins.html#object">builtins.object</a></dd>
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="Crimes-__init__"><strong>__init__</strong></a>(self, crime_id, team, date, description, position, outcome, category, encounter, name)</dt></dl>
+<dl><dt><a name="crime-__init__"><strong>__init__</strong></a>(self, crime_id, team, date, description, position, outcome, category, encounter, name)</dt></dl>
 
 <hr>
 Data descriptors defined here:<br>
@@ -66,11 +66,11 @@ Data descriptors defined here:<br>
 </dl>
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x103b25e80; Crimes&gt;</dl>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x103c25e10; crime&gt;</dl>
 
-<dl><dt><strong>__table__</strong> = Table('crimes', MetaData(bind=None), Column('cri...layers.player_id'), table=&lt;crimes&gt;), schema=None)</dl>
+<dl><dt><strong>__table__</strong> = Table('crime', MetaData(bind=None), Column('crim...'player.player_id'), table=&lt;crime&gt;), schema=None)</dl>
 
-<dl><dt><strong>__tablename__</strong> = 'crimes'</dl>
+<dl><dt><strong>__tablename__</strong> = 'crime'</dl>
 
 <hr>
 Data and other attributes inherited from flask_sqlalchemy.Model:<br>
@@ -99,18 +99,18 @@ standard&nbsp;query&nbsp;as&nbsp;well.</tt></dl>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ffc8d8">
 <td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><a name="Players">class <strong>Players</strong></a>(flask_sqlalchemy.Model)</font></td></tr>
+<font color="#000000" face="helvetica, arial"><a name="player">class <strong>player</strong></a>(flask_sqlalchemy.Model)</font></td></tr>
     
 <tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><dl><dt>Method resolution order:</dt>
-<dd><a href="models.html#Players">Players</a></dd>
+<dd><a href="models.html#player">player</a></dd>
 <dd>flask_sqlalchemy.Model</dd>
 <dd><a href="flask_sqlalchemy.html#Model">flask_sqlalchemy.Model</a></dd>
 <dd><a href="builtins.html#object">builtins.object</a></dd>
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="Players-__init__"><strong>__init__</strong></a>(self, player_id, last_arrest, name, pos, first_name, team, last_name, num_arrests)</dt></dl>
+<dl><dt><a name="player-__init__"><strong>__init__</strong></a>(self, player_id, last_arrest, name, pos, first_name, team, last_name, num_arrests)</dt></dl>
 
 <hr>
 Data descriptors defined here:<br>
@@ -132,11 +132,11 @@ Data descriptors defined here:<br>
 </dl>
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x103b25358; Players&gt;</dl>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x103c25278; player&gt;</dl>
 
-<dl><dt><strong>__table__</strong> = Table('players', MetaData(bind=None), Column('pl...rests', Integer(), table=&lt;players&gt;), schema=None)</dl>
+<dl><dt><strong>__table__</strong> = Table('player', MetaData(bind=None), Column('pla...rrests', Integer(), table=&lt;player&gt;), schema=None)</dl>
 
-<dl><dt><strong>__tablename__</strong> = 'players'</dl>
+<dl><dt><strong>__tablename__</strong> = 'player'</dl>
 
 <hr>
 Data and other attributes inherited from flask_sqlalchemy.Model:<br>
@@ -165,18 +165,18 @@ standard&nbsp;query&nbsp;as&nbsp;well.</tt></dl>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ffc8d8">
 <td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><a name="Teams">class <strong>Teams</strong></a>(flask_sqlalchemy.Model)</font></td></tr>
+<font color="#000000" face="helvetica, arial"><a name="team">class <strong>team</strong></a>(flask_sqlalchemy.Model)</font></td></tr>
     
 <tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><dl><dt>Method resolution order:</dt>
-<dd><a href="models.html#Teams">Teams</a></dd>
+<dd><a href="models.html#team">team</a></dd>
 <dd>flask_sqlalchemy.Model</dd>
 <dd><a href="flask_sqlalchemy.html#Model">flask_sqlalchemy.Model</a></dd>
 <dd><a href="builtins.html#object">builtins.object</a></dd>
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="Teams-__init__"><strong>__init__</strong></a>(self, team_id, city, state, mascot, division, championships)</dt></dl>
+<dl><dt><a name="team-__init__"><strong>__init__</strong></a>(self, team_id, city, state, mascot, division, championships, name)</dt></dl>
 
 <hr>
 Data descriptors defined here:<br>
@@ -188,17 +188,19 @@ Data descriptors defined here:<br>
 </dl>
 <dl><dt><strong>mascot</strong></dt>
 </dl>
+<dl><dt><strong>name</strong></dt>
+</dl>
 <dl><dt><strong>state</strong></dt>
 </dl>
 <dl><dt><strong>team_id</strong></dt>
 </dl>
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x103b25898; Teams&gt;</dl>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x103c25828; team&gt;</dl>
 
-<dl><dt><strong>__table__</strong> = Table('teams', MetaData(bind=None), Column('team...onships', Integer(), table=&lt;teams&gt;), schema=None)</dl>
+<dl><dt><strong>__table__</strong> = Table('team', MetaData(bind=None), Column('team_...ionships', Integer(), table=&lt;team&gt;), schema=None)</dl>
 
-<dl><dt><strong>__tablename__</strong> = 'teams'</dl>
+<dl><dt><strong>__tablename__</strong> = 'team'</dl>
 
 <hr>
 Data and other attributes inherited from flask_sqlalchemy.Model:<br>
