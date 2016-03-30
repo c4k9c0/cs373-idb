@@ -78,7 +78,7 @@ nflCsControllers.controller('SingleCrimeCtrl', ['$scope', '$routeParams', 'Crime
     var dtData = [];
 
     $scope.crimeName = $routeParams.crime;
-    $scope.img = 'img/crime.png'
+    $scope.crime_img = 'img/Crimes/'+$scope.crimeName+'.png'
 
     Crimes.get(function(data){
 
