@@ -62,8 +62,6 @@ class Address(Base):
 
 Base.metadata.create_all(engine)
 
-
-
 from sqlalchemy.orm import sessionmaker
 Session = sessionmaker(bind=engine)
 
