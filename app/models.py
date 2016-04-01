@@ -1,35 +1,54 @@
 from sqlalchemy import *
 
 # This is only because models.py has to be in the root.
-from app import db
+from db import db
+import json
 
 """
 Models for Player
 """
+
+def get_dict(obj):
+    # an SQLAlchemy class
+    fields = {}
+    for field in [x for x in dir(obj) if not x.startswith('_') and x != 'metadata']:
+        data = obj.__getattribute__(field)
+        try:
+            json.dumps(data) # this will fail on non-encodable values, like other classes
+            fields[field] = data
+        except TypeError:
+            fields[field] = None
+    # a json-encodable dict
+    return fields
+
 class Player(db.Model):
 	__tablename__ = 'Player'
 
-	player_id     = db.Column(db.Integer, primary_key = True)
-	last_arrest   = db.Column(db.String(80))
-	name          = db.Column(db.String(80))
-	pos           = db.Column(db.String(5))
-	first_name    = db.Column(db.String(80))
-	team          = db.Column(db.ForeignKey("Team.team_id")) # This is a foriegn key
-	last_name     = db.Column(db.String(80))
-	num_arrests   = db.Column(db.Integer)
+	id     = Column(Integer, primary_key = True)
+	last_arrest   = Column(String)
+	name          = Column(String)
+	pos           = Column(String)
+	first_name    = Column(String)
+	#team          = db.Column(db.ForeignKey("Team.team_id")) # This is a foriegn key
+	last_name     = Column(String)
+	num_arrests   = Column(Integer)
 
-
-
-	def __init__(self, player_id, last_arrest, name, pos, first_name, team, last_name, num_arrests):
-		self.player_id   = player_id
+	def __init__(self, last_arrest, name, pos, first_name, last_name, num_arrests):
 		self.last_arrest = last_arrest
 		self.name        = name
 		self.pos         = pos
 		self.first_name  = first_name
-		self.team        = team
+		#self.team        = team
 		self.last_name   = last_name
-		self.num_arrest  = num_arrest
+		self.num_arrests  = num_arrests
 
+	def __repr__(self):
+		return "<Player(name='%s', pos='%s', last_arrest='%s')>" % (self.name, self.pos, self.last_arrest)
+
+	def serialize(self):
+		return get_dict(self)
+
+'''
 """
 Models for Team
 """
@@ -80,3 +99,4 @@ class Crime(db.Model):
 		self.category    = category
 		self.encounter   = encounter
 		self.name  		 = name
+'''
