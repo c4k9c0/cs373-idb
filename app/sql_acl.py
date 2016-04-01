@@ -1,12 +1,10 @@
 import sqlalchemy
-#import mySQLdb
-import pymysql
 sqlalchemy.__version__
 
 #----
 
 from sqlalchemy import create_engine
-engine = create_engine('mysql+pymysql:///:memory:', echo=True)
+engine = create_engine('sqlite:///:memory:', echo=True)
 
 #----
 
