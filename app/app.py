@@ -34,8 +34,6 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 manager = Manager(app)
 db = SQLAlchemy(app)
 
-# db = SQLAlchemy(app)
-
 @app.route('/', methods=['GET', 'POST'])
 def index():
     logger.debug("index")
@@ -68,6 +66,7 @@ def create_db():
     logger.debug("create_db")
     app.config['SQLALCHEMY_ECHO'] = True
     db.create_all()
+    pop_players()
 
 @manager.command
 def create_dummy_data():
@@ -83,28 +82,27 @@ def drop_db():
     app.config['SQLALCHEMY_ECHO'] = True
     db.drop_all()
 
-# def pop_players():
-#     with open("db_data/players.json") as json_file:
-#         players = json.load(json_file)
+def pop_players():
+    with open("db_data/players.json") as json_file:
+        players = json.load(json_file)
 
-#     pkey = 1
-#     for p in players:
-#         player = Player(player_id=pkey, last_arrest=p['Last_Arrest'], name=p['Name'], pos=p['Pos'], first_name=p['First_Name'], team=p['Team'], last_name=p['Last_Name'], num_arrests=p['Num_Arrests'])
-#         db.session.add(player)
-#         print(player)
-#         pkey+=1
-#     db.session.commit()
+    pkey = 1
+    for p in players:
+        player = Player(player_id=pkey, last_arrest=p['Last_Arrest'], name=p['Name'], pos=p['Pos'], first_name=p['First_Name'], team=p['Team'], last_name=p['Last_Name'], num_arrests=p['Num_Arrests'])
+        db.session.add(player)
+        print(player)
+        pkey+=1
+    db.session.commit()
+    logger.debug("pop_players committed")
 
 
-# def pop_crimes():
-#     return 1
-# def pop_teams():
-#     return 1
+def pop_crimes():
+    return 1
+def pop_teams():
+    return 1
 # def create_nfla_all():
 #     db.create_all()
 #     pop_players()
 
 if __name__ == '__main__':
     manager.run()
-
-# pop_players()
