@@ -15,7 +15,7 @@ SQLALCHEMY_DATABASE_URI = \
         database=os.getenv('MYSQL_DATABASE'))
 '''
 
-SQLALCHEMY_DATABASE_URI = 'sqlite:///:memory:'
+SQLALCHEMY_DATABASE_URI = 'sqlite:////tmp/test.db'
 
 app = Flask(__name__, static_url_path='')
 app.config['SQLALCHEMY_DATABASE_URI'] = SQLALCHEMY_DATABASE_URI
