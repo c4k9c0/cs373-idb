@@ -1,5 +1,5 @@
 #!flask/bin/python
-from models import Player, Crime, Team
+from models import Player, Team
 import requests
 import spotipy
 import spotipy.util as util
@@ -17,7 +17,12 @@ redirect_uri = 'https://example.com/callback'
 #export (SPOTIPY_REDIRECT_URI=redirect_uri)
 
 def create_players(team):
-	player = Player('9-27-2005', 'Ricky Williams', 'RB', 'Ricky', 'Williams', team.id, 3, team)
+	print('TEAM IS')
+	print(team)
+	print(team.id)
+	player = Player('9-27-2005', 'Ricky Williams', 'RB', 'Ricky', 'Williams', 3, team)
+	print('PLAYER TEAM IS')
+	print(player.team)
 	db.session.add(player)
 	db.session.commit()
 
@@ -25,13 +30,14 @@ def create_teams():
 	team = Team('Dallas', 'Texas', 'Cowboys', 'NFC', 6)
 	db.session.add(team)
 	db.session.commit()
-	#create_players(team)
+	create_players(team)
 
 def create_nfl_db():
 	print('HERE')
 
-	#db.drop_all()
+	db.drop_all()
 	db.create_all()
+	#db.session.commit()
 
 	create_teams()
 

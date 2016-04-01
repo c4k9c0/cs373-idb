@@ -18,7 +18,7 @@ def create_db():
 
 @manager.command
 def drop_db():
-    logger.debug("drop_db")
+    #logger.debug("drop_db")
     app.config['SQLALCHEMY_ECHO'] = True
     db.drop_all()
 
@@ -34,8 +34,14 @@ def run_tests():
 
 @app.route('/dummy/data', methods=['GET'])
 def dumb():
-    test = db.session.query(Team).filter_by(mascot='Cowboys').first()
-    return jsonify({'player':test.serialize()})
+    test = db.session.query(Player).filter_by(first_name='Ricky').first()
+    print('IN DUMMY')
+    test_json = test.serialize()
+    test_json['team'] = test.team.serialize()
+    print(test_json)
+    return jsonify({'player':test_json})
+    #test = db.session.query(Player).filter_by(first_name='Ricky').first()
+    #return jsonify({'player':test.serialize()})
 
 
 @app.route('/')

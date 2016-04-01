@@ -1,4 +1,6 @@
 from sqlalchemy import *
+from sqlalchemy import ForeignKey
+from sqlalchemy.orm import relationship
 
 # This is only because models.py has to be in the root.
 from db import db
@@ -31,20 +33,24 @@ class Player(db.Model):
 	name          = Column(String)
 	pos           = Column(String)
 	first_name    = Column(String)
-	team_id       = db.Column(Integer, db.ForeignKey("Team.id"))
+	team_id       = db.Column(Integer, ForeignKey("Team.id"))
+	
 	last_name     = Column(String)
 	num_arrests   = Column(Integer)
 	
 	team 	 	  = relationship("Team")
 
-	def __init__(self, last_arrest, name, pos, first_name, last_name, team_id, num_arrests, team):
+
+	def __init__(self, last_arrest, name, pos, first_name, last_name, num_arrests, team):
 		self.last_arrest = last_arrest
 		self.name        = name
 		self.pos         = pos
 		self.first_name  = first_name
 		self.last_name   = last_name
-		self.team_id     = team_id
+		self.team_id     = team.id
 		self.num_arrests = num_arrests
+		print('IN THE CONSTRUCTOR')
+		print(team)
 		self.team 		 = team
 
 	def __repr__(self):
@@ -60,12 +66,12 @@ Models for Team
 class Team(db.Model):
 	__tablename__ = 'Team'
 
-	id       	  = db.Column(db.Integer, Sequence('team_id_seq'), primary_key = True)
-	city          = db.Column(db.String)
-	state         = db.Column(db.String)
-	mascot        = db.Column(db.String)
-	division      = db.Column(db.String)
-	championships = db.Column(db.Integer)
+	id       	  = db.Column(Integer, Sequence('team_id_seq'), primary_key = True)
+	city          = db.Column(String)
+	state         = db.Column(String)
+	mascot        = db.Column(String)
+	division      = db.Column(String)
+	championships = db.Column(Integer)
 
 	def __init__(self, city, state, mascot, division, championships):
 		self.city          = city
@@ -85,6 +91,7 @@ class Team(db.Model):
 """
 Models for Crime
 """
+'''
 class Crime(db.Model):
 	__tablename__ = 'Crime'
 
@@ -124,4 +131,4 @@ class Crime(db.Model):
 
 	def serialize(self):
 		return get_dict(self)
-
+'''
