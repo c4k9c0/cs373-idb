@@ -47,7 +47,7 @@ def create_crimes():
 		player = db.session.query(Player).filter_by(name=p).first()
 		
 		for crime in crime_array:
-			team = db.session.query(Team).filter_by(name=crime['Team'])
+			team = db.session.query(Team).filter_by(name=crime['Team']).first()
 			crime = Crime(crime['Date'],crime['Description'],crime['Position'],crime['Outcome'],crime['Category'],crime['Encounter'], player, team)
 			db.session.add(crime)
 
