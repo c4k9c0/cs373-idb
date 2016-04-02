@@ -1,8 +1,7 @@
 #!flask/bin/python
-from models import Player, Team
+from models import Player, Team, Crime
 import requests
-import spotipy
-import spotipy.util as util
+import json
 from db import db 
 from sqlalchemy import *
 
@@ -11,87 +10,47 @@ client_id = '41cc5ad7bb2d44eb8151a17990f1e2ae'
 client_secret = 'b1e8450ed87643fe824a25ab2eef358a'
 redirect_uri = 'https://example.com/callback'
 
+#DONE
+def create_players():
 
-#export (SPOTIPY_CLIENT_ID=client_id)
-#export (SPOTIPY_CLIENT_SECRET=client_secret)
-#export (SPOTIPY_REDIRECT_URI=redirect_uri)
+	with open("players.json") as json_file:
+		player_json = json.load(json_file)
 
-def create_players(team):
-	print('TEAM IS')
-	print(team)
-	print(team.id)
-	player = Player('9-27-2005', 'Ricky Williams', 'RB', 'Ricky', 'Williams', 3, team)
-	print('PLAYER TEAM IS')
-	print(player.team)
-	db.session.add(player)
+	for p in player_json:
+		player = player_json[p]
+		team   = db.session.query(Team).filter_by(name=player['Team']).first()
+		player = Player(player['Last_Arrest'],player['Name'],player['Pos'],player['First_Name'],player['Last_Name'],player['Num_Arrests'], team)
+		db.session.add(player)
+
 	db.session.commit()
 
+# DONE
 def create_teams():
-	team = Team('Dallas', 'Texas', 'Cowboys', 'NFC', 6)
-	db.session.add(team)
+	
+	with open("all_teams.json") as json_file:
+		team_json = json.load(json_file)
+	
+	for t in team_json:
+		team = team_json[t]
+		team = Team(team['City'],team['State'],team['Mascot'],team['Divison'],team['Championships'],t)
+		db.session.add(team)
+	
 	db.session.commit()
-	create_players(team)
+
+def create_crimes():
+
+	with open("crimes.json") as json_file:
+		crimes_json = json.load(json_file)
+
+	for p in crimes_json:
+		crime_array = crimes_json[p]
+		for crime in crime_array:
+			crime = Crime(crime['Date'],crime['Description'],crime['Position'],crime['Outcome'],crime['Category'],crime['Encounter'], player, team)
+		#player = db.session.query(Team).filter_by(name=crime[])
 
 def create_nfl_db():
-	print('HERE')
-
 	db.drop_all()
 	db.create_all()
-	#db.session.commit()
-
 	create_teams()
-
-	#scope = 'user-library-read'
-
-	#username='jorgmuno'
-
-	#token = util.prompt_for_user_token(username, scope, client_id, client_secret, redirect_uri)
-'''
-	if token:
-	    sp = spotipy.Spotify(auth=token)
-	    playlists = sp.user_playlists(username)
-	    for playlist in playlists['items']:
-	        if playlist['owner']['id'] == username:
-	            print (playlist['name'])
-	            print ('  total tracks', playlist['tracks']['total'])
-	            results = sp.user_playlist(username, playlist['id'],
-	                fields="tracks,next")
-	            tracks = results['tracks']
-	            show_tracks(tracks,sp)
-	            while tracks['next']:
-	                tracks = sp.next(tracks)
-	                show_tracks(tracks,sp)
-	            #print(results)
-	else:
-	    print ("Can't get token for", username)
-
-'''
-#authorization = "Authorization: Basic" + client_id + ":" + client_secret"
-	
-
-
-
-#db.drop_all()
-#db.create_all()
-#artist = Artist("Atlas Bound", 8, "Lullaby", "Landed on Mars", 42, "alsjdflkasjd", "http")
-#requests.get("https://accounts.spotify.com/authorize/?client_id=41cc5ad7bb2d44eb8151a17990f1e2ae&response_type=code")
-#auth = requests.get("https://accounts.spotify.com/authorize/?client_id=41cc5ad7bb2d44eb8151a17990f1e2ae&response_type=code&redirect_uri=https%3A%2F%2Fexample.com/callback")
-#playlist = requests.get("https://api.spotify.com/v1/users/jorgmuno/playlists/30jvRmnVQu9W98Zn9h7H6v")
-#token = requests.post(authorization "https://accounts.spotify.com/api/token")
-#"Authorization: Basic ZjM...zE=" -d grant_type=authorization_code -d code=MQCbtKe...44KN -d redirect_uri=https%3A%2F%2Fwww.foo.com%2Fauth https://accounts.spotify.com/api/token
-#Authorization: Basic <base64 encoded client_id:client_secret
-
-
-#db.session.add(artist)
-
-#db.session.commit()
-
-
-
-
-#if __name__ == "__main__":
-	#create_sweetmusic_db()
-	#print("hello")
-	#print(auth)
-	#print(token)
-#Status API Training Shop Blog About
+	create_players()
+	create_crimes()

@@ -49,8 +49,6 @@ class Player(db.Model):
 		self.last_name   = last_name
 		self.team_id     = team.id
 		self.num_arrests = num_arrests
-		print('IN THE CONSTRUCTOR')
-		print(team)
 		self.team 		 = team
 
 	def __repr__(self):
@@ -72,13 +70,15 @@ class Team(db.Model):
 	mascot        = db.Column(String)
 	division      = db.Column(String)
 	championships = db.Column(Integer)
+	name 		  = db.Column(String)
 
-	def __init__(self, city, state, mascot, division, championships):
+	def __init__(self, city, state, mascot, division, championships, name):
 		self.city          = city
 		self.state         = state
 		self.mascot        = mascot
 		self.division      = division
 		self.championships = championships
+		self.name 		   = name
 
 	def __repr__(self):
 		return "<Team(mascot='%s', mascot='%s', city='%s', id='%d')>" % (self.mascot, self.mascot, self.city, self.id)
@@ -91,30 +91,30 @@ class Team(db.Model):
 """
 Models for Crime
 """
-'''
+
 class Crime(db.Model):
 	__tablename__ = 'Crime'
 
 	id      = db.Column(db.Integer, Sequence('crime_id_seq'),primary_key = True)
 
-	player_id  	  = db.Column(db.ForeignKey("Player.id"))
-	team_id       = db.Column(db.ForeignKey("Team.id")) # F Key
+	player_id  	  = db.Column(ForeignKey("Player.id"))
+	team_id       = db.Column(ForeignKey("Team.id"))
 	
-	date          = db.Column(db.String)
-	description   = db.Column(db.String)
-	position      = db.Column(db.String)
-	outcome       = db.Column(db.String)
-	category      = db.Column(db.String)
-	encounter     = db.Column(db.String)
+	date          = db.Column(String)
+	description   = db.Column(String)
+	position      = db.Column(String)
+	outcome       = db.Column(String)
+	category      = db.Column(String)
+	encounter     = db.Column(String)
 
 	player   = relationship("Player")
 	team 	  = relationship("Team")
 
 
-	def __init__(self, player_id, team_id, date, description, position, outcome, category, encounter, player, team):
+	def __init__(self, date, description, position, outcome, category, encounter, player, team):
 	
-		self.player_id   = player_id
-		self.team_id 	 = team_id
+		self.player_id   = player.id
+		self.team_id 	 = team.id
 
 		self.date        = date
 		self.description = description
@@ -131,4 +131,3 @@ class Crime(db.Model):
 
 	def serialize(self):
 		return get_dict(self)
-'''
