@@ -52,7 +52,7 @@ def single_team(team_name):
     team = db.session.query(Team).filter_by(name=team_name).first()
     return jsonify({team.name:team.serialize()})
 
-#All Crimes
+#All Crimes - DONE
 @app.route('/api/crimes', methods=['GET'])
 def crimes():
     crimes_json = {}
@@ -60,20 +60,40 @@ def crimes():
     for crime in crimes:
         player_name = crime.player.name
         if(crime.player.name in crimes_json):
-            crimes_json[player_name].append(crime.serialize())
+            single_crime = crime.serialize()
+            single_crime['team_name'] = crime.team.name
+            crimes_json[player_name].append(single_crime)
         else:
-            crimes_json[player_name] = [crime.serialize()]
+            single_crime = crime.serialize()
+            single_crime['team_name'] = crime.team.name
+            crimes_json[player_name] = [single_crime]
     return jsonify(crimes_json)
-    #need team name, player name
 
-#Single Crime
+#Single Crime - DONE
 @app.route('/api/crimes/<crime_name>', methods=['GET'])
 def single_crime(crime_name):
-    return 1
+    crimes_json = {}
+    crimes = db.session.query(Crime).filter_by(category=crime_name).all()
+    for crime in crimes:
+        player_name = crime.player.name
+        if(crime.player.name in crimes_json):
+            single_crime = crime.serialize()
+            single_crime['team_name'] = crime.team.name
+            crimes_json[player_name].append(single_crime)
+        else:
+            single_crime = crime.serialize()
+            single_crime['team_name'] = crime.team.name
+            crimes_json[player_name] = [single_crime]
+    return jsonify(crimes_json)
 
 #Crimes by player
 @app.route('/api/crimes/player/<player_name>', methods=['GET'])
 def crime_player(player_name):
+    player = db.session.query(Player).filter_by(name=player_name).first()
+    crimes_json = {}
+
+    crimes = db.session.query(Crime).join(Player).filter()
+    print(crimes[0].category)
     return 1
 
 #Crimes by team
