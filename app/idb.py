@@ -1,20 +1,27 @@
 from flask import Flask, render_template, send_file
 from flask import jsonify, request
 from flask.ext.sqlalchemy import SQLAlchemy
-from db import db, app , manager
+from db import *
 from models import Player, Team, Crime
 import subprocess
-import requests
 import json
 from datetime import timedelta
 from initializing_db import create_nfl_db
+import logging
+
+logging.basicConfig(
+    level=logging.DEBUG,
+    format='%(levelname)s: %(message)s')
+logger = logging.getLogger(__name__)
+
+logger.debug("I love line 17")
+
 
 @manager.command
 def create_db():
-    #logger.debug("create_db")
+    logger.debug("create_db")
     app.config['SQLALCHEMY_ECHO'] = True
     create_nfl_db()
-
 
 @manager.command
 def drop_db():
@@ -39,6 +46,7 @@ def run_tests():
 # All Teams - DONE
 @app.route('/api/teams', methods=['GET'])
 def teams():
+    logger.debug("TEAMS ARE HERE")
     teams_json = {}
     teams = db.session.query(Team).all()
     for team in teams:
@@ -144,8 +152,8 @@ def index():
     return send_file('index.html')
 
 if __name__ == "__main__":
-    create_db()
     manager.run()
+
     #Commenting out this for now based on what
     # was in the Carina tutorial
     # app.run(host='0.0.0.0', debug=True)
