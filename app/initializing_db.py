@@ -44,9 +44,14 @@ def create_crimes():
 
 	for p in crimes_json:
 		crime_array = crimes_json[p]
+		player = db.session.query(Player).filter_by(name=p).first()
+		
 		for crime in crime_array:
+			team = db.session.query(Team).filter_by(name=crime['Team'])
 			crime = Crime(crime['Date'],crime['Description'],crime['Position'],crime['Outcome'],crime['Category'],crime['Encounter'], player, team)
-		#player = db.session.query(Team).filter_by(name=crime[])
+			db.session.add(crime)
+
+	db.session.commit()
 
 def create_nfl_db():
 	db.drop_all()
