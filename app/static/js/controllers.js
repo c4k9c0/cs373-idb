@@ -12,13 +12,13 @@ nflCsControllers.controller('PlayersCtrl', ['$scope', 'Players',
   	Players.get(function(data){
   	
   		for(var each in data) {
-  			if(data[each]['Name'] != undefined)
-  				dtData.push([data[each]['Name'],data[each]['Team'],data[each]['Pos'],data[each]['Num_Arrests'],data[each]['Last_Arrest']]);
+  			if(data[each]['team_name'] != undefined)
+  				dtData.push([data[each]['name'],data[each]['team_name'],data[each]['pos'],data[each]['num_arrests'],data[each]['last_arrest']]);
   		}
-  	
+
 		$('table').dataTable({
 		  "responsive": true,
-      "aaData": dtData,
+      	  "aaData": dtData,
 		  "aoColumnDefs":[{
 				"aTargets": [ 0 ]
 			  , "bSortable": true
@@ -128,7 +128,7 @@ nflCsControllers.controller('CrimeCtrl', ['$scope', 'Crimes',
         if(data[each][0] != undefined) {
           var player = data[each];
           for(var crime in player) {
-              dtData.push([each,player[crime]['Category'],player[crime]['Position'],player[crime]['Date'],player[crime]['Encounter'],player[crime]['Description'],player[crime]['Outcome']]);
+              dtData.push([each,player[crime]['category'],player[crime]['position'],player[crime]['date'],player[crime]['encounter'],player[crime]['description'],player[crime]['outcome']]);
           }
         }
       }
@@ -194,14 +194,14 @@ nflCsControllers.controller('SingleTeamCtrl', ['$scope', '$routeParams', 'Crimes
   	
   		for(var each in data) {
   			
-        if(data[each][0] != undefined) {
-          var player = data[each];
-          for(var crime in player) {
-            if(player[crime]['Team'] == $routeParams.teamAbrv) {
-              dtData.push([each,player[crime]['Position'],player[crime]['Category'],player[crime]['Encounter'],player[crime]['Outcome']]);
-            }
-          }
-        }
+        	if(data[each][0] != undefined) {
+          		var player = data[each];
+          		for(var crime in player) {
+            		if(player[crime]['team_name'] == $routeParams.teamAbrv) {
+              			dtData.push([each,player[crime]['position'],player[crime]['category'],player[crime]['encounter'],player[crime]['outcome']]);
+            		}
+          		}
+        	}
   		}
   	
 		$('table').dataTable({
