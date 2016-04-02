@@ -1,7 +1,7 @@
 from sqlalchemy import *
 
 # This is only because models.py has to be in the root.
-from app.app import db
+from app import db
 
 """
 Models for Player
