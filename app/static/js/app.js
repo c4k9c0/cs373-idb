@@ -20,7 +20,8 @@ nflCsApp.config(['$routeProvider',
         controller: 'SinglePlayerCtrl'
       }).
       when('/about', {
-        templateUrl: 'templates/about.html'
+        templateUrl: 'templates/about.html',
+        controller: 'AboutCtrl'
       }).
       when('/crimes', {
         templateUrl: 'templates/crimes.html',

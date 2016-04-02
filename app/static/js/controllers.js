@@ -53,7 +53,7 @@ nflCsControllers.controller('SinglePlayerCtrl', ['$scope', '$routeParams', 'Crim
         if(each == $routeParams.playerName) {
           var player = data[each];
           for(var crime in player) {
-            dtData.push([player[crime]['Category'],player[crime]['Date'],player[crime]['Encounter'],player[crime]['Description'],player[crime]['Outcome']]);
+            dtData.push([player[crime]['category'],player[crime]['date'],player[crime]['encounter'],player[crime]['description'],player[crime]['outcome']]);
           }
         }
       }
@@ -87,8 +87,8 @@ nflCsControllers.controller('SingleCrimeCtrl', ['$scope', '$routeParams', 'Crime
         if(data[each][0] != undefined) {
           var player = data[each];
           for(var crime in player) {
-            if(player[crime]['Category'] == $routeParams.crime) {
-              dtData.push([each,player[crime]['Team'],player[crime]['Position'],player[crime]['Date'],player[crime]['Encounter'],player[crime]['Description'],player[crime]['Outcome']]);
+            if(player[crime]['category'] == $routeParams.crime) {
+              dtData.push([each,player[crime]['team_name'],player[crime]['position'],player[crime]['date'],player[crime]['encounter'],player[crime]['description'],player[crime]['outcome']]);
             }
           }
         }
@@ -160,8 +160,8 @@ nflCsControllers.controller('TeamCtrl', ['$scope', 'Teams',
     Teams.get(function(data){
 
       for(var team in data) {
-          if(data[team]['City'] != undefined){
-            dtData.push([team,data[team]['City'],data[team]['State'],data[team]['Mascot'],data[team]['Division'], data[team]['Championships']]);
+          if(data[team]['city'] != undefined){
+            dtData.push([team,data[team]['city'],data[team]['state'],data[team]['mascot'],data[team]['division'], data[team]['championships']]);
           }
         }
 
@@ -176,6 +176,23 @@ nflCsControllers.controller('TeamCtrl', ['$scope', 'Teams',
         }]
       })
     });
+  }]);
+  
+nflCsControllers.controller('AboutCtrl', ['$scope', 'Tests',
+  function($scope, Tests) {
+  	
+  	var dtData = [];
+  	$scope.results = "Results will appear here.";
+  	
+  	$scope.getTestResults = function getTestResults() {Tests.get(function(data){
+  	
+  		$scope.results = "";
+  		for(var test in data) {
+  			if(typeof test == "string" && test.indexOf("Test") > -1) {
+  				$scope.results+=test+": "+data[test]+"\n";
+  			}
+  		}
+	});}
   }]);
 
 nflCsControllers.controller('SingleTeamCtrl', ['$scope', '$routeParams', 'Crimes', 'Teams', 'GetPieChartData',

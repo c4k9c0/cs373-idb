@@ -14,13 +14,16 @@ nflCsServices.factory('Crimes',
     return $resource('api/crimes');
   });
 
-
-  
 nflCsServices.factory('Teams',
   function($resource){
     return $resource('api/teams');
   });
-
+  
+nflCsServices.factory('Tests',
+  function($resource){
+    return $resource('db_scripts/tests.json');
+  });
+  
 nflCsServices.service('Types',
   function(){
     
