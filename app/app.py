@@ -8,6 +8,7 @@ from flask.ext.script import Manager
 from flask.ext.sqlalchemy import SQLAlchemy
 
 
+
 logging.basicConfig(
     level=logging.DEBUG,
     format='%(levelname)s: %(message)s')
@@ -18,10 +19,14 @@ logger.debug("Welcome to Carina Guestbook")
 SQLALCHEMY_DATABASE_URI = \
     '{engine}://{username}:{password}@{hostname}/{database}'.format(
         engine='mysql+pymysql',
-        username=os.getenv('MYSQL_USER'),
-        password=os.getenv('MYSQL_PASSWORD'),
-        hostname=os.getenv('MYSQL_HOST'),
-        database=os.getenv('MYSQL_DATABASE'))
+        username='guestbook-admin',
+        password='my-guestbook-admin-password',
+        hostname='pythonwebapp_ab',
+        database='guestbook')
+        #username=os.getenv('MYSQL_USER'),
+        #password=os.getenv('MYSQL_PASSWORD'),
+        #hostname=os.getenv('MYSQL_HOST'),
+        #database=os.getenv('MYSQL_DATABASE'))
 
 logger.debug("The log statement below is for educational purposes only. Do *not* log credentials.")
 logger.debug("%s", SQLALCHEMY_DATABASE_URI)
@@ -32,6 +37,7 @@ app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 manager = Manager(app)
+manager.add_command("runserver", Server(host="0.0.0.0", use_debugger=True))
 db = SQLAlchemy(app)
 
 @app.route('/', methods=['GET', 'POST'])
@@ -47,8 +53,6 @@ def index():
 
     return send_file('index.html')
 
-# if __name__ == '__main__':
-#     app.run(host='127.0.0.1',debug=True)
 
 class Guest(db.Model):
     __tablename__ = 'guests'
