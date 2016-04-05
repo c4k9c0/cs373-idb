@@ -32,12 +32,10 @@ def drop_db():
 # ---------
 # run_tests
 # ---------
-'''
-@app.route('/run_tests')
+@app.route('api/run_tests')
 def run_tests():
     output = subprocess.getoutput("make test")
-    return json.dumps({'output': str(output)})
-'''
+    return jsonify({"Test1":output})
 
 #----------
 # API
