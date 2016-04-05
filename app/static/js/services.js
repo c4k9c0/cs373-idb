@@ -6,21 +6,24 @@ var nflCsServices = angular.module('nflCsServices', ['ngResource']);
 
 nflCsServices.factory('Players',
   function($resource){
-    return $resource('db_scripts/players.json');
+    return $resource('api/players');
   });
 
 nflCsServices.factory('Crimes',
   function($resource){
-    return $resource('db_scripts/crimes.json');
+    return $resource('api/crimes');
   });
 
-
-  
 nflCsServices.factory('Teams',
   function($resource){
-    return $resource('db_scripts/teams.json');
+    return $resource('api/teams');
   });
-
+  
+nflCsServices.factory('Tests',
+  function($resource){
+    return $resource('db_scripts/tests.json');
+  });
+  
 nflCsServices.service('Types',
   function(){
     
