@@ -34,8 +34,7 @@ IDB1.html: models.py
 	pydoc3 -w models
 
 test: tests.py
-	echo "in makefile test"
 	python3 tests.py
-	# # coverage3 run    --branch tests.py 
-	# # coverage3 report -m                      >> test_output.tmp
-	# # cat test_output.tmp
+	coverage3 run    --branch tests.py 
+	coverage3 report -m >> test_output.tmp
+	cat test_output.tmp

@@ -7,6 +7,9 @@ python:
 
 sudo: false
 
+services:
+    - mysql
+
 install:
     - pip install --upgrade pip
     - pip --version
@@ -24,4 +27,4 @@ script:
     - date
     - ls -al
     - make check
-    # - make test (commented out for part 1)
+    - make test
