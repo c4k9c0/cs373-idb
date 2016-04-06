@@ -1,6 +1,5 @@
 #!flask/bin/python
 from models import Player, Team, Crime
-import requests
 import json
 from db import db 
 from sqlalchemy import *

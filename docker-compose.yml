@@ -28,7 +28,7 @@ services:
       # for our local development environment
       - MYSQL_USER=guestbook-admin
       - MYSQL_PASSWORD=my-guestbook-admin-password
-    command: gunicorn --reload app:app --bind 0.0.0.0:8000
+    command: gunicorn --reload idb:app --bind 0.0.0.0:8000
       # Run Gunicorn to serve app requests and reload on change so we can see our
       # changes to the app code
 

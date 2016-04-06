@@ -29,14 +29,14 @@ class Player(db.Model):
 
 	id     = Column(Integer, Sequence('player_id_seq'), primary_key = True)
 	
-	last_arrest   = Column(String)
-	name          = Column(String)
-	pos           = Column(String)
-	first_name    = Column(String)
+	last_arrest   = db.Column(String(15))
+	name          = db.Column(String(30))
+	pos           = db.Column(String(10))
+	first_name    = db.Column(String(15))
 	team_id       = db.Column(Integer, ForeignKey("Team.id"))
 	
-	last_name     = Column(String)
-	num_arrests   = Column(Integer)
+	last_name     = db.Column(String(15))
+	num_arrests   = db.Column(Integer)
 	
 	team 	 	  = relationship("Team")
 
@@ -65,12 +65,12 @@ class Team(db.Model):
 	__tablename__ = 'Team'
 
 	id       	  = db.Column(Integer, Sequence('team_id_seq'), primary_key = True)
-	city          = db.Column(String)
-	state         = db.Column(String)
-	mascot        = db.Column(String)
-	division      = db.Column(String)
+	city          = db.Column(String(20))
+	state         = db.Column(String(20))
+	mascot        = db.Column(String(20))
+	division      = db.Column(String(20))
 	championships = db.Column(Integer)
-	name 		  = db.Column(String)
+	name 		  = db.Column(String(20))
 
 	def __init__(self, city, state, mascot, division, championships, name):
 		self.city          = city
@@ -100,12 +100,12 @@ class Crime(db.Model):
 	player_id  	  = db.Column(ForeignKey("Player.id"))
 	team_id       = db.Column(ForeignKey("Team.id"))
 	
-	date          = db.Column(String)
-	description   = db.Column(String)
-	position      = db.Column(String)
-	outcome       = db.Column(String)
-	category      = db.Column(String)
-	encounter     = db.Column(String)
+	date          = db.Column(String(15))
+	description   = db.Column(String(200))
+	position      = db.Column(String(20))
+	outcome       = db.Column(String(200))
+	category      = db.Column(String(50))
+	encounter     = db.Column(String(50))
 
 	player   = relationship("Player")
 	team 	  = relationship("Team")

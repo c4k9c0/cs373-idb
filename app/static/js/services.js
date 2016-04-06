@@ -21,7 +21,7 @@ nflCsServices.factory('Teams',
   
 nflCsServices.factory('Tests',
   function($resource){
-    return $resource('db_scripts/tests.json');
+    return $resource('api/run_tests');
   });
   
 nflCsServices.service('Types',
