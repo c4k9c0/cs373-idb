@@ -1,1 +1,7 @@
 /app/__pycache__/*
+/app/.coverage
+/app/db.pyc
+/app/models.pyc
+/app/test_output.tmp
+pythonwebapp-mysql-prod.env
+pythonwebapp-mysql-root-prod.env
