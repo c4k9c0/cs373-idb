@@ -8,6 +8,10 @@ from db import db, app
 
 class team_tests(TestCase):
 
+	def create_app(self):
+		app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root@127.0.0.1/guestbook'
+		return app
+
 	def setUp(self):
 		db.create_all()
 
@@ -42,6 +46,10 @@ class team_tests(TestCase):
 		db.session.commit()
 
 class player_tests(TestCase):
+
+	def create_app(self):
+		app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root@127.0.0.1/guestbook'
+		return app
 
 	def setUp(self):
 		db.create_all()
@@ -98,6 +106,10 @@ class player_tests(TestCase):
 		db.session.commit()
 
 class crime_tests(TestCase):
+
+	def create_app(self):
+		app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root@127.0.0.1/guestbook'
+		return app
 
 	def setUp(self):
 		db.create_all()

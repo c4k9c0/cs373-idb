@@ -1,14 +1,20 @@
 # http://docs.travis-ci.com/user/build-configuration/
 
+dist: trusty
+sudo: required
+addons:
+    apt:
+        packages:
+            - mysql-server-5.6
+            - mysql-client-core-5.6
+            - mysql-client-5.6
+
 language: python
 
 python:
     - "3.4"
 
 sudo: false
-
-services:
-    - mysql
 
 install:
     - pip install --upgrade pip
@@ -22,6 +28,7 @@ before_script:
     - uname -a
     - printenv
     - pip list
+    - mysql -u root -e "create database guestbook"
 
 script:
     - date
