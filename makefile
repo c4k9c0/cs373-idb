@@ -32,3 +32,9 @@ IDB1.log:
 
 IDB1.html: models.py
 	pydoc3 -w models
+
+test: app/tests.py
+	python3 app/tests.py
+	# coverage3 run    --branch tests.py 
+	# coverage3 report -m                      >> test_output.tmp
+	# cat test_output.tmp
