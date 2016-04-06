@@ -3,7 +3,7 @@ from sqlalchemy import ForeignKey
 from sqlalchemy.orm import relationship
 
 # This is only because models.py has to be in the root.
-from db import db
+from app.db import db
 import json
 from sqlalchemy.orm import relationship
 
