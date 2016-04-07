@@ -5,7 +5,7 @@ from models import Player, Team, Crime
 from sqlalchemy import *
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import *
-from app.db import db, app
+from db import db, app
 
 class team_tests(TestCase):
 
@@ -193,4 +193,4 @@ class crime_tests(TestCase):
 		db.session.commit()		
 
 if __name__ == '__main__':
-	main()
+	unittest.main(verbosity=2)
