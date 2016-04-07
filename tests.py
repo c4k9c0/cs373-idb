@@ -1,5 +1,6 @@
 import json
-from unittest import main, TestCase
+import unitest
+from flask.ext.testing import TestCase
 from models import Player, Team, Crime
 from sqlalchemy import *
 from sqlalchemy.orm import sessionmaker

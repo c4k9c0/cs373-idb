@@ -1,12 +1,17 @@
 import json
-from unittest import main, TestCase
+import unittest
+from flask.ext.testing import TestCase
 from models import Player, Team, Crime
 from sqlalchemy import *
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import *
-from db import db, app
+from app.db import db, app
 
 class team_tests(TestCase):
+
+	def create_app(self):
+		app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db'#'mysql+pymysql://travis:@127.0.0.1/guestbook'
+		return app
 
 	def setUp(self):
 		db.create_all()
@@ -42,6 +47,10 @@ class team_tests(TestCase):
 		db.session.commit()
 
 class player_tests(TestCase):
+
+	def create_app(self):
+		app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db'#'mysql+pymysql://travis:@127.0.0.1/guestbook'
+		return app
 
 	def setUp(self):
 		db.create_all()
@@ -98,6 +107,10 @@ class player_tests(TestCase):
 		db.session.commit()
 
 class crime_tests(TestCase):
+
+	def create_app(self):
+		app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db'#'mysql+pymysql://travis:@127.0.0.1/guestbook'
+		return app
 
 	def setUp(self):
 		db.create_all()
