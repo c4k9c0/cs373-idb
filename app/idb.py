@@ -25,6 +25,7 @@ def create_db():
 
 @manager.command
 def create_test_db():
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://travis:@127.0.0.1/guestbook'
     app.config['SQLALCHEMY_ECHO'] = True
     db.create_all()
 
