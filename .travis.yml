@@ -23,7 +23,7 @@ before_script:
     - uname -a
     - printenv
     - pip list
-    - mysql -u root -e "create database guestbook"
+    - mysql -e "create database guestbook"
 
 script:
     - date
