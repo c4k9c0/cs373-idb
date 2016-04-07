@@ -4,8 +4,8 @@ FILES :=                              \
     apiary.apib                       \
     IDB1.log                          \
     models.html                       \
-    models.py                         \
-    tests.py                          \
+    app/models.py                         \
+    app/tests.py                          \
     UML.pdf
 
 check:
@@ -35,6 +35,6 @@ IDB1.html: models.py
 
 test: app/tests.py
 	python3 app/tests.py
-	coverage3 run    --branch app/tests.py > test_output.tmp 2>&1
-	coverage3 report -m  >> test_output.tmp
-	cat test_output.tmp
+	# coverage3 run    --branch app/tests.py > test_output.tmp 2>&1
+	# coverage3 report -m  >> test_output.tmp
+	# cat test_output.tmp
