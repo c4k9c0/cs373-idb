@@ -5,7 +5,7 @@ from models import Player, Team, Crime
 from sqlalchemy import *
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import *
-from db import db, app
+from app.db import db, app
 
 class team_tests(TestCase):
 
