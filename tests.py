@@ -9,7 +9,7 @@ from app.db import db, app
 class team_tests(TestCase):
 
 	def create_app(self):
-		app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:@127.0.0.1/guestbook'
+		app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://travis:@127.0.0.1/guestbook'
 		return app
 
 	def setUp(self):
