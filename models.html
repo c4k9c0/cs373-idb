@@ -1,6 +1,7 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html><head><title>Python: module models</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta charset="utf-8">
 </head><body bgcolor="#f0f0f8">
 
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
@@ -8,9 +9,17 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>models</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/Users/CharlieCox/CS373/IDB/project3/cs373-idb/models.py">/Users/CharlieCox/CS373/IDB/project3/cs373-idb/models.py</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/andy/project3/NFLArrests/cs373_idb/app/models.py">/home/andy/project3/NFLArrests/cs373_idb/app/models.py</a></font></td></tr></table>
     <p></p>
 <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="json.html">json</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ee77aa">
 <td colspan=3 valign=bottom>&nbsp;<br>
@@ -21,9 +30,9 @@
 <dt><font face="helvetica, arial">flask_sqlalchemy.Model(<a href="flask_sqlalchemy.html#Model">flask_sqlalchemy.Model</a>)
 </font></dt><dd>
 <dl>
-<dt><font face="helvetica, arial"><a href="models.html#crime">crime</a>
-</font></dt><dt><font face="helvetica, arial"><a href="models.html#player">player</a>
-</font></dt><dt><font face="helvetica, arial"><a href="models.html#team">team</a>
+<dt><font face="helvetica, arial"><a href="models.html#Crime">Crime</a>
+</font></dt><dt><font face="helvetica, arial"><a href="models.html#Player">Player</a>
+</font></dt><dt><font face="helvetica, arial"><a href="models.html#Team">Team</a>
 </font></dt></dl>
 </dd>
 </dl>
@@ -31,24 +40,26 @@
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ffc8d8">
 <td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><a name="crime">class <strong>crime</strong></a>(flask_sqlalchemy.Model)</font></td></tr>
+<font color="#000000" face="helvetica, arial"><a name="Crime">class <strong>Crime</strong></a>(flask_sqlalchemy.Model)</font></td></tr>
     
 <tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><dl><dt>Method resolution order:</dt>
-<dd><a href="models.html#crime">crime</a></dd>
+<dd><a href="models.html#Crime">Crime</a></dd>
 <dd>flask_sqlalchemy.Model</dd>
 <dd><a href="flask_sqlalchemy.html#Model">flask_sqlalchemy.Model</a></dd>
-<dd><a href="builtins.html#object">builtins.object</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="crime-__init__"><strong>__init__</strong></a>(self, crime_id, team, date, description, position, outcome, category, encounter, name)</dt></dl>
+<dl><dt><a name="Crime-__init__"><strong>__init__</strong></a>(self, date, description, position, outcome, category, encounter, player, team)</dt></dl>
+
+<dl><dt><a name="Crime-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Crime-serialize"><strong>serialize</strong></a>(self)</dt></dl>
 
 <hr>
 Data descriptors defined here:<br>
 <dl><dt><strong>category</strong></dt>
-</dl>
-<dl><dt><strong>crime_id</strong></dt>
 </dl>
 <dl><dt><strong>date</strong></dt>
 </dl>
@@ -56,27 +67,36 @@ Data descriptors defined here:<br>
 </dl>
 <dl><dt><strong>encounter</strong></dt>
 </dl>
-<dl><dt><strong>name</strong></dt>
+<dl><dt><strong>id</strong></dt>
 </dl>
 <dl><dt><strong>outcome</strong></dt>
+</dl>
+<dl><dt><strong>player</strong></dt>
+</dl>
+<dl><dt><strong>player_id</strong></dt>
 </dl>
 <dl><dt><strong>position</strong></dt>
 </dl>
 <dl><dt><strong>team</strong></dt>
 </dl>
+<dl><dt><strong>team_id</strong></dt>
+</dl>
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x103c25e10; crime&gt;</dl>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x7fcb5076c450; Crime&gt;</dl>
 
-<dl><dt><strong>__table__</strong> = Table('crime', MetaData(bind=None), Column('crim...'player.player_id'), table=&lt;crime&gt;), schema=None)</dl>
+<dl><dt><strong>__table__</strong> = Table('Crime', MetaData(bind=None), Column('id',..., String(length=50), table=&lt;Crime&gt;), schema=None)</dl>
 
-<dl><dt><strong>__tablename__</strong> = 'crime'</dl>
+<dl><dt><strong>__tablename__</strong> = 'Crime'</dl>
+
+<hr>
+Methods inherited from flask_sqlalchemy.Model:<br>
+<dl><dt><strong>query</strong></dt>
+</dl>
 
 <hr>
 Data and other attributes inherited from flask_sqlalchemy.Model:<br>
 <dl><dt><strong>metadata</strong> = MetaData(bind=None)</dl>
-
-<dl><dt><strong>query</strong> = &lt;flask_sqlalchemy.BaseQuery object&gt;</dl>
 
 <hr>
 Data descriptors inherited from <a href="flask_sqlalchemy.html#Model">flask_sqlalchemy.Model</a>:<br>
@@ -99,22 +119,28 @@ standard&nbsp;query&nbsp;as&nbsp;well.</tt></dl>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ffc8d8">
 <td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><a name="player">class <strong>player</strong></a>(flask_sqlalchemy.Model)</font></td></tr>
+<font color="#000000" face="helvetica, arial"><a name="Player">class <strong>Player</strong></a>(flask_sqlalchemy.Model)</font></td></tr>
     
 <tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><dl><dt>Method resolution order:</dt>
-<dd><a href="models.html#player">player</a></dd>
+<dd><a href="models.html#Player">Player</a></dd>
 <dd>flask_sqlalchemy.Model</dd>
 <dd><a href="flask_sqlalchemy.html#Model">flask_sqlalchemy.Model</a></dd>
-<dd><a href="builtins.html#object">builtins.object</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="player-__init__"><strong>__init__</strong></a>(self, player_id, last_arrest, name, pos, first_name, team, last_name, num_arrests)</dt></dl>
+<dl><dt><a name="Player-__init__"><strong>__init__</strong></a>(self, last_arrest, name, pos, first_name, last_name, num_arrests, team)</dt></dl>
+
+<dl><dt><a name="Player-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Player-serialize"><strong>serialize</strong></a>(self)</dt></dl>
 
 <hr>
 Data descriptors defined here:<br>
 <dl><dt><strong>first_name</strong></dt>
+</dl>
+<dl><dt><strong>id</strong></dt>
 </dl>
 <dl><dt><strong>last_arrest</strong></dt>
 </dl>
@@ -124,25 +150,28 @@ Data descriptors defined here:<br>
 </dl>
 <dl><dt><strong>num_arrests</strong></dt>
 </dl>
-<dl><dt><strong>player_id</strong></dt>
-</dl>
 <dl><dt><strong>pos</strong></dt>
 </dl>
 <dl><dt><strong>team</strong></dt>
 </dl>
+<dl><dt><strong>team_id</strong></dt>
+</dl>
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x103c25278; player&gt;</dl>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x7fcb505375d0; Player&gt;</dl>
 
-<dl><dt><strong>__table__</strong> = Table('player', MetaData(bind=None), Column('pla...rrests', Integer(), table=&lt;player&gt;), schema=None)</dl>
+<dl><dt><strong>__table__</strong> = Table('Player', MetaData(bind=None), Column('id'...rrests', Integer(), table=&lt;Player&gt;), schema=None)</dl>
 
-<dl><dt><strong>__tablename__</strong> = 'player'</dl>
+<dl><dt><strong>__tablename__</strong> = 'Player'</dl>
+
+<hr>
+Methods inherited from flask_sqlalchemy.Model:<br>
+<dl><dt><strong>query</strong></dt>
+</dl>
 
 <hr>
 Data and other attributes inherited from flask_sqlalchemy.Model:<br>
 <dl><dt><strong>metadata</strong> = MetaData(bind=None)</dl>
-
-<dl><dt><strong>query</strong> = &lt;flask_sqlalchemy.BaseQuery object&gt;</dl>
 
 <hr>
 Data descriptors inherited from <a href="flask_sqlalchemy.html#Model">flask_sqlalchemy.Model</a>:<br>
@@ -165,18 +194,22 @@ standard&nbsp;query&nbsp;as&nbsp;well.</tt></dl>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ffc8d8">
 <td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><a name="team">class <strong>team</strong></a>(flask_sqlalchemy.Model)</font></td></tr>
+<font color="#000000" face="helvetica, arial"><a name="Team">class <strong>Team</strong></a>(flask_sqlalchemy.Model)</font></td></tr>
     
 <tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><dl><dt>Method resolution order:</dt>
-<dd><a href="models.html#team">team</a></dd>
+<dd><a href="models.html#Team">Team</a></dd>
 <dd>flask_sqlalchemy.Model</dd>
 <dd><a href="flask_sqlalchemy.html#Model">flask_sqlalchemy.Model</a></dd>
-<dd><a href="builtins.html#object">builtins.object</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="team-__init__"><strong>__init__</strong></a>(self, team_id, city, state, mascot, division, championships, name)</dt></dl>
+<dl><dt><a name="Team-__init__"><strong>__init__</strong></a>(self, city, state, mascot, division, championships, name)</dt></dl>
+
+<dl><dt><a name="Team-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Team-serialize"><strong>serialize</strong></a>(self)</dt></dl>
 
 <hr>
 Data descriptors defined here:<br>
@@ -186,27 +219,30 @@ Data descriptors defined here:<br>
 </dl>
 <dl><dt><strong>division</strong></dt>
 </dl>
+<dl><dt><strong>id</strong></dt>
+</dl>
 <dl><dt><strong>mascot</strong></dt>
 </dl>
 <dl><dt><strong>name</strong></dt>
 </dl>
 <dl><dt><strong>state</strong></dt>
 </dl>
-<dl><dt><strong>team_id</strong></dt>
-</dl>
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x103c25828; team&gt;</dl>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x7fcb50537c10; Team&gt;</dl>
 
-<dl><dt><strong>__table__</strong> = Table('team', MetaData(bind=None), Column('team_...ionships', Integer(), table=&lt;team&gt;), schema=None)</dl>
+<dl><dt><strong>__table__</strong> = Table('Team', MetaData(bind=None), Column('id', ...', String(length=20), table=&lt;Team&gt;), schema=None)</dl>
 
-<dl><dt><strong>__tablename__</strong> = 'team'</dl>
+<dl><dt><strong>__tablename__</strong> = 'Team'</dl>
+
+<hr>
+Methods inherited from flask_sqlalchemy.Model:<br>
+<dl><dt><strong>query</strong></dt>
+</dl>
 
 <hr>
 Data and other attributes inherited from flask_sqlalchemy.Model:<br>
 <dl><dt><strong>metadata</strong> = MetaData(bind=None)</dl>
-
-<dl><dt><strong>query</strong> = &lt;flask_sqlalchemy.BaseQuery object&gt;</dl>
 
 <hr>
 Data descriptors inherited from <a href="flask_sqlalchemy.html#Model">flask_sqlalchemy.Model</a>:<br>
@@ -227,12 +263,20 @@ standard&nbsp;query&nbsp;as&nbsp;well.</tt></dl>
 
 </td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-get_dict"><strong>get_dict</strong></a>(obj)</dt></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#55aa55">
 <td colspan=3 valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
     
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><strong>db</strong> = &lt;SQLAlchemy engine='sqlite://'&gt;<br>
+<td width="100%"><strong>db</strong> = &lt;SQLAlchemy engine='mysql+pymysql://None:None@None/None'&gt;<br>
 <strong>func</strong> = &lt;sqlalchemy.sql.functions._FunctionGenerator object&gt;<br>
 <strong>modifier</strong> = &lt;sqlalchemy.sql.functions._FunctionGenerator object&gt;</td></tr></table>
 </body></html>

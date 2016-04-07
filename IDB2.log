@@ -1,0 +1,1174 @@
+commit c3adb9b04b2822c1b8f247c358078e07b7ae44a6
+Author: Andy Medina <andymedina@utexas.edu>
+Date:   Wed Apr 6 21:31:08 2016 -0500
+
+    successful travis build
+
+commit d16fdc2b15c67675e858116594012141ff67a38d
+Author: Andy Medina <andymedina@utexas.edu>
+Date:   Wed Apr 6 21:28:26 2016 -0500
+
+    travis mysql take 5 coverage 1
+
+commit e27f3137bf09fd894504c4a0ac7d9d20f887f566
+Author: Andy Medina <andymedina@utexas.edu>
+Date:   Wed Apr 6 21:25:46 2016 -0500
+
+    travis mysql take 5
+
+commit 56736261d15bfbaf7f7ca6efc0555e26f98bd544
+Author: Andy Medina <andymedina@utexas.edu>
+Date:   Wed Apr 6 21:21:16 2016 -0500
+
+    travis mysql take 4
+
+commit be17eaf2723850ba516ec1c6038031d8d5a2f1f1
+Author: Andy Medina <andymedina@utexas.edu>
+Date:   Wed Apr 6 21:14:32 2016 -0500
+
+    travis mysql take 3
+
+commit 3fd3528a4f5d2c438a71b1e75be6ca98030ac485
+Author: Andy Medina <andymedina@utexas.edu>
+Date:   Wed Apr 6 21:12:57 2016 -0500
+
+    travis mysql take 2
+
+commit 32ba00683aaedd8babc0bf54351c69bcf39f5f5d
+Author: Andy Medina <andymedina@utexas.edu>
+Date:   Wed Apr 6 21:11:17 2016 -0500
+
+    travis mysql take 1
+
+commit 6cbcd44bc5b3864bfcf5653d202b0cb3817fac8f
+Author: Andy Medina <andymedina@utexas.edu>
+Date:   Wed Apr 6 20:44:04 2016 -0500
+
+    travis fix take 20 coverage attempt 2
+
+commit 324fa4089c6042752c12de8ced24d178138229af
+Author: Andy Medina <andymedina@utexas.edu>
+Date:   Wed Apr 6 20:40:03 2016 -0500
+
+    travis fix take 20 coverage attempt
+
+commit 659036130cac8320ee5582e3b5a91741d3f9dfcd
+Author: Andy Medina <andymedina@utexas.edu>
+Date:   Wed Apr 6 20:36:40 2016 -0500
+
+    travis fix take 20
+
+commit e705e5d8bf779bbd66d5921e44832437b9a0c334
+Author: Andy Medina <andymedina@utexas.edu>
+Date:   Wed Apr 6 20:33:13 2016 -0500
+
+    travis fix take 19
+
+commit 4ed1ce45229f967604f157641650daaf51be93b9
+Author: Andy Medina <andymedina@utexas.edu>
+Date:   Wed Apr 6 20:31:44 2016 -0500
+
+    travis fix take 18
+
+commit 4fc10b972826af305b51c7058837127f5bb6dfb6
+Author: Andy Medina <andymedina@utexas.edu>
+Date:   Wed Apr 6 20:28:43 2016 -0500
+
+    travis fix take 17
+
+commit c6cb9c4f6c12100c41c826d83d9d4acd044d341b
+Author: Andy Medina <andymedina@utexas.edu>
+Date:   Wed Apr 6 20:16:55 2016 -0500
+
+    travis fix take 16
+
+commit abbfdb9f1f5dc8ca3b07cbb51476ff43c0457b13
+Author: Andy Medina <andymedina@utexas.edu>
+Date:   Wed Apr 6 20:11:05 2016 -0500
+
+    travis fix take 15
+
+commit bf2bf412a70492e75adb39dbda18c342bc05f206
+Author: Andy Medina <andymedina@utexas.edu>
+Date:   Wed Apr 6 20:09:37 2016 -0500
+
+    travis fix take 15
+
+commit 3808f8d3cd32063756d7d8fbb9799a77239e6221
+Author: Andy Medina <andymedina@utexas.edu>
+Date:   Wed Apr 6 20:00:40 2016 -0500
+
+    travis fix take 14
+
+commit 19a82fb6a64d75792dcfc0e2f0e51b2788d72bbd
+Author: Andy Medina <andymedina@utexas.edu>
+Date:   Wed Apr 6 19:56:26 2016 -0500
+
+    travis fix take 13
+
+commit 9eaf679ed3b36a0cad4da5172951b4fc4a48c189
+Author: Andy Medina <andymedina@utexas.edu>
+Date:   Wed Apr 6 19:54:24 2016 -0500
+
+    travis fix take 12
+
+commit 09a8133f6f6b602c3d8919bcaa2b5ed74ecac9ab
+Author: Andy Medina <andymedina@utexas.edu>
+Date:   Wed Apr 6 19:48:01 2016 -0500
+
+    travis fix take 11
+
+commit 25ce6d76e6da50062ab21e741fdfb505e326d46d
+Author: Andy Medina <andymedina@utexas.edu>
+Date:   Wed Apr 6 19:43:20 2016 -0500
+
+    travis fix take 10
+
+commit eed1a14b4db5e56ac926fa98e66037a49711cac3
+Author: Andy Medina <andymedina@utexas.edu>
+Date:   Wed Apr 6 14:49:58 2016 -0500
+
+    travis fix take 9
+
+commit 9cd3ca09ff4fd6b3a31f98ee3a76a210215640cf
+Author: Andy Medina <andymedina@utexas.edu>
+Date:   Wed Apr 6 14:43:54 2016 -0500
+
+    travis fix take 8
+
+commit b02eab7e2f0fd6483e1eb50fffcf7c1a8a62b9b0
+Author: Andy Medina <andymedina@utexas.edu>
+Date:   Wed Apr 6 14:41:01 2016 -0500
+
+    travis fix take 7
+
+commit 8d62bebecfd7486727e2487b96366b79b2b4d35b
+Author: Andy Medina <andymedina@utexas.edu>
+Date:   Wed Apr 6 14:37:47 2016 -0500
+
+    travis fix take 6
+
+commit 6ff637327f91a873a46a35ec74ed498c51644c4d
+Author: Andy Medina <andymedina@utexas.edu>
+Date:   Wed Apr 6 14:32:25 2016 -0500
+
+    travis fix take 5
+
+commit b5e43af97275419887eb80e58e39040986af6aa5
+Author: Andy Medina <andymedina@utexas.edu>
+Date:   Wed Apr 6 14:26:43 2016 -0500
+
+    travis fix take 4
+
+commit eee60ef87f315bed5a20d5c5117eadd2cf6259ed
+Author: Andy Medina <andymedina@utexas.edu>
+Date:   Wed Apr 6 14:23:35 2016 -0500
+
+    travis fix take 3
+
+commit 12d567a357072ecb817b1a030f1778b0f4985a29
+Author: Andy Medina <andymedina@utexas.edu>
+Date:   Wed Apr 6 13:50:34 2016 -0500
+
+    travis fix take 2
+
+commit fdf58c3e36eefbfbee0ee11208e4442c2e95d9b0
+Author: Andy Medina <andymedina@utexas.edu>
+Date:   Wed Apr 6 13:49:40 2016 -0500
+
+    travis fix
+
+commit 6b5389235aa8a9b6b06d83ce2f8091a7d695632a
+Merge: d7a071f 491ff28
+Author: Andy Medina <andymedina@utexas.edu>
+Date:   Wed Apr 6 13:45:59 2016 -0500
+
+    Merge branch 'dev' of https://github.com/c4k9c0/cs373-idb into andy
+
+commit 491ff28a3dd99ddd7a7f0485cb662061a5a1704a
+Merge: df6059b d9271ff
+Author: Hunter DeGroot <hunterdegroot@gmail.com>
+Date:   Wed Apr 6 13:06:06 2016 -0500
+
+    Merge remote-tracking branch 'origin/dev' into dev
+
+commit df6059b83a2ff89d84bc8454ded1fc010395bd49
+Merge: 40ef885 1c641a8
+Author: Hunter DeGroot <hunterdegroot@gmail.com>
+Date:   Wed Apr 6 13:05:51 2016 -0500
+
+    Merge branch 'master' into dev
+
+commit d7a071fb5753db61158a391929d54fd6de340363
+Author: Andy Medina <andymedina@utexas.edu>
+Date:   Wed Apr 6 06:36:01 2016 -0500
+
+    updated gitignore
+
+commit 661944afb24bf683d8111294e8d8ba49870d1098
+Author: Andy Medina <andymedina@utexas.edu>
+Date:   Wed Apr 6 05:52:51 2016 -0500
+
+    test css update
+
+commit 7fad4130f02d8a00da3ceec8bb8d398232fcdb30
+Merge: 4c15a3d e8729d8
+Author: Andy Medina <andymedina@utexas.edu>
+Date:   Wed Apr 6 04:33:58 2016 -0500
+
+    Merge branch 'charlie' into andy
+
+commit e8729d84b2f441c433857462f94024cc27eece90
+Author: Andy Medina <andymedina@utexas.edu>
+Date:   Wed Apr 6 04:30:53 2016 -0500
+
+    successful test changes
+
+commit 4e47a7d73b7a3c8a2dd565145735cd530c3664a6
+Author: Andy Medina <andymedina@utexas.edu>
+Date:   Wed Apr 6 04:15:29 2016 -0500
+
+    fixed tests
+
+commit 788e55c58d4d21b5d186eea90240242a60698073
+Author: Andy Medina <andymedina@utexas.edu>
+Date:   Tue Apr 5 21:15:30 2016 -0500
+
+    most tests running
+
+commit 1c641a89098943005b95596978e39d0d3f957a3b
+Merge: 9cbd567 1b6107b
+Author: Hunter DeGroot <hunterdegroot@gmail.com>
+Date:   Mon Apr 4 21:10:35 2016 -0500
+
+    Merge branch 'hunter'
+
+commit 1b6107b5a4bdc92345ab1b2e33cfd93b774de445
+Author: Hunter DeGroot <hunterdegroot@gmail.com>
+Date:   Mon Apr 4 21:10:20 2016 -0500
+
+    Fixed individual player page team logo
+
+commit 4c15a3db1ef27ec62e3f0526ed2f08b65b8a4a71
+Merge: 9f6ac1e d9271ff
+Author: Andy Medina <andymedina@utexas.edu>
+Date:   Mon Apr 4 20:52:53 2016 -0500
+
+    Merge branch 'dev' of https://github.com/c4k9c0/cs373-idb into andy
+
+commit d9271ff212819d31ec23227d84816737e96805bd
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Mon Apr 4 20:51:34 2016 -0500
+
+    Updated endpoint in the service
+
+commit 503065b4bd5a47d0eb1db3a9f463040eee5a60a0
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Mon Apr 4 20:50:12 2016 -0500
+
+    Changed route name
+
+commit 4f72a4ab7985bf8dfd6b0bde0d8160088cec30b9
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Mon Apr 4 20:48:46 2016 -0500
+
+    Adding test route
+
+commit 9f6ac1eba80f9577b76c4f68d6568c788894a6cd
+Merge: 005a6d6 0e57ff4
+Author: Andy Medina <andymedina@utexas.edu>
+Date:   Mon Apr 4 20:36:53 2016 -0500
+
+    Merge branch 'dev' of https://github.com/c4k9c0/cs373-idb into andy
+
+commit 0e57ff43c923722e16d14b3bdd9ea8d6dc46075c
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Mon Apr 4 20:35:09 2016 -0500
+
+    Updated makefile and wrote tests #27, #28, #43
+
+commit bb3f2adbef967c874c07388d676fc1f081b2f607
+Author: Hunter DeGroot <hunterdegroot@gmail.com>
+Date:   Mon Apr 4 13:06:37 2016 -0500
+
+    Fixed Title Stats
+
+commit 9cbd56776f3c65638090c5394c39412233e6e83c
+Merge: 65db1b4 483491e
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Sun Apr 3 17:23:58 2016 -0500
+
+    Merge branch 'master' of https://github.com/c4k9c0/cs373-idb
+
+commit 65db1b4a5cc5a7dcfd9b8eae91e522b80ec4869b
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Sun Apr 3 17:23:44 2016 -0500
+
+    Adding png version of UML
+
+commit 713d8b388f0b3fc1d5c88f33f016a1e94144d928
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Sun Apr 3 17:22:15 2016 -0500
+
+    Adding png version of UML
+
+commit 005a6d659380dbf8a2df2c45d84cc47058ba628f
+Merge: e2b161c 977b5e7
+Author: Andy Medina <andymedina@utexas.edu>
+Date:   Sat Apr 2 21:33:42 2016 -0500
+
+    API pushed to production
+
+commit 977b5e705a310acdba482405fed575a7b8395c43
+Merge: 8f2daab 40ef885
+Author: Andy Medina <andymedina@utexas.edu>
+Date:   Sat Apr 2 16:15:15 2016 -0500
+
+    Merge branch 'dev' of https://github.com/c4k9c0/cs373-idb into charlie
+
+commit 8f2daab3e351228dea6b14675ab260caa5b49d92
+Author: Andy Medina <andymedina@utexas.edu>
+Date:   Sat Apr 2 16:15:00 2016 -0500
+
+    API working w/ Docker
+
+commit 40ef885343605d9f9971253113a3bc03d9d87be9
+Merge: 54fcca9 eff6ad0
+Author: Hunter DeGroot <hunterdegroot@gmail.com>
+Date:   Sat Apr 2 13:39:22 2016 -0500
+
+    Merge remote-tracking branch 'origin/dev' into dev
+
+commit 54fcca9de4934ed9126091c0b72b2834b0538163
+Merge: fb7cfc2 298660f
+Author: Hunter DeGroot <hunterdegroot@gmail.com>
+Date:   Sat Apr 2 13:38:17 2016 -0500
+
+    Merge branch 'hunter' into dev
+
+commit 298660f689a8e2463b615487138c3f0f1aae1320
+Author: Hunter DeGroot <hunterdegroot@gmail.com>
+Date:   Sat Apr 2 13:37:58 2016 -0500
+
+    Tests on about page
+
+commit 557bfb40c35fe81deb5a5eb735f9e96650995fb5
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Sat Apr 2 13:07:23 2016 -0500
+
+    Finished API based on sqlite
+
+commit a76575168fc26c1aba71f9b777dbe1f748687e4f
+Merge: 4b8d553 41df09a
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Sat Apr 2 12:24:42 2016 -0500
+
+    Merge branch 'charlie' into hunter
+
+commit 4b8d553f9bab215778865ef5a2277d60f32cdebe
+Author: Hunter DeGroot <hunterdegroot@gmail.com>
+Date:   Sat Apr 2 12:23:39 2016 -0500
+
+    Pulling from db instead of json
+
+commit 41df09aa02f3336e81b196cc1bcdc6701aac3ffe
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Sat Apr 2 12:23:27 2016 -0500
+
+    Implemented easy API endpoints #32
+
+commit 2e66ea4e83b124130603f5285895c292a8f87817
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Sat Apr 2 11:07:01 2016 -0500
+
+    Got crimes push in #39
+
+commit 0e3537c785116eb530a79f7d469097be3eaf9558
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Sat Apr 2 11:00:15 2016 -0500
+
+    Working on populating crimes #39
+
+commit 483491e31ffd25380a34482b81e197151a231aee
+Author: Hunter DeGroot <hunterdegroot@gmail.com>
+Date:   Sat Apr 2 10:55:23 2016 -0500
+
+    Formatted Pie Graph closes #40
+
+commit d43c31d81652873bb04dca199ed641b82701e652
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Fri Apr 1 21:40:31 2016 -0500
+
+    Inserted data for players and teams. Half done with crimes #39
+
+commit 13f3704cddff421063704eea7a68e33b9dcc4e58
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Fri Apr 1 17:01:09 2016 -0500
+
+    Hacky fix to #38
+
+commit 20f635c7fac884ed1bee2d418bc7bdd78b7e4791
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Fri Apr 1 15:06:45 2016 -0500
+
+    Created a version of models that is stable #32
+
+commit e2b161ce83aa02263841c183ac6c4236eab54105
+Author: Andy Medina <andymedina@utexas.edu>
+Date:   Fri Apr 1 13:59:37 2016 -0500
+
+    app.py mods
+
+commit 7a36bc15c4d20ed3ccdc18c324b00e7f39e4aa98
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Fri Apr 1 10:27:42 2016 -0500
+
+    Playing around with a sample API
+
+commit d4149549325878f7ba2358f9d0d45255fa04aeaa
+Merge: 6fdf3a3 eff6ad0
+Author: Andy Medina <andymedina@utexas.edu>
+Date:   Fri Apr 1 01:01:19 2016 -0500
+
+    Merge branch 'dev' of https://github.com/c4k9c0/cs373-idb into andy
+
+commit 6fdf3a3a2863e3d0bb4cfa8d2c4db47c831021c4
+Author: Andy Medina <andymedina@utexas.edu>
+Date:   Fri Apr 1 00:59:30 2016 -0500
+
+    mysql working now
+
+commit 48bf02228304dc6ead55a5ad51dff70494717342
+Merge: 3394cd8 526690a
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Thu Mar 31 21:28:22 2016 -0500
+
+    Merge remote-tracking branch 'origin/andy' into charlie
+
+commit eff6ad0ac6e9d21ebe2c13b34992dc7c8974df88
+Merge: b6e7191 fb7cfc2
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Thu Mar 31 20:13:56 2016 -0500
+
+    Merge branch 'dev' of https://github.com/c4k9c0/cs373-idb into dev
+
+commit b6e719167532a094f8508e037a99249c50c4a64e
+Merge: b36cccc 3394cd8
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Thu Mar 31 20:13:45 2016 -0500
+
+    Merge branch 'charlie' into dev
+
+commit 3394cd8d2a2d4a859ab97e60da81366ee56b5c78
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Thu Mar 31 20:13:24 2016 -0500
+
+    final sample db
+
+commit 34e0a356d74c4e1f41948943d8a22224ac2cdb52
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Thu Mar 31 19:45:27 2016 -0500
+
+    Adding relations to sample db
+
+commit 2ae7e7bf39e6b57c8f2d08636e7635ff761c25d7
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Thu Mar 31 19:10:06 2016 -0500
+
+    Sample database`
+
+commit 8237d01fc35ba5286750c76a68c683b24e96c0f2
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Thu Mar 31 19:09:35 2016 -0500
+
+    Added a du
+
+commit 526690a77d1e4590eafd4ec4dead080eccdb8815
+Author: Andy Medina <andymedina@utexas.edu>
+Date:   Wed Mar 30 21:49:41 2016 -0500
+
+    conceptual progress
+
+commit fb7cfc2311f64cf8f9e82497264c5ad4aeb59026
+Author: Gabriel Gontijo Moreira <gabrielgo.moreira@egmail.com>
+Date:   Wed Mar 30 17:46:01 2016 -0500
+
+    Changed location of the image to be displayed on the side of the crime name
+
+commit 5089632516fabaea9215b17b75c5abb997b61291
+Author: Gabriel Gontijo Moreira <gabrielgo.moreira@egmail.com>
+Date:   Wed Mar 30 17:39:26 2016 -0500
+
+    deleted all jpgs
+
+commit 1394a502152388cd0c66c51413026bfa0b0c48fc
+Author: Gabriel Gontijo Moreira <gabrielgo.moreira@egmail.com>
+Date:   Wed Mar 30 17:30:23 2016 -0500
+
+    Changed crontroller and single crime page so it now it displays the image of that specific crime
+
+commit 951a98f819220f6f40fa228851e1b13c4c64d53b
+Author: Gabriel Gontijo Moreira <gabrielgo.moreira@egmail.com>
+Date:   Wed Mar 30 17:22:43 2016 -0500
+
+    convereted all to png and made their white background transparent
+
+commit 99b52f266346d88e162a4e8a41ef5eff8b63ec8d
+Author: Gabriel Gontijo Moreira <gabrielgo.moreira@egmail.com>
+Date:   Wed Mar 30 16:53:25 2016 -0500
+
+    Donwloaded all the crime category stock images
+
+commit 7268c1cda22d418d3dfe3c6bc98019109c9bd9c5
+Author: Gabriel Gontijo Moreira <gabrielgo.moreira@egmail.com>
+Date:   Wed Mar 30 16:37:31 2016 -0500
+
+    Downloaded stock images for most of the crimes
+
+commit e45b4e4681cd2e024918e5f4f9941b00b0f25168
+Author: Gabriel Gontijo Moreira <gabrielgo.moreira@egmail.com>
+Date:   Wed Mar 30 16:03:02 2016 -0500
+
+    created script to get the name and frequency of every crime category
+
+commit 35ed947c22897c96c6d4d731f3788a1da78d7b80
+Merge: 73f6458 b36cccc
+Author: Gabriel Gontijo Moreira <gabrielgo.moreira@egmail.com>
+Date:   Wed Mar 30 14:11:11 2016 -0500
+
+    Merge branch 'dev' into gabriel
+
+commit b36ccccda931e5fdbc82f7dd6d5f608dbd701972
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Thu Mar 24 00:23:17 2016 -0500
+
+    updated README
+
+commit 270b09c9f57b06f8c8616806fb5a8565a2d2bf74
+Author: Andy Medina <andymedina@utexas.edu>
+Date:   Wed Mar 23 19:23:14 2016 -0500
+
+    finalizing about page
+
+commit a9d93e17e3e7e0ce9fe819ec8463e3515a3b45b4
+Author: Andy Medina <andymedina@utexas.edu>
+Date:   Wed Mar 23 19:17:48 2016 -0500
+
+    updated about with counts
+
+commit d79ed7eb442da69177b1a43613a86e2a9b3b47a8
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Wed Mar 23 19:03:55 2016 -0500
+
+    Updated models.html and git log
+
+commit 14b40a1524a73ad2f0612dc1220c12788d13aa99
+Merge: 9ad35ee 0dc1667
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Wed Mar 23 18:56:35 2016 -0500
+
+    Merge branch 'dev' of https://github.com/c4k9c0/cs373-idb into dev
+
+commit 9ad35ee5c038a9f4ed34428a06eee081980d643a
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Wed Mar 23 18:56:08 2016 -0500
+
+    Changed about page #14
+
+commit 0dc1667f481c5c6f2a2aa18ab93ed2925ee98817
+Merge: 47f970d e18eaa9
+Author: jlciam <jlciam@utexas.edu>
+Date:   Wed Mar 23 18:50:56 2016 -0500
+
+    Merge branch 'dev' of https://github.com/c4k9c0/cs373-idb into dev
+    
+    Conflicts:
+    	app/templates/about.html
+
+commit 47f970d4caf7bce64fd83433bd329f2e4c6e4089
+Author: jlciam <jlciam@utexas.edu>
+Date:   Wed Mar 23 18:46:31 2016 -0500
+
+    bio and responsibilities added -Jena
+
+commit e18eaa94b15a167678382d0957b93b298fd00927
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Wed Mar 23 18:39:50 2016 -0500
+
+    Updated about page #14
+
+commit 73f6458675b54ae19fe1fbb917db44d27cd3f12a
+Author: Gabriel Gontijo Moreira <gabrielgo.moreira@egmail.com>
+Date:   Wed Mar 23 14:38:28 2016 -0500
+
+    Eddited my about information
+
+commit 3646428ef4e8fed701043d667ff2e34bdb732840
+Author: Andy Medina <andymedina@utexas.edu>
+Date:   Tue Mar 22 22:18:51 2016 -0500
+
+    css clean up
+
+commit 0d1ffab432b060e86a14d4c2962c763963da8bf5
+Author: Andy Medina <andymedina@utexas.edu>
+Date:   Tue Mar 22 22:17:25 2016 -0500
+
+    turned debugging off
+
+commit 09900afca9aa1e628834eee5cb578fee1a6216cc
+Author: Andy Medina <andymedina@utexas.edu>
+Date:   Tue Mar 22 22:10:08 2016 -0500
+
+    update jenas pic
+
+commit 7826372581b9d8444b459421539df0dfe9fe8d90
+Author: Andy Medina <andymedina@utexas.edu>
+Date:   Tue Mar 22 21:58:52 2016 -0500
+
+    update hunters pic
+
+commit 5b022c753b54122004bdcaf514003f63eb152074
+Author: Andy Medina <andymedina@utexas.edu>
+Date:   Tue Mar 22 21:49:44 2016 -0500
+
+    added andy bio
+
+commit 12385bbea8d2a54178b53467c6080c4382968b04
+Merge: 5762fab b8871f5
+Author: Andy Medina <andymedina@utexas.edu>
+Date:   Tue Mar 22 21:22:32 2016 -0500
+
+    Merge branch 'dev' of https://github.com/c4k9c0/cs373-idb into andy
+
+commit 5762fab89b398db98a20f6f1a6c2585622203c67
+Merge: 798d4e2 32bd606
+Author: Andy Medina <andymedina@utexas.edu>
+Date:   Tue Mar 22 21:18:01 2016 -0500
+
+    Merge remote-tracking branch 'origin' into andy
+
+commit 798d4e2f53f50617e9dbb4afb5f2d3bf41e0b703
+Author: Andy Medina <andymedina@utexas.edu>
+Date:   Tue Mar 22 21:16:44 2016 -0500
+
+    added favicon
+
+commit b8871f51b36c5047a6bcc356ae47ef97c8ef818a
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Tue Mar 22 20:58:49 2016 -0500
+
+    removed unused html
+
+commit 0feb71dbf05e9b3a388bbf29f303f53c032bf4db
+Merge: 402e6bc 51a63cc
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Tue Mar 22 20:55:25 2016 -0500
+
+    Merge branch 'dev' into charlie
+
+commit 402e6bcf9ba53e86ee75bdc38d461edddb1ee6e3
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Tue Mar 22 20:48:57 2016 -0500
+
+    made datatables more responsive, still not great though. #19
+
+commit 51a63ccff984741b019c768c617ef212564da7ee
+Merge: 787ad7c 263c1bf
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Tue Mar 22 20:11:53 2016 -0500
+
+    Merge branch 'charlie' into dev
+
+commit 263c1bf3378c40523915713c9cf35bce75151b64
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Tue Mar 22 20:04:15 2016 -0500
+
+    Wrote unit tests #7
+
+commit 45d8d0d8469df5af2036d4daf7dbf2825cf4777b
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Tue Mar 22 19:08:21 2016 -0500
+
+    Removing install pymssql since we don't need it in part 1 #25
+
+commit 7f2fd2ae1aac0f11a958692862ec6c349e0a677a
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Tue Mar 22 19:00:11 2016 -0500
+
+    Adding models and pydoc #24
+
+commit ee04687886a90ca42f61bcda54a2b8b3037fd2f4
+Merge: 74f9aa6 787ad7c
+Author: Andy Medina <andymedina@utexas.edu>
+Date:   Tue Mar 22 13:28:39 2016 -0500
+
+    updating andy branch
+
+commit 74f9aa66636b686cc07f6f7f39d4a75721cd8205
+Author: Andy Medina <andymedina@utexas.edu>
+Date:   Tue Mar 22 13:27:49 2016 -0500
+
+    css and docker yml updates
+
+commit 294c46bf621d8ebe97058601636072f71badb042
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Mon Mar 21 22:09:59 2016 -0500
+
+    Moved UML to correct place #8
+
+commit c2e09252ce2c63abd2c3a15a81a7ee54a546ffe6
+Merge: e7f0829 4367999
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Mon Mar 21 22:05:08 2016 -0500
+
+    Merge branch 'dev' into charlie
+
+commit e7f0829c988d9125f049fa170b896e7d0f6f174e
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Mon Mar 21 22:01:56 2016 -0500
+
+    Adding make and travis files #11
+
+commit 787ad7c0ca04dbe124a89b6d6ae4953900dcf181
+Merge: 60e537b bff3cbc
+Author: Gabriel Gontijo Moreira <gabrielgo.moreira@egmail.com>
+Date:   Mon Mar 21 21:13:46 2016 -0500
+
+    Merge branch 'gabriel' into dev
+
+commit bff3cbcaf7f22c6e3f2c59b68b8b10bc02c5045a
+Author: Gabriel Gontijo Moreira <gabrielgo.moreira@egmail.com>
+Date:   Mon Mar 21 21:13:36 2016 -0500
+
+    fixed the apiary link to point to our actual api link
+
+commit 60e537b0e9a8033e1ad5b3bfb09fc81fe8e20581
+Merge: 4367999 280417f
+Author: Gabriel Gontijo Moreira <gabrielgo.moreira@egmail.com>
+Date:   Mon Mar 21 21:07:03 2016 -0500
+
+    Merge branch 'gabriel' into dev
+
+commit 280417fe6182afdcd0fab89eb8aacad4581764ee
+Author: Gabriel Gontijo Moreira <gabrielgo.moreira@egmail.com>
+Date:   Mon Mar 21 21:06:45 2016 -0500
+
+    Now when on an individual crime page the second table column (team) is now a link that leads you to the right team individual page
+
+commit 29341f6b0682f439b5c11547b70b88cf117727d3
+Author: Gabriel Gontijo Moreira <gabrielgo.moreira@egmail.com>
+Date:   Mon Mar 21 20:56:17 2016 -0500
+
+    Individual Teams Page now shows all the infor about that individual team before the table and pie chart
+
+commit 50d022064caa9c766c4fff732f9470657f7f8185
+Author: Gabriel Gontijo Moreira <gabrielgo.moreira@egmail.com>
+Date:   Mon Mar 21 20:31:42 2016 -0500
+
+    Crimes pages now show all the attributes in its table
+
+commit d03e96fab7aeed442083007d1a7e36d00d91990e
+Author: Gabriel Gontijo Moreira <gabrielgo.moreira@egmail.com>
+Date:   Mon Mar 21 20:26:54 2016 -0500
+
+    Individual crimes table now shows 5 attributes in its table
+
+commit 4367999a942063c8e2c929c33403083a12c155b3
+Merge: 15ab66d aa69a28
+Author: Gabriel Gontijo Moreira <gabrielgo.moreira@egmail.com>
+Date:   Mon Mar 21 20:19:49 2016 -0500
+
+    Merge branch 'gabriel' into dev
+
+commit aa69a2813b187ea9f2397aa67f8799ebc580b947
+Author: Gabriel Gontijo Moreira <gabrielgo.moreira@egmail.com>
+Date:   Mon Mar 21 20:19:25 2016 -0500
+
+    Made bar bold for better view
+
+commit f67091c5f5261209e0c3a4cf0bd97ea7af7edf9a
+Author: Gabriel Gontijo Moreira <gabrielgo.moreira@egmail.com>
+Date:   Mon Mar 21 20:17:12 2016 -0500
+
+    Single player page now shows tam badge by name
+
+commit 15ab66de507259b9e4c0defa7617f926a6d32564
+Merge: 5e1bccd 042d51d
+Author: Gabriel Gontijo Moreira <gabrielgo.moreira@egmail.com>
+Date:   Mon Mar 21 20:07:14 2016 -0500
+
+    Merge branch 'gabriel' into dev
+
+commit 042d51d9b60a3527525e41b829f2f9f6cb2dd638
+Author: Gabriel Gontijo Moreira <gabrielgo.moreira@egmail.com>
+Date:   Mon Mar 21 20:06:52 2016 -0500
+
+    Now each player page shows 5 attributes about that player
+
+commit 5e1bccd8e679f5943c167a9efc965e77a72b24bc
+Merge: 623917e 7f1caa0
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Mon Mar 21 20:03:19 2016 -0500
+
+    Merge branch 'charlie' into dev
+
+commit 7f1caa019f0e25ab63b186ac991aa700188084f3
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Mon Mar 21 19:34:42 2016 -0500
+
+    Fixed the double templates dir issue. Cleaned up app.py closes #21
+
+commit 623917e77ffb6f89cdcdb25ea2efddd0080a7166
+Author: Gabriel Gontijo Moreira <gabrielgo.moreira@egmail.com>
+Date:   Mon Mar 21 19:31:11 2016 -0500
+
+    Made it so now the single playe page table displays 2 more details about the crime, Date and Description
+
+commit 933a875c730b8b738d2632aea0a63e8dd83ba8e5
+Merge: dfbf047 022726d
+Author: Gabriel Gontijo Moreira <gabrielgo.moreira@egmail.com>
+Date:   Mon Mar 21 19:15:51 2016 -0500
+
+    Merge branch 'dev' of https://github.com/c4k9c0/cs373-idb into dev
+
+commit f6300927d443eb1990621b54d49f14a60cacd598
+Merge: dca207f 022726d
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Mon Mar 21 19:12:12 2016 -0500
+
+    Merge branch 'dev' into charlie
+
+commit 32bd606ebf4401dba0c5b9a7a731bf6c617367c6
+Author: c4k9c0 <charilecox17@yahoo.com>
+Date:   Sun Mar 20 21:46:16 2016 -0500
+
+    Finished API Documentation #2 #13
+
+commit 022726da9f0c0853e09f9716070e238e6f564ae4
+Merge: df894c2 a1c40f3
+Author: Andy Medina <andymedina@utexas.edu>
+Date:   Sun Mar 20 21:33:58 2016 -0500
+
+    Merge branch 'andy' into dev
+
+commit a1c40f31ae2248c134b6dfef50f4e89efb077481
+Author: Andy Medina <andymedina@utexas.edu>
+Date:   Sun Mar 20 21:33:16 2016 -0500
+
+    converted teams page to table
+
+commit dfbf047e2b4168b03e85b8216a417073e96ea4be
+Author: Gabriel Gontijo Moreira <gabrielgo.moreira@egmail.com>
+Date:   Sun Mar 20 20:51:17 2016 -0500
+
+    Created the UML diagram pdf
+
+commit df894c22d681d5c3dbbf3878cc41ba9cbeb79061
+Author: Gabriel Gontijo Moreira <gabrielgo.moreira@egmail.com>
+Date:   Sun Mar 20 20:08:59 2016 -0500
+
+    Created and tabularized the columns to the teams model
+
+commit 182a7dd89652d0228c5db58f20a9acde92f975d5
+Author: Andy Medina <andymedina@utexas.edu>
+Date:   Sun Mar 20 20:07:40 2016 -0500
+
+    converted crimes page to table
+
+commit 95cdda348851893fbce6f09a5dbe81f411650728
+Author: Gabriel Gontijo Moreira <gabrielgo.moreira@egmail.com>
+Date:   Sun Mar 20 18:00:10 2016 -0500
+
+    Created the crimes model to mirror the crimes.json and tabularized the other columns initializations
+
+commit dca207f95da905ad36348d8f95eb7535e2569313
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Sun Mar 20 17:55:06 2016 -0500
+
+    Adding data for the teams #20
+
+commit 7b0213105b1979a2b0a5891e57e6e901f1237f48
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Sun Mar 20 17:48:41 2016 -0500
+
+    Removing node modules
+
+commit 718c5d8c07bdb80907e5560f72a21358d4b8fe64
+Author: Gabriel Gontijo Moreira <gabrielgo.moreira@egmail.com>
+Date:   Sun Mar 20 17:37:49 2016 -0500
+
+    mirror the players.json to improve the columns from the players model
+
+commit 21eecc3a9b95f7e812610471baea29e28a47fe07
+Author: Gabriel Gontijo Moreira <gabrielgo.moreira@egmail.com>
+Date:   Sun Mar 20 17:26:01 2016 -0500
+
+    Updated the columns of the players model
+
+commit 50df4a1ee47edba15a4826b6f14a7c229c6b7c34
+Author: Gabriel Gontijo Moreira <gabrielgo.moreira@egmail.com>
+Date:   Sun Mar 20 17:15:23 2016 -0500
+
+    created basic models.py frame
+
+commit e8f351e6ae70fbcfe8812a7129638166e3e819a9
+Author: Gabriel Gontijo Moreira <gabrielgo.moreira@egmail.com>
+Date:   Sun Mar 20 16:50:56 2016 -0500
+
+    Changed the apiary link to our actual link"
+
+commit 35f05c5037c8f02ff8c8818cf540f6fc581e6370
+Merge: 1ef1ba0 7c84463
+Author: jlciam <jlciam@utexas.edu>
+Date:   Sun Mar 20 16:50:29 2016 -0500
+
+    Merge branch 'dev' into dev-jena
+
+commit 7c84463019077af27e003ade7dd036a787f85aae
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Sun Mar 20 16:39:47 2016 -0500
+
+    Attempting to remove a templates folder #21
+
+commit 1ef1ba09d9005539cca38c1765ba24255045af78
+Merge: 8dc13ff 88f6fdb
+Author: jlciam <jlciam@utexas.edu>
+Date:   Sun Mar 20 16:29:14 2016 -0500
+
+    Merge branch 'dev-jena' of https://github.com/c4k9c0/cs373-idb into dev-jena
+
+commit 8dc13ff459f2417887fd93fa4b175f78dfcefd84
+Author: Jena Cameron <jlciam21@cs.utexas.edu>
+Date:   Sat Mar 12 15:33:10 2016 -0600
+
+    quick startup up written. Running server and editing pages.
+
+commit 4ef1f880c317c286798cbc5b9cbadd1d03a7001f
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Sun Mar 20 15:41:56 2016 -0500
+
+    Collected information about teams so we can make a model page #20
+
+commit c8bd8ed63937b26ab7292b48ccd8321a19204102
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Sat Mar 19 21:46:31 2016 -0500
+
+    Finished restructuring repo. Got it working with flask #16
+
+commit 0bafaeab6e1d63a92925fdcf0f82852b4bec894c
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Sat Mar 19 21:28:09 2016 -0500
+
+    Removing unused files #16
+
+commit abc16e59dec7181c410bf817797d30f3b11314f0
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Sat Mar 19 21:22:18 2016 -0500
+
+    Changing directory structure, loading js but not html #16
+
+commit 5077c521c01a9151045ffcc62750f4caaf6041c4
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Thu Mar 17 20:55:19 2016 -0500
+
+    Finished parsing json error
+
+commit 5c9ed59d0484007bb114ae4e2e1d827841c1121f
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Thu Mar 17 20:09:56 2016 -0500
+
+    Finished trimming data
+
+commit 52701fb47ff6720e6868a9af9a7db13fe1e3318e
+Merge: 6461792 c1d4c52
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Thu Mar 17 18:54:56 2016 -0500
+
+    Merge branch 'dev' into charlie
+    
+    Conflicts:
+    	app/js/controllers.js
+
+commit 646179238f3f824941fe81613c35250e2f5fde30
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Thu Mar 17 17:45:04 2016 -0500
+
+    corrected some duplicates in json
+
+commit c1d4c522126ef7ca25984bc14e0f789679d96fa2
+Merge: 781e1d0 b4122f2
+Author: Hunter DeGroot <hunterdegroot@gmail.com>
+Date:   Thu Mar 17 16:31:11 2016 -0500
+
+    Merge branch 'dev'
+
+commit b4122f23ac44371480ce82d7cdf0752be304a9e9
+Author: Hunter DeGroot <hunterdegroot@gmail.com>
+Date:   Thu Mar 17 16:30:58 2016 -0500
+
+    Front End complete
+    
+    Everything cycles
+
+commit a5968edcace87de13debde4c9b4a96926ec5a753
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Thu Mar 17 14:13:25 2016 -0500
+
+    Adding image. idk why it wasn't already there...
+
+commit 7f32b4420eb4f87a1b0786722e230fc352c03d60
+Merge: 2d61fa3 7d9c0f5
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Thu Mar 17 13:57:51 2016 -0500
+
+    Merge branch 'charlie' into dev
+
+commit 7d9c0f51934ca068a1df39a6dc146d6b2ee54a86
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Thu Mar 17 13:57:36 2016 -0500
+
+    removed jpg from tracking
+
+commit 2d61fa38a2afed83c790fe47826e6b2a4f0c3704
+Merge: bb14fdd 28d7305
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Thu Mar 17 13:54:33 2016 -0500
+
+    Merge branch 'dev' of https://github.com/c4k9c0/cs373-idb into dev
+    
+    Conflicts:
+    	app/img/crime.jpg
+
+commit bb14fddda05b32547d4f0d1b80258b56fe109308
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Wed Mar 16 21:15:13 2016 -0500
+
+    changing crime to be a png
+
+commit 1c08ea2c8414203530f8bb92bdb1e38fa4ac740b
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Wed Mar 16 19:27:03 2016 -0500
+
+    Implemented the crimes page
+
+commit e179a0137e39fa2b28da7ed3cde6ec55e777d549
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Wed Mar 16 16:11:38 2016 -0500
+
+    Fixed Navigation issue on small devices
+
+commit 28d730515fdd47b37445e71cf34f3138bc86f537
+Author: Charlie Cox <charliecox17@yahoo.com>
+Date:   Wed Mar 16 12:15:51 2016 -0500
+
+    adding crime image
+
+commit c71f3554a9c73b872b919ee426e5fda07b577726
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Wed Mar 16 11:36:21 2016 -0500
+
+    Sorted team page
+
+commit 60dc3366fe57576b983009f09d04cf90f60e0284
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Tue Mar 15 23:42:03 2016 -0500
+
+    Implemented Teams page
+
+commit d43dc06b8769037247bacd40b0f75657a9ce6fc7
+Author: Charlie Cox <charliecox17@yahoo.com>
+Date:   Sun Mar 13 22:36:47 2016 -0500
+
+    Adding team images
+
+commit 781e1d0d4bddd9d814731fdfd20e85b632f6e4fa
+Merge: 7a1dd74 8c60e11
+Author: Hunter DeGroot <hunterdegroot@gmail.com>
+Date:   Sun Mar 13 18:25:39 2016 -0500
+
+    Merge branch 'dev'
+
+commit 8c60e111f701e137f0a0ba91a7e69d38ef8eba6e
+Author: Hunter DeGroot <hunterdegroot@gmail.com>
+Date:   Sun Mar 13 18:25:27 2016 -0500
+
+    data from json
+
+commit 7a1dd742e5b7d11e7b62a403fbf22b81c21a4e36
+Merge: 8e4185e fea2831
+Author: gabrielgomoreira <gabrielgo.moreira@gmail.com>
+Date:   Sat Mar 12 20:16:06 2016 -0600
+
+    Merge pull request #15 from c4k9c0/dev
+    
+    Dev
+
+commit fea28315afd1a01dcb83f367b8e938002220a2be
+Author: Gabriel Gontijo Moreira <gabrielgo.moreira@egmail.com>
+Date:   Sat Mar 12 20:14:31 2016 -0600
+
+    Created a script and json file that maps crime to number of instances and a dictionary of teams:instace of category'
+
+commit af0f017d157c58996f13b3014847af6752a7d850
+Author: Gabriel Gontijo Moreira <gabrielgo.moreira@egmail.com>
+Date:   Sat Mar 12 17:57:22 2016 -0600
+
+    Donwloaded everyones picture and made it 250x250 size
+
+commit ed10a919ced4eba25ce477c6bf0f5c638afe323f
+Author: Gabriel Gontijo Moreira <gabrielgo.moreira@egmail.com>
+Date:   Sat Mar 12 17:56:41 2016 -0600
+
+    Changed the format of the about page and put in all the necessary info
+
+commit 88f6fdbf9b38067e79aafe3a161fee5a6d2fd7f8
+Author: Jena Cameron <jlciam21@cs.utexas.edu>
+Date:   Sat Mar 12 15:33:10 2016 -0600
+
+    quick startup up written. Running server and editing pages.
+
+commit 8e4185e9f0d146de283167bac5919fbd9f108f63
+Merge: 9fb927d 732ba89
+Author: Hunter DeGroot <hunterdegroot@gmail.com>
+Date:   Fri Mar 11 19:22:46 2016 -0600
+
+    Merge branch 'dev'
+
+commit 732ba897ec0d4b42f5baf16f1e6cb56bc81ee11c
+Author: Hunter DeGroot <hunterdegroot@gmail.com>
+Date:   Fri Mar 11 19:22:01 2016 -0600
+
+    ng-Routes and data grid
+    
+    Skeleton setup for the front end
+
+commit 33611123497aab8792cc373bb3462a913a9579b2
+Merge: 9fec84c fe9a869
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Thu Mar 10 19:57:08 2016 -0600
+
+    Merge branch 'dev' of https://github.com/c4k9c0/cs373-idb into dev
+
+commit 9fec84cf311273404d58e037aab905579ff2aa9f
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Thu Mar 10 19:56:15 2016 -0600
+
+    Added Datamined JSONs. Also including scripts used to make them.
+
+commit 9fb927da63cdcc30ff11295fe8b431b0138151a0
+Author: c4k9c0 <charilecox17@yahoo.com>
+Date:   Wed Mar 9 22:27:46 2016 -0600
+
+    Transferring API Description file from Apiary.io
+
+commit fe9a869c885eb745f9e9f3c27ec1af08f5165bbd
+Author: Andy Medina <andymedina@utexas.edu>
+Date:   Wed Mar 9 21:57:40 2016 -0600
+
+    python web app
+
+commit a384c964481e9f741af212eab08c67d272d9b671
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Tue Mar 8 21:52:55 2016 -0600
+
+    first commit
