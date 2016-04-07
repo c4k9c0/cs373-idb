@@ -10,7 +10,7 @@ from db import db, app
 class team_tests(TestCase):
 
 	def create_app(self):
-		app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db'#'mysql+pymysql://travis:@127.0.0.1/guestbook'
+		app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://travis:@127.0.0.1/guestbook'
 		return app
 
 	def setUp(self):
@@ -49,7 +49,7 @@ class team_tests(TestCase):
 class player_tests(TestCase):
 
 	def create_app(self):
-		app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db'#'mysql+pymysql://travis:@127.0.0.1/guestbook'
+		app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://travis:@127.0.0.1/guestbook'
 		return app
 
 	def setUp(self):
@@ -109,7 +109,7 @@ class player_tests(TestCase):
 class crime_tests(TestCase):
 
 	def create_app(self):
-		app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db'#'mysql+pymysql://travis:@127.0.0.1/guestbook'
+		app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://travis:@127.0.0.1/guestbook'
 		return app
 
 	def setUp(self):

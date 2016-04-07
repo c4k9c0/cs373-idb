@@ -24,6 +24,11 @@ def create_db():
     create_nfl_db()
 
 @manager.command
+def create_test_db():
+    app.config['SQLALCHEMY_ECHO'] = True
+    create_all()
+
+@manager.command
 def drop_db():
     #logger.debug("drop_db")
     app.config['SQLALCHEMY_ECHO'] = True

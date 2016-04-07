@@ -4,6 +4,9 @@ language: python
 python:
     - "3.4"
 
+services:
+    - mysql
+
 sudo: false
 
 install:
@@ -14,13 +17,14 @@ install:
     - pip install Flask-SQLAlchemy
     - pip install Flask-Testing
     - pip install pymysql
-    - pip install coverage
     - pip install gunicorn
 
 before_script:
     - uname -a
     - printenv
     - pip list
+    - mysql -e 'create database guestbook;'
+    - python idb.py create_test_db
 
 script:
     - date
