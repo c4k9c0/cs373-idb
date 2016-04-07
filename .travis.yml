@@ -18,12 +18,13 @@ install:
     - pip install Flask-SQLAlchemy
     - pip install gunicorn
     - pip install PyMySql
+    - pip install mysql-python --use-mirrors
 
 before_script:
     - uname -a
     - printenv
     - pip list
-    - mysql -e "create database guestbook"
+    - mysql -e "create database guestbook;"
 
 script:
     - date
