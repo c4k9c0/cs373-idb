@@ -24,7 +24,7 @@ before_script:
     - printenv
     - pip list
     - mysql -e 'create database guestbook;'
-    - python idb.py create_test_db
+    - python app/idb.py create_test_db
 
 script:
     - date
