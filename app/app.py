@@ -1,13 +1,12 @@
-from flask import Flask, send_file
-from flask_sqlalchemy import SQLAlchemy
 import logging
 import os
 import json
-import models
+# import models
 
-from flask import Flask, render_template, request, redirect, url_for
-from flask.ext.script import Manager, Server
-#from flask.ext.sqlalchemy import SQLAlchemy
+from flask import Flask, render_template, request, redirect, url_for, send_file
+from flask.ext.script import Manager
+from flask.ext.sqlalchemy import SQLAlchemy
+
 
 
 logging.basicConfig(
@@ -41,26 +40,28 @@ manager = Manager(app)
 manager.add_command("runserver", Server(host="0.0.0.0", use_debugger=True))
 db = SQLAlchemy(app)
 
-
-# app = Flask(__name__, static_url_path='')
-
-# db = SQLAlchemy(app)
-
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def index():
+    logger.debug("index")
+
+    # if request.method == 'POST':
+    #     name = request.form['name']
+    #     guest = Guest(name=name)
+    #     db.session.add(guest)
+    #     db.session.commit()
+    #     return redirect(url_for('index'))
+
     return send_file('index.html')
 
-#if __name__ == '__main__':
-#    app.run(host='127.0.0.1')
 
-# class Guest(db.Model):
-#     __tablename__ = 'guests'
+class Guest(db.Model):
+    __tablename__ = 'guests'
 
-#     id = db.Column(db.Integer, primary_key=True)
-#     name = db.Column(db.String(256), nullable=False)
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(256), nullable=False)
 
-#     def __repr__(self):
-#         return "[Guest: id={}, name={}]".format(self.id, self.name)
+    def __repr__(self):
+        return "[Guest: id={}, name={}]".format(self.id, self.name)
 
 ####################################################################
 
@@ -68,7 +69,8 @@ def index():
 def create_db():
     logger.debug("create_db")
     app.config['SQLALCHEMY_ECHO'] = True
-    create_nfla_all()
+    db.create_all()
+    pop_players()
 
 @manager.command
 def create_dummy_data():
@@ -95,15 +97,16 @@ def pop_players():
         print(player)
         pkey+=1
     db.session.commit()
+    logger.debug("pop_players committed")
 
 
 def pop_crimes():
     return 1
 def pop_teams():
     return 1
-def create_nfla_all():
-    db.create_all()
-    pop_players()
+# def create_nfla_all():
+#     db.create_all()
+#     pop_players()
 
 if __name__ == '__main__':
     manager.run()

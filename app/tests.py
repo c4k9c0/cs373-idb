@@ -49,34 +49,32 @@ class player_tests(TestCase):
 	def test_insert_player(self):
 		team = Team("Arlington", "Texas", "Possums", "NFC", 6, "ARL")
 		db.session.add(team)
+
+		player = Player("2013-11-25", "Santa Claus", "CB", "A.J.", "Jefferson", 1, team)
+		db.session.add(player)
 		db.session.commit()
-		player = Player("2013-11-25", "Santa Claus", "CB", "Santa", "Claus", 1, team)
+
 		self.assertEqual(player.name, "Santa Claus")
 		db.session.add(player)
 		db.session.delete(player)	
-		db.session.commit()
 		db.session.delete(team)
 		db.session.commit()
-	
+
 	def test_read_player(self):
 		team = Team("Arlington", "Texas", "Possums", "NFC", 6, "ARL")
 		db.session.add(team)
-		db.session.commit()
 		player = Player("2013-11-25", "Santa Claus", "CB", "A.J.", "Jefferson", 1, team)
 		db.session.add(player)
 		db.session.commit()
 		test_player = db.session.query(Player).filter_by(name="Santa Claus").first()
 		self.assertEqual(test_player.name, "Santa Claus")
 		db.session.delete(player)
-		db.session.commit()
 		db.session.delete(team)
 		db.session.commit()
 
-	
 	def test_read_many_player(self):
 		team = Team("Arlington", "Texas", "Possums", "NFC", 6, "ARL")
 		db.session.add(team)
-		db.session.commit()
 		player = Player("2013-11-25", "Santa Claus 1", "CB", "Santa", "Jefferson", 1, team)
 		player2 = Player("2007-05-18", "Santa Claus", "LB", "Santa", "Nicholson", 2, team)
 		db.session.add(player)
@@ -86,7 +84,6 @@ class player_tests(TestCase):
 		self.assertEqual(len(test_player), 2)
 		db.session.delete(player)
 		db.session.delete(player2)
-		db.session.commit()
 		db.session.delete(team)
 		db.session.commit()
 
@@ -100,7 +97,6 @@ class player_tests(TestCase):
 		db.session.commit()
 		self.assertEqual(player.team.name, "ARL")
 		db.session.delete(player)
-		db.session.commit()
 		db.session.delete(team)
 		db.session.commit()
 
@@ -112,45 +108,39 @@ class crime_tests(TestCase):
 	def test_insert_crime(self):
 		team = Team("Arlington", "Texas", "Possums", "NFC", 6, "ARL")
 		db.session.add(team)
-		db.session.commit()
 		player = Player("2013-11-25", "Santa Claus", "CB", "Santa", "Claus", 1, team)
 		db.session.add(player)
-		db.session.commit()
 		crime = Crime("2013-11-25", "Description", "CB", "Outcome", "Domestic Violence", "encounter", player, team)
-		self.assertEqual(crime.category, "Domestic Violence")
 		db.session.add(crime)
 		db.session.commit()
+		self.assertEqual(crime.category, "Domestic Violence")
+		db.session.delete(crime)
 		db.session.delete(player)
-		db.session.commit()
 		db.session.delete(team)
 		db.session.commit()
+
 
 	def test_read_crime(self):
 		team = Team("Arlington", "Texas", "Possums", "NFC", 6, "ARL")
 		db.session.add(team)
-		db.session.commit()
 		player = Player("2013-11-25", "Santa Claus", "CB", "Santa", "Claus", 1, team)
 		db.session.add(player)
-		db.session.commit()
 		crime = Crime("2013-11-25", "Description", "CB", "Outcome", "Domestic Violence", "encounter", player, team)
 		db.session.add(crime)
 		db.session.commit()
 		test_crime = db.session.query(Crime).filter_by(outcome="Outcome").first()
-		self.assertEqual(test_crime.category, "Outcome")
+		self.assertEqual(test_crime.outcome, "Outcome")
 		db.session.delete(crime)
-		db.session.commit()
 		db.session.delete(player)
-		db.session.commit()
 		db.session.delete(team)
 		db.session.commit()
 	
+
 	def test_read_many_crime(self):
 		team = Team("Arlington", "Texas", "Possums", "NFC", 6, "ARL")
 		db.session.add(team)
-		db.session.commit()
 		player = Player("2013-11-25", "Santa Claus", "CB", "Santa", "Claus", 1, team)
 		db.session.add(player)
-		db.session.commit()
 		crime = Crime("2013-11-25", "Description", "CB", "Outcome", "Domestic Violence", "encounter", player, team)
 		crime2 = Crime("2013-11-25", "Description", "CB", "Outcome", "DUI", "encounter", player, team)
 		db.session.add(crime)
@@ -159,29 +149,26 @@ class crime_tests(TestCase):
 		test_crime = db.session.query(Crime).filter_by(description="Description").all()
 		self.assertEqual(len(test_crime), 2)
 		db.session.delete(crime)
-		db.session.commit()
+
 		db.session.delete(crime2)
-		db.session.commit()
 		db.session.delete(player)
-		db.session.commit()
+
 		db.session.delete(team)
 		db.session.commit()
 
 	def test_relation_crime0(self):
 		team = Team("Arlington", "Texas", "Possums", "NFC", 6, "ARL")
 		db.session.add(team)
-		db.session.commit()
+
 		player = Player("2013-11-25", "Santa Claus", "CB", "Santa", "Claus", 1, team)
 		db.session.add(player)
-		db.session.commit()
 		crime = Crime("2013-11-25", "Description", "CB", "Outcome", "Domestic Violence", "encounter", player, team)
-		self.assertEqual(crime.team.name, "ARL")
 		db.session.add(crime)
 		db.session.commit()
+		self.assertEqual(crime.team.name, "ARL")
 		db.session.delete(crime)
-		db.session.commit()
 		db.session.delete(player)
-		db.session.commit()
+
 		db.session.delete(team)
 		db.session.commit()
 
@@ -200,6 +187,20 @@ class crime_tests(TestCase):
 		db.session.commit()
 		db.session.delete(team)
 		db.session.commit()
+
+	def test_relation_crime1(self):
+		team = Team("Arlington", "Texas", "Possums", "NFC", 6, "ARL")
+		db.session.add(team)
+		player = Player("2013-11-25", "Santa Claus", "CB", "Santa", "Claus", 1, team)
+		db.session.add(player)
+		crime = Crime("2013-11-25", "Description", "CB", "Outcome", "Domestic Violence", "encounter", player, team)
+		db.session.add(crime)
+		db.session.commit()
+		self.assertEqual(crime.player.name, "Santa Claus")		
+		db.session.delete(crime)
+		db.session.delete(player)
+		db.session.delete(team)
+		db.session.commit()		
 
 if __name__ == '__main__':
 	main()
