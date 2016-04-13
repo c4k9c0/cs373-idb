@@ -150,6 +150,7 @@ def index():
     return send_file('index.html')
 
 if __name__ == "__main__":
+    create_db()
     manager.run()
 
     #Commenting out this for now based on what
