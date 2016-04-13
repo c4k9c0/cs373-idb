@@ -2,10 +2,10 @@ FILES :=                              \
     .travis.yml                       \
     .gitignore                        \
     apiary.apib                       \
-    IDB1.log                          \
+    IDB2.log                          \
     models.html                       \
-    models.py                         \
-    tests.py                          \
+    app/models.py                         \
+    app/tests.py                          \
     UML.pdf
 
 check:
@@ -27,14 +27,14 @@ check:
 	fi;                                           \
 	echo "success";
 
-IDB1.log:
-	git log > IDB1.log
+IDB2.log:
+	git log > IDB2.log
 
-IDB1.html: models.py
+IDB2.html: models.py
 	pydoc3 -w models
 
-test: app/tests.py
-	python3 app/tests.py
-	# coverage3 run    --branch tests.py 
-	# coverage3 report -m                      >> test_output.tmp
-	# cat test_output.tmp
+test: tests.py
+	python3 tests.py
+	coverage3 run    --branch tests.py > test_output.tmp 2>&1
+	coverage3 report -m  >> test_output.tmp
+	cat test_output.tmp
