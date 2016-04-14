@@ -2,7 +2,36 @@
 
 /* Controllers */
 
-var nflCsControllers = angular.module('nflCsControllers', []);
+var nflCsControllers = angular.module('nflCsControllers', ['ngAnimate', 'ui.bootstrap']);
+
+nflCsControllers.controller('SearchCtrl', ['$scope', '$uibModal',
+  function($scope, $uibModal) {
+   
+    $scope.searchStr = "";
+
+    $scope.open = function open() {
+      console.log("In open");
+      var modalInstance = $uibModal.open({
+        animation: true,
+        templateUrl: "../templates/search_results.html",
+        controller: "ModalInstanceCtrl",
+        size: "lg",
+        resolve: {
+          searchStr: function () {
+            console.log($scope.searchStr);
+            return $scope.searchStr;
+          }
+        }
+      });
+    } 
+  }])
+
+nflCsControllers.controller('ModalInstanceCtrl', ['$scope','searchStr', 
+  function($scope, searchStr){
+    console.log("Item is: " + searchStr);
+    //console.log("Modal is: " + $modalInstance);
+    $scope.someVal = searchStr;
+  }])
 
 nflCsControllers.controller('PlayersCtrl', ['$scope', 'Players',
   function($scope, Players) {
