@@ -9,6 +9,8 @@ nflCsControllers.controller('SearchCtrl', ['$scope', '$uibModal',
    
     $scope.searchStr = "";
 
+    console.log("In first controller");
+
     $scope.open = function open() {
       console.log("In open");
       var modalInstance = $uibModal.open({
@@ -28,6 +30,7 @@ nflCsControllers.controller('SearchCtrl', ['$scope', '$uibModal',
 
 nflCsControllers.controller('ModalInstanceCtrl', ['$scope','searchStr', 
   function($scope, searchStr){
+    console.log("In second controller");
     console.log("Item is: " + searchStr);
     //console.log("Modal is: " + $modalInstance);
     $scope.someVal = searchStr;
