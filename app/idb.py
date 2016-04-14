@@ -35,6 +35,14 @@ def drop_db():
     app.config['SQLALCHEMY_ECHO'] = True
     db.drop_all()
 
+#----------
+# Search 
+#----------
+@app.route('/search')
+def run_tests():
+    output = subprocess.getoutput("python3 tests.py")
+    return jsonify({"Test1":output})
+
 # ---------
 # run_tests
 # ---------
@@ -156,7 +164,7 @@ def index():
     return send_file('index.html')
 
 if __name__ == "__main__":
-    create_db()
+    #create_db()
     manager.run()
 
     #Commenting out this for now based on what

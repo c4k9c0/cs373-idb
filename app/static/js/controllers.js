@@ -28,12 +28,24 @@ nflCsControllers.controller('SearchCtrl', ['$scope', '$uibModal',
     } 
   }])
 
-nflCsControllers.controller('ModalInstanceCtrl', ['$scope','searchStr', 
-  function($scope, searchStr){
+nflCsControllers.controller('ModalInstanceCtrl', ['$scope','searchStr', 'Search',
+  function($scope, searchStr, Search){
     console.log("In second controller");
     console.log("Item is: " + searchStr);
-    //console.log("Modal is: " + $modalInstance);
-    $scope.someVal = searchStr;
+    $scope.someVal = Search('Ricky Williams');
+
+    $scope.someVal.get(function(data){
+      $scope.results = "";
+      for(var test in data) {
+        if(typeof test == "string" && test.indexOf("Test") > -1) {
+          $scope.someVal+=test+": "+data[test]+"\n";
+        }
+      }
+  });
+
+
+
+
   }])
 
 nflCsControllers.controller('PlayersCtrl', ['$scope', 'Players',
