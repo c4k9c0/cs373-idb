@@ -9,10 +9,7 @@ nflCsControllers.controller('SearchCtrl', ['$scope', '$uibModal',
    
     $scope.searchStr = "";
 
-    console.log("In first controller");
-
     $scope.open = function open() {
-      console.log("In open");
       var modalInstance = $uibModal.open({
         animation: true,
         templateUrl: "../templates/search_results.html",
@@ -20,7 +17,6 @@ nflCsControllers.controller('SearchCtrl', ['$scope', '$uibModal',
         size: "lg",
         resolve: {
           searchStr: function () {
-            console.log($scope.searchStr);
             return $scope.searchStr;
           }
         }
@@ -29,24 +25,27 @@ nflCsControllers.controller('SearchCtrl', ['$scope', '$uibModal',
   }])
 
 nflCsControllers.controller('ModalInstanceCtrl', ['$scope','searchStr', 'Search',
-  function($scope, searchStr, Search){
-    console.log("In second controller");
-    console.log("Item is: " + searchStr);
-    $scope.someVal = Search('Ricky Williams');
+  function($scope, searchStr, Search) {
 
-    $scope.someVal.get(function(data){
-      $scope.results = "";
-      for(var test in data) {
-        if(typeof test == "string" && test.indexOf("Test") > -1) {
-          $scope.someVal+=test+": "+data[test]+"\n";
+    console.log("Why are you not updating? DOOD");
+
+    $scope.searchDisplay = searchStr;
+    var results = Search(searchStr);
+
+    $scope.displayResults = "here are the results";
+
+    results.get(function(data) {
+      console.log("Why are you not updating?");
+      for(var each in data) {
+        if(data[each]['team_id'] != undefined) {
+          console.log("name is");
+          console.log(data[each]['name']);
+          
+          $scope.displayResults += data[each]['name']   
         }
       }
   });
-
-
-
-
-  }])
+}])
 
 nflCsControllers.controller('PlayersCtrl', ['$scope', 'Players',
   function($scope, Players) {

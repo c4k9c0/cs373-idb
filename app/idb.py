@@ -38,10 +38,20 @@ def drop_db():
 #----------
 # Search 
 #----------
-@app.route('/search')
-def run_tests():
-    output = subprocess.getoutput("python3 tests.py")
-    return jsonify({"Test1":output})
+@app.route('/search/<term>')
+def search(term):
+    
+    results = {}
+    
+    logger.debug(term)
+
+    players = db.session.query(Player).filter_by(name=term).all()
+
+    for player in players:
+        results[player.name] = player.serialize()
+
+    logger.debug(results)
+    return jsonify(results)
 
 # ---------
 # run_tests
