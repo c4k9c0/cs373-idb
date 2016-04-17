@@ -11,6 +11,10 @@ var nflCsApp = angular.module('nflCsApp', [
 nflCsApp.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
+      when('/countries', {
+        templateUrl: 'templates/countries.html',
+        controller: 'CountriesCtrl'
+      }).
       when('/players', {
         templateUrl: 'templates/players.html',
         controller: 'PlayersCtrl'
