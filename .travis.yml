@@ -1,9 +1,11 @@
 # http://docs.travis-ci.com/user/build-configuration/
-
 language: python
 
 python:
     - "3.4"
+
+services:
+    - mysql
 
 sudo: false
 
@@ -13,15 +15,20 @@ install:
     - pip install Flask
     - pip install Flask-Script
     - pip install Flask-SQLAlchemy
+    - pip install Flask-Testing
+    - pip install pymysql
     - pip install gunicorn
+    - pip install coverage
 
 before_script:
     - uname -a
     - printenv
     - pip list
+    - mysql -e 'create database guestbook;'
+    - python app/idb.py create_test_db
 
 script:
     - date
     - ls -al
     - make check
-    # - make test (commented out for part 1)
+    - make test

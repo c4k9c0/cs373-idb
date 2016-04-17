@@ -21,7 +21,12 @@ nflCsServices.factory('Teams',
   
 nflCsServices.factory('Tests',
   function($resource){
-    return $resource('api/run_tests');
+    return $resource('/api/run_tests');
+  });
+  
+nflCsServices.factory('Countries',
+  function($resource){
+    return $resource('http://sweography.me/api/v1/country');
   });
   
 nflCsServices.service('Types',
@@ -42,7 +47,23 @@ nflCsServices.service('Types',
     }
   });
 
-
+nflCsServices.service('GetMapData',
+  function(){
+    
+    this.getData = function(data, apiData) {
+    
+		console.log(data);
+		console.log(apiData);
+		for(var x in data) {
+			for(var y in apiData.countries) {
+				if(data[x].name.indexOf(apiData.countries[y].name) > -1) {
+					data[x].value = apiData.countries[y].population/1000000;
+				} 	
+			}
+		}
+		return data;
+  }
+});
   
 nflCsServices.service('GetPieChartData',
   function(){

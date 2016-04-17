@@ -24,6 +24,12 @@ def create_db():
     create_nfl_db()
 
 @manager.command
+def create_test_db():
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://travis:@127.0.0.1/guestbook'
+    app.config['SQLALCHEMY_ECHO'] = True
+    db.create_all()
+
+@manager.command
 def drop_db():
     #logger.debug("drop_db")
     app.config['SQLALCHEMY_ECHO'] = True
@@ -32,9 +38,9 @@ def drop_db():
 # ---------
 # run_tests
 # ---------
-@app.route('api/run_tests')
+@app.route('/api/run_tests')
 def run_tests():
-    output = subprocess.getoutput("make test")
+    output = subprocess.getoutput("python3 tests.py")
     return jsonify({"Test1":output})
 
 #----------
