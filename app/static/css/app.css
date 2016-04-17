@@ -16,3 +16,7 @@
 .panel-body > img {
 	margin: 0 auto;
 }
+
+pre {
+	margin-top: 15px;
+}

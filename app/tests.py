@@ -1,17 +1,12 @@
 import json
-import unittest
-from flask.ext.testing import TestCase
+from unittest import main, TestCase
 from models import Player, Team, Crime
 from sqlalchemy import *
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import *
-from app.db import db, app
+from db import db, app
 
 class team_tests(TestCase):
-
-	def create_app(self):
-		app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://travis:@127.0.0.1/guestbook'
-		return app
 
 	def setUp(self):
 		db.create_all()
@@ -47,10 +42,6 @@ class team_tests(TestCase):
 		db.session.commit()
 
 class player_tests(TestCase):
-
-	def create_app(self):
-		app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://travis:@127.0.0.1/guestbook'
-		return app
 
 	def setUp(self):
 		db.create_all()
@@ -108,9 +99,6 @@ class player_tests(TestCase):
 
 class crime_tests(TestCase):
 
-	def create_app(self):
-		app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://travis:@127.0.0.1/guestbook'
-		return app
 
 	def setUp(self):
 		db.create_all()
@@ -193,4 +181,10 @@ class crime_tests(TestCase):
 		db.session.commit()		
 
 if __name__ == '__main__':
-	unittest.main(verbosity=2)
+	main()
+
+# Name                                                                                                          Stmts   Miss Branch BrPart  Cover   Missing
+# ---------------------------------------------------------------------------------------------------------------------------------------------------------
+# app/db.py                                                                                                        14      0      0      0   100%   
+# app/models.py                                                                                                    88     15      3      0    80%   16-25, 55, 58, 84, 87, 130, 133
+# app/tests.py     

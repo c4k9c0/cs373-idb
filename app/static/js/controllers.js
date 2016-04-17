@@ -182,10 +182,12 @@ nflCsControllers.controller('AboutCtrl', ['$scope', 'Tests',
   function($scope, Tests) {
   	
   	var dtData = [];
-  	$scope.results = "Results will appear here.";
+  	$scope.results = "Tests will display here.";
   	
-  	$scope.getTestResults = function getTestResults() {Tests.get(function(data){
-  	
+  	$scope.getTestResults = function getTestResults() {
+      $scope.results = "Running Tests...";
+
+      Tests.get(function(data){
   		$scope.results = "";
   		for(var test in data) {
   			if(typeof test == "string" && test.indexOf("Test") > -1) {
