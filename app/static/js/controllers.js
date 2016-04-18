@@ -27,24 +27,150 @@ nflCsControllers.controller('SearchCtrl', ['$scope', '$uibModal',
 nflCsControllers.controller('ModalInstanceCtrl', ['$scope','searchStr', 'Search',
   function($scope, searchStr, Search) {
 
-    console.log("Why are you not updating? DOOD");
-
     $scope.searchDisplay = searchStr;
     var results = Search(searchStr);
 
     $scope.displayResults = "here are the results";
 
-    results.get(function(data) {
-      console.log("Why are you not updating?");
-      for(var each in data) {
-        if(data[each]['team_id'] != undefined) {
-          console.log("name is");
-          console.log(data[each]['name']);
-          
-          $scope.displayResults += data[each]['name']   
-        }
+    // Someone likes to cause problems
+
+    var players_data = [];
+    var crimes_data = [];
+    var teams_data = [];
+
+    var players_data_OR = [];
+    var crimes_data_OR = [];
+    var teams_data_OR = [];
+
+
+    var popTeams = function popTeams(collection) {
+      var ary = [];
+
+      for(var teams in collection) {
+        var t = collection[teams];
+        console.log(t['name']);
+        ary.push([t['name'], t['city'], t['state'], t['mascot'], t['division'], t['championships']]);
       }
-  });
+
+      return ary;
+    }
+
+    var popPlayers = function popPlayers(collection) {
+      var ary = [];
+
+      for(var player in collection) {
+        var p = collection[player];
+        console.log(p['name']);
+        ary.push([p['name'], p['first_name'], p['last_name'], p['last_arrest'], p['num_arrests'], p['pos']]);
+      }
+
+      return ary;
+    }
+
+    var popCrimes = function popCrimes(collection) {
+      var ary = [];
+
+      for(var crime in collection) {
+        var c = collection[crime];
+        console.log(c['id']);
+        ary.push([c['category'], c['date'], c['encounter'], c['description'], c['outcome'], c['position']]);
+      }
+
+      return ary;
+    }
+
+    results.get(function(data) {
+      
+    if(searchStr.split(/\s+/).length > 1) {
+      players_data = popPlayers(data['AND']['players']);
+      crimes_data = popCrimes(data['AND']['crimes']);
+      teams_data = popTeams(data['AND']['teams']);
+      players_data_OR = popPlayers(data['OR']['players']);
+      crimes_data_OR = popCrimes(data['OR']['crimes']);
+      teams_data_OR = popTeams(data['OR']['teams']);
+    } else {
+      players_data = popPlayers(data['players']);
+      crimes_data = popCrimes(data['crimes']);
+      teams_data = popTeams(data['teams']);
+    }
+
+    $('#table1').dataTable({
+      "responsive": true,
+      "aaData": players_data,
+      "aoColumnDefs":[{
+        "aTargets": [ 0 ]
+        , "bSortable": true
+        , "mRender": function ( url, type, full )  {
+          return  '<a href="#players/'+url+'">' + url + '</a>';}
+        }]
+    })
+
+    $('#table2').dataTable({
+      "responsive": true,
+      "aaData": players_data_OR,
+      "aoColumnDefs":[{
+        "aTargets": [ 0 ]
+        , "bSortable": true
+        , "mRender": function ( url, type, full )  {
+          return  '<a href="#crimes/'+url+'">' + url + '</a>';}
+        }]
+    })
+
+    $('#table3').dataTable({
+      "responsive": true,
+      "aaData": crimes_data,
+      "aoColumnDefs":[{
+        "aTargets": [ 0 ]
+        , "bSortable": true
+        , "mRender": function ( url, type, full )  {
+          return  '<a href="#players/'+url+'">' + url + '</a>';}
+        }]
+    })
+
+    $('#table4').dataTable({
+      "responsive": true,
+      "aaData": crimes_data_OR,
+      "aoColumnDefs":[{
+        "aTargets": [ 0 ]
+        , "bSortable": true
+        , "mRender": function ( url, type, full )  {
+          return  '<a href="#crimes/'+url+'">' + url + '</a>';}
+        }]
+    })
+
+    $('#table5').dataTable({
+      "responsive": true,
+      "aaData": teams_data,
+      "aoColumnDefs":[{
+        "aTargets": [ 0 ]
+        , "bSortable": true
+        , "mRender": function ( url, type, full )  {
+          return  '<a href="#players/'+url+'">' + url + '</a>';}
+        }]
+    })
+
+    $('#table6').dataTable({
+      "responsive": true,
+      "aaData": teams_data_OR,
+      "aoColumnDefs":[{
+        "aTargets": [ 0 ]
+        , "bSortable": true
+        , "mRender": function ( url, type, full )  {
+          return  '<a href="#crimes/'+url+'">' + url + '</a>';}
+        }]
+    })
+  }); 
+
+  // category is some json
+  var addProperty = function addProperty(key, category) {
+
+    var str = "";
+
+    for(var each in category) {
+      str += each[key];
+    }
+    return str;
+  }
 }])
 
 nflCsControllers.controller('PlayersCtrl', ['$scope', 'Players',
