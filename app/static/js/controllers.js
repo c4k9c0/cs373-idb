@@ -89,9 +89,9 @@ nflCsControllers.controller('ModalInstanceCtrl', ['$scope','searchStr', 'Search'
       crimes_data_OR = popCrimes(data['OR']['crimes']);
       teams_data_OR = popTeams(data['OR']['teams']);
     } else {
-      players_data = popPlayers(data['players']);
-      crimes_data = popCrimes(data['crimes']);
-      teams_data = popTeams(data['teams']);
+      players_data = popPlayers(data['AND']['players']);
+      crimes_data = popCrimes(data['AND']['crimes']);
+      teams_data = popTeams(data['AND']['teams']);
     }
 
     $('#table1').dataTable({
@@ -175,33 +175,33 @@ nflCsControllers.controller('ModalInstanceCtrl', ['$scope','searchStr', 'Search'
 
 nflCsControllers.controller('PlayersCtrl', ['$scope', 'Players',
   function($scope, Players) {
-  	
-  	var dtData = [];
-  	
-  	Players.get(function(data){
-  	
-  		for(var each in data) {
-  			if(data[each]['team_name'] != undefined)
-  				dtData.push([data[each]['name'],data[each]['team_name'],data[each]['pos'],data[each]['num_arrests'],data[each]['last_arrest']]);
-  		}
+    
+    var dtData = [];
+    
+    Players.get(function(data){
+    
+      for(var each in data) {
+        if(data[each]['team_name'] != undefined)
+          dtData.push([data[each]['name'],data[each]['team_name'],data[each]['pos'],data[each]['num_arrests'],data[each]['last_arrest']]);
+      }
 
-		$('table').dataTable({
-		  "responsive": true,
-      	  "aaData": dtData,
-		  "aoColumnDefs":[{
-				"aTargets": [ 0 ]
-			  , "bSortable": true
-			  , "mRender": function ( url, type, full )  {
-				  return  '<a href="#players/'+url+'">' + url + '</a>';}
-			  },
-			  {
-				"aTargets": [ 1 ]
-			  , "bSortable": true
-			  , "mRender": function ( url, type, full )  {
-				  return  '<a href="#teams/'+url+'">' + url + '</a>';}
-		  }]
-		})
-	});
+    $('table').dataTable({
+      "responsive": true,
+          "aaData": dtData,
+      "aoColumnDefs":[{
+        "aTargets": [ 0 ]
+        , "bSortable": true
+        , "mRender": function ( url, type, full )  {
+          return  '<a href="#players/'+url+'">' + url + '</a>';}
+        },
+        {
+        "aTargets": [ 1 ]
+        , "bSortable": true
+        , "mRender": function ( url, type, full )  {
+          return  '<a href="#teams/'+url+'">' + url + '</a>';}
+      }]
+    })
+  });
   }]);
 
 nflCsControllers.controller('SinglePlayerCtrl', ['$scope', '$routeParams', 'Crimes', 'Players',
@@ -349,67 +349,67 @@ nflCsControllers.controller('TeamCtrl', ['$scope', 'Teams',
   
 nflCsControllers.controller('AboutCtrl', ['$scope', 'Tests',
   function($scope, Tests) {
-  	
-  	var dtData = [];
-  	$scope.results = "Tests will display here.";
-  	
-  	$scope.getTestResults = function getTestResults() {
+    
+    var dtData = [];
+    $scope.results = "Tests will display here.";
+    
+    $scope.getTestResults = function getTestResults() {
       $scope.results = "Running Tests...";
 
       Tests.get(function(data){
-  		$scope.results = "";
-  		for(var test in data) {
-  			if(typeof test == "string" && test.indexOf("Test") > -1) {
-  				$scope.results+=test+": "+data[test]+"\n";
-  			}
-  		}
-	});}
+      $scope.results = "";
+      for(var test in data) {
+        if(typeof test == "string" && test.indexOf("Test") > -1) {
+          $scope.results+=test+": "+data[test]+"\n";
+        }
+      }
+  });}
   }]);
 
 nflCsControllers.controller('SingleTeamCtrl', ['$scope', '$routeParams', 'Crimes', 'Teams', 'GetPieChartData',
   function($scope, $routeParams, Crimes, Teams, GetPieChartData) {
-  	
-  	var dtData = [];
-  	$scope.teamName = $routeParams.teamAbrv;
+    
+    var dtData = [];
+    $scope.teamName = $routeParams.teamAbrv;
     $scope.team_img = 'img/Teams/' + $scope.teamName + '.gif';
 
     Teams.get(function(data) {
       $scope.team = data[$scope.teamName]
       
     })
-  	
-  	Crimes.get(function(data){
-  	
-  		for(var each in data) {
-  			
-        	if(data[each][0] != undefined) {
-          		var player = data[each];
-          		for(var crime in player) {
-            		if(player[crime]['team_name'] == $routeParams.teamAbrv) {
-              			dtData.push([each,player[crime]['position'],player[crime]['category'],player[crime]['encounter'],player[crime]['outcome']]);
-            		}
-          		}
-        	}
-  		}
-  	
-		$('table').dataTable({
+    
+    Crimes.get(function(data){
+    
+      for(var each in data) {
+        
+          if(data[each][0] != undefined) {
+              var player = data[each];
+              for(var crime in player) {
+                if(player[crime]['team_name'] == $routeParams.teamAbrv) {
+                    dtData.push([each,player[crime]['position'],player[crime]['category'],player[crime]['encounter'],player[crime]['outcome']]);
+                }
+              }
+          }
+      }
+    
+    $('table').dataTable({
       "responsive": true,
-		  "aaData": dtData,
-		  "aoColumnDefs":[{
-				  "aTargets": [ 0 ]
-			  	, "bSortable": true
-        		, "mRender": function ( url, type, full )  {
-          			return  '<a href="#players/'+url+'">' + url + '</a>';}
-		  },
-		  {
-				  "aTargets": [ 2 ]
-			    , "bSortable": true
-       		  	, "mRender": function ( url, type, full )  {
-          			return  '<a href="#crimes/'+url+'">' + url + '</a>';}
-		  }]
-		})
-		
-		// Build the chart
+      "aaData": dtData,
+      "aoColumnDefs":[{
+          "aTargets": [ 0 ]
+          , "bSortable": true
+            , "mRender": function ( url, type, full )  {
+                return  '<a href="#players/'+url+'">' + url + '</a>';}
+      },
+      {
+          "aTargets": [ 2 ]
+          , "bSortable": true
+              , "mRender": function ( url, type, full )  {
+                return  '<a href="#crimes/'+url+'">' + url + '</a>';}
+      }]
+    })
+    
+    // Build the chart
     $('#container').highcharts({
         chart: {
             plotBackgroundColor: null,
@@ -439,5 +439,5 @@ nflCsControllers.controller('SingleTeamCtrl', ['$scope', '$routeParams', 'Crimes
             data: GetPieChartData.getPieChartData(dtData, 2)
         }]
     })
-	});
+  });
 }]);
