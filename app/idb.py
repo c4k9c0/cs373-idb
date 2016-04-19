@@ -42,8 +42,21 @@ def drop_db():
 @app.route('/search/<term>')
 def search(term):
 	
+	term = term.split()
 	results = {}
+	results['OR'] = {}
+	results['AND'] = {}
 
+	player_result = db.session.query(Player).all()
+	teams_result  = db.session.query(Team).all()
+	crimes_result = db.session.query(Crime).all()
+
+	results = search_teams(teams_result, term, results)
+	results = search_players(player_result, term, results)
+	results = search_crimes(crimes_result, term, results)
+
+	logger.debug(results)
+	'''
 	player_result = Player.query.whoosh_search(term).all()
 	teams_result = Team.query.whoosh_search(term).all()
 	crimes_result = Crime.query.whoosh_search(term).all()
@@ -52,17 +65,12 @@ def search(term):
 	results["teams"] = place_data(teams_result, "name")
 	results["crimes"] = place_data(crimes_result, "id")
 
-
-	logger.debug(results)
-
 	# need to also do OR
 	if len(term.split()) > 1:
 		
 		new_results = {}
 		new_results['AND'] = results
 		results = new_results
-		
-		logger.debug(results)
 
 		player_result = Player.query.whoosh_search(term, or_=True).all()
 		teams_result = Team.query.whoosh_search(term, or_=True).all()
@@ -74,7 +82,61 @@ def search(term):
 		results['OR']['teams'] = place_data(teams_result, "name")
 		results['OR']['crimes'] = place_data(crimes_result, "id")
 
+	logger.debug(results)
+	'''
 	return jsonify(results)
+
+def search_crimes(crimes_list, terms, results):
+	
+	results['AND']['crimes'] = {}
+	results['OR']['crimes'] = {}
+
+	for crime in crimes_list:
+		count = 0
+		for term in terms:
+			if (crime.category.find(term) > -1) or (crime.date.find(term) > -1) or (crime.encounter.find(term) > -1) or (crime.description.find(term) > -1) or (crime.outcome.find(term) > -1) or (crime.position.find(term) > -1):
+				count += 1
+		if len(terms) == count:
+			results['AND']['crimes'][crime.id] = crime.serialize()
+		elif count > 0:
+			results['OR']['crimes'][crime.id] = crime.serialize()
+
+	return results
+
+def search_players(player_list, terms, results):
+	
+	results['AND']['players'] = {}
+	results['OR']['players'] = {}
+
+	for player in player_list:
+		count = 0
+		for term in terms:
+			if (player.name.find(term) > -1) or (player.first_name.find(term) > -1) or (player.last_name.find(term) > -1) or (player.last_arrest.find(term) > -1) or (player.pos.find(term) > -1):
+				count += 1
+		if len(terms) == count:
+			results['AND']['players'][player.name] = player.serialize()
+		elif count > 0:
+			results['OR']['players'][player.name] = player.serialize()
+
+	return results
+
+def search_teams(team_list, terms, results):
+	
+	results['AND']['teams'] = {}
+	results['OR']['teams'] = {}
+
+	for team in team_list:
+		count = 0
+		for term in terms:
+			if (team.city.find(term) > -1) or (team.name.find(term) > -1) or (team.state.find(term) > -1) or (team.mascot.find(term) > -1) or (team.division.find(term) > -1):
+				count += 1
+		if len(terms) == count:
+			results['AND']['teams'][team.name] = team.serialize()
+		elif count > 0:
+			results['OR']['teams'][team.name] = team.serialize()
+
+	return results
+
 
 def place_data(collection, key):
 
@@ -83,7 +145,6 @@ def place_data(collection, key):
 	for each in collection:
 		result[getattr(each, key)] = each.serialize()
 	return result
-
 
 # ---------
 # run_tests
