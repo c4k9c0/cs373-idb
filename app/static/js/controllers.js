@@ -24,8 +24,8 @@ nflCsControllers.controller('SearchCtrl', ['$scope', '$uibModal',
     } 
   }])
 
-nflCsControllers.controller('ModalInstanceCtrl', ['$scope','searchStr', 'Search',
-  function($scope, searchStr, Search) {
+nflCsControllers.controller('ModalInstanceCtrl', ['$scope','searchStr', 'Search', '$location',
+  function($scope, searchStr, Search, $location) {
 
     $scope.searchDisplay = searchStr;
     var results = Search(searchStr);
@@ -34,13 +34,13 @@ nflCsControllers.controller('ModalInstanceCtrl', ['$scope','searchStr', 'Search'
 
     // Someone likes to cause problems
 
-    var players_data = [];
-    var crimes_data = [];
-    var teams_data = [];
+    $scope.players_data = [];
+    $scope.crimes_data = [];
+    $scope.teams_data = [];
 
-    var players_data_OR = [];
-    var crimes_data_OR = [];
-    var teams_data_OR = [];
+    $scope.players_data_OR = [];
+    $scope.crimes_data_OR = [];
+    $scope.teams_data_OR = [];
 
 
     var popTeams = function popTeams(collection) {
@@ -48,10 +48,15 @@ nflCsControllers.controller('ModalInstanceCtrl', ['$scope','searchStr', 'Search'
 
       for(var teams in collection) {
         var t = collection[teams];
-        console.log(t['name']);
-        ary.push([t['name'], t['city'], t['state'], t['mascot'], t['division'], t['championships']]);
+        ary.push({
+          'name'          : t['name'],
+          'city'          : t['city'],
+          'state'         : t['state'], 
+          'mascot'        : t['mascot'],
+          'division'      : t['division'],
+          'championships' : t['championships']
+        });
       }
-
       return ary;
     }
 
@@ -60,8 +65,14 @@ nflCsControllers.controller('ModalInstanceCtrl', ['$scope','searchStr', 'Search'
 
       for(var player in collection) {
         var p = collection[player];
-        console.log(p['name']);
-        ary.push([p['name'], p['first_name'], p['last_name'], p['last_arrest'], p['num_arrests'], p['pos']]);
+        ary.push({
+          'name'        : p['name'],
+          'first_name'  : p['first_name'], 
+          'last_name'   : p['last_name'],
+          'last_arrest' : p['last_arrest'],
+          'num_arrests' : p['num_arrests'],
+          'pos'         : p['pos']
+        });
       }
 
       return ary;
@@ -72,7 +83,6 @@ nflCsControllers.controller('ModalInstanceCtrl', ['$scope','searchStr', 'Search'
 
       for(var crime in collection) {
         var c = collection[crime];
-        console.log(c['id']);
         ary.push([c['category'], c['date'], c['encounter'], c['description'], c['outcome'], c['position']]);
       }
 
@@ -82,18 +92,24 @@ nflCsControllers.controller('ModalInstanceCtrl', ['$scope','searchStr', 'Search'
     results.get(function(data) {
       
     if(searchStr.split(/\s+/).length > 1) {
-      players_data = popPlayers(data['AND']['players']);
-      crimes_data = popCrimes(data['AND']['crimes']);
-      teams_data = popTeams(data['AND']['teams']);
-      players_data_OR = popPlayers(data['OR']['players']);
-      crimes_data_OR = popCrimes(data['OR']['crimes']);
-      teams_data_OR = popTeams(data['OR']['teams']);
+      $scope.players_data = popPlayers(data['AND']['players']);
+      $scope.crimes_data = popCrimes(data['AND']['crimes']);
+      $scope.teams_data = popTeams(data['AND']['teams']);
+      $scope.players_data_OR = popPlayers(data['OR']['players']);
+      $scope.crimes_data_OR = popCrimes(data['OR']['crimes']);
+      $scope.teams_data_OR = popTeams(data['OR']['teams']);
     } else {
-      players_data = popPlayers(data['AND']['players']);
-      crimes_data = popCrimes(data['AND']['crimes']);
-      teams_data = popTeams(data['AND']['teams']);
+      $scope.players_data = popPlayers(data['AND']['players']);
+      $scope.crimes_data = popCrimes(data['AND']['crimes']);
+      $scope.teams_data = popTeams(data['AND']['teams']);
     }
 
+    $scope.forward = function forward(tgt) {
+      $scope.$close();
+      //$scope.close();
+      $location.path("players/" + tgt);
+    }
+/*
     $('#table1').dataTable({
       "responsive": true,
       "aaData": players_data,
@@ -112,7 +128,7 @@ nflCsControllers.controller('ModalInstanceCtrl', ['$scope','searchStr', 'Search'
         "aTargets": [ 0 ]
         , "bSortable": true
         , "mRender": function ( url, type, full )  {
-          return  '<a href="#crimes/'+url+'">' + url + '</a>';}
+          return  '<a href="#players/'+url+'">' + url + '</a>';}
         }]
     })
 
@@ -123,7 +139,7 @@ nflCsControllers.controller('ModalInstanceCtrl', ['$scope','searchStr', 'Search'
         "aTargets": [ 0 ]
         , "bSortable": true
         , "mRender": function ( url, type, full )  {
-          return  '<a href="#players/'+url+'">' + url + '</a>';}
+          return  '<a href="#crimes/'+url+'">' + url + '</a>';}
         }]
     })
 
@@ -145,7 +161,7 @@ nflCsControllers.controller('ModalInstanceCtrl', ['$scope','searchStr', 'Search'
         "aTargets": [ 0 ]
         , "bSortable": true
         , "mRender": function ( url, type, full )  {
-          return  '<a href="#players/'+url+'">' + url + '</a>';}
+          return  '<a href="#teams/'+url+'">' + url + '</a>';}
         }]
     })
 
@@ -156,9 +172,10 @@ nflCsControllers.controller('ModalInstanceCtrl', ['$scope','searchStr', 'Search'
         "aTargets": [ 0 ]
         , "bSortable": true
         , "mRender": function ( url, type, full )  {
-          return  '<a href="#crimes/'+url+'">' + url + '</a>';}
+          return  '<a href="#teams/'+url+'">' + url + '</a>';}
         }]
     })
+  */
   }); 
 
   // category is some json
