@@ -95,14 +95,10 @@ nflCsControllers.controller('ModalInstanceCtrl', ['$scope','searchStr', 'Search'
     }
 
     $scope.assignFont = function assignFont(terms) {
-  
 
       terms = terms.split();
 
-      console.log(terms);
-
       for(var t in terms) {
-        console.log(terms[t]);
         if((terms[t].indexOf($scope.searchDisplay) > -1) || ($scope.searchDisplay.indexOf(terms[t]) > -1)) {
           return "bold-match";
         }
