@@ -30,8 +30,6 @@ nflCsControllers.controller('ModalInstanceCtrl', ['$scope','searchStr', 'Search'
     $scope.searchDisplay = searchStr;
     var results = Search(searchStr);
 
-    $scope.displayResults = "here are the results";
-
     // Someone likes to cause problems
 
     $scope.players_data = [];
@@ -83,10 +81,37 @@ nflCsControllers.controller('ModalInstanceCtrl', ['$scope','searchStr', 'Search'
 
       for(var crime in collection) {
         var c = collection[crime];
-        ary.push([c['category'], c['date'], c['encounter'], c['description'], c['outcome'], c['position']]);
+        ary.push({
+          'category'    : c['category'],
+          'date'        : c['date'],
+          'encounter'   : c['encounter'],
+          'description' : c['description'],
+          'outcome'     :c['outcome'],
+          'position'    :c['position']
+        });
       }
 
       return ary;
+    }
+
+    $scope.assignFont = function assignFont(terms) {
+  
+
+      terms = terms.split();
+
+      console.log(terms);
+
+      for(var t in terms) {
+        console.log(terms[t]);
+        if((terms[t].indexOf($scope.searchDisplay) > -1) || ($scope.searchDisplay.indexOf(terms[t]) > -1)) {
+          return "bold-match";
+        }
+      }
+    }
+
+    $scope.forward = function forward(tgt) {
+      $scope.$close();
+      $location.path(tgt);
     }
 
     results.get(function(data) {
@@ -103,91 +128,7 @@ nflCsControllers.controller('ModalInstanceCtrl', ['$scope','searchStr', 'Search'
       $scope.crimes_data = popCrimes(data['AND']['crimes']);
       $scope.teams_data = popTeams(data['AND']['teams']);
     }
-
-    $scope.forward = function forward(tgt) {
-      $scope.$close();
-      //$scope.close();
-      $location.path("players/" + tgt);
-    }
-/*
-    $('#table1').dataTable({
-      "responsive": true,
-      "aaData": players_data,
-      "aoColumnDefs":[{
-        "aTargets": [ 0 ]
-        , "bSortable": true
-        , "mRender": function ( url, type, full )  {
-          return  '<a href="#players/'+url+'">' + url + '</a>';}
-        }]
-    })
-
-    $('#table2').dataTable({
-      "responsive": true,
-      "aaData": players_data_OR,
-      "aoColumnDefs":[{
-        "aTargets": [ 0 ]
-        , "bSortable": true
-        , "mRender": function ( url, type, full )  {
-          return  '<a href="#players/'+url+'">' + url + '</a>';}
-        }]
-    })
-
-    $('#table3').dataTable({
-      "responsive": true,
-      "aaData": crimes_data,
-      "aoColumnDefs":[{
-        "aTargets": [ 0 ]
-        , "bSortable": true
-        , "mRender": function ( url, type, full )  {
-          return  '<a href="#crimes/'+url+'">' + url + '</a>';}
-        }]
-    })
-
-    $('#table4').dataTable({
-      "responsive": true,
-      "aaData": crimes_data_OR,
-      "aoColumnDefs":[{
-        "aTargets": [ 0 ]
-        , "bSortable": true
-        , "mRender": function ( url, type, full )  {
-          return  '<a href="#crimes/'+url+'">' + url + '</a>';}
-        }]
-    })
-
-    $('#table5').dataTable({
-      "responsive": true,
-      "aaData": teams_data,
-      "aoColumnDefs":[{
-        "aTargets": [ 0 ]
-        , "bSortable": true
-        , "mRender": function ( url, type, full )  {
-          return  '<a href="#teams/'+url+'">' + url + '</a>';}
-        }]
-    })
-
-    $('#table6').dataTable({
-      "responsive": true,
-      "aaData": teams_data_OR,
-      "aoColumnDefs":[{
-        "aTargets": [ 0 ]
-        , "bSortable": true
-        , "mRender": function ( url, type, full )  {
-          return  '<a href="#teams/'+url+'">' + url + '</a>';}
-        }]
-    })
-  */
   }); 
-
-  // category is some json
-  var addProperty = function addProperty(key, category) {
-
-    var str = "";
-
-    for(var each in category) {
-      str += each[key];
-    }
-    return str;
-  }
 }])
 
 nflCsControllers.controller('PlayersCtrl', ['$scope', 'Players',

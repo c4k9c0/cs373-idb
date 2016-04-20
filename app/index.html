@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="nflCsApp" ng-controller="SearchCtrl">
+<html lang="en" ng-app="nflCsApp">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -57,47 +57,8 @@
     <![endif]-->
   </head>
 
-  <body>
-    <!--
-  	<nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#/">NFL Crime Stats</a>
-          <div id="custom-search-input">
-              <span class="input-group col-xs-4 col-sm-4">
-                <form ng-submit="open()">
-                  <input type="text" ng-model="searchStr" class="search-query form-control" placeholder="Search" type="submit">
-                    <span class="input-group-btn">
-                      <button class="btn" type="button" ng-click="open()">
-                          <span class="glyphicon glyphicon-search"></span>
-                      </button>
-                    </span>
-                  </input>
-                </form>
-              </span>
-          </div>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">                        
-            <li><a href="#players" data-toggle="collapse" data-target="#navbar">Players</a></li>
-
-            <li><a href="#teams" data-toggle="collapse" data-target="#navbar">Teams</a></li>
-
-            <li><a href="#crimes" data-toggle="collapse" data-target="#navbar">Crimes</a></li>
-
-            <li><a href="#about" data-toggle="collapse" data-target="#navbar">About</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav> -->
-  
-  <nav class="navbar navbar-default" role="navigation">
+  <body>  
+  <nav class="navbar navbar-default" role="navigation" ng-controller="SearchCtrl">
     <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
             <span class="sr-only">Toggle navigation</span>
