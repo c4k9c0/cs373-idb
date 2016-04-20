@@ -1,0 +1,46 @@
++--------------------------------------------+
+|											 |
+|				CRITIQUES					 |
+|											 |
++--------------------------------------------+
+
+==============================================
+	CRITIQUE OF OUR WEBSITE (GROUP NUMBER 2)
+==============================================
+1) What did we do well?
+
+	We believe that overall we implemented all parts of the project well. But if we had to focus on a specific aspect of the project, we are particularly proud of our backend. Our flask, python, models, and angular were well implemented and clean. This made our code to run mostly smoothly and made it easy to follow.
+
+
+2) What did we learn?
+
+	We learned lots about Docker containers, MySQL, HTTP requests, and how real world applications are mostly developed. 
+
+3) What can we do better?
+
+	One area of development that we believe we can get better on is the front end development (mostly JavaScript, jQuery, and HTML) and Data Scrapping. Despite the room for development we still believe that the work we provided on these areas are of good quality and great effort.
+
+4) What puzzles us?
+	
+	What puzzles us a little is the inner workings of Carina/Docker and Angular. Despite being successful in having our application run correctly and smoothly, we believe that a better understanding of those two components would be useful perhaps for more complex future applications.
+
+==============================================
+	CRITIQUE OF OUR WEBSITE (GROUP NUMBER 3)
+==============================================
+1) What did they do well?
+	
+	We believe that group 3 implemented their models and API well. Their website is rich in content and easy to navigate between models. Their website is insightful. Additionally, they allow their API calls to be very customizable.
+
+
+2) What did we learn from their website?
+
+	We learned that you can allow your API call to have more specific search parameters by providing more than a single id on your call. Example: http://sweography.me/api/v1/country{?id,region_id,currency_id,language_id, subregion_id}. Beforehand we were under the impression that your API call had to be less specific.
+
+3) What can they do better?
+
+	We believe that they could've displayed more "media" for each model page. Something as simple as a picture of the country's flag would've been cool. That being said we thought it was really interesting how they showed the regions and countries on google maps.
+
+
+4) What puzzles us about their website?
+
+	One thing that puzzles us about their website is how you search for a country by ID as opposed that by name. This is also noticed on the URL when navigating through the models. For example, http://sweography.me/countries/18 corresponds to Bangladesh's page.
