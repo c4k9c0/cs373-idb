@@ -50,14 +50,44 @@ nflCsServices.service('Types',
 nflCsServices.service('GetMapData',
   function(){
     
-    this.getData = function(data, apiData) {
+    this.getPopulation = function(data, apiData) {
     
-		console.log(data);
-		console.log(apiData);
 		for(var x in data) {
 			for(var y in apiData.countries) {
 				if(data[x].name.indexOf(apiData.countries[y].name) > -1) {
 					data[x].value = apiData.countries[y].population/1000000;
+				} 	
+			}
+		}
+		return data;
+  }
+  
+  this.getCurrencies = function(data, apiData) {
+    
+		for(var x in data) {
+			data[x].value = 1;
+		}
+		
+		for(var x in data) {
+			for(var y in apiData.countries) {
+				if(data[x].name.indexOf(apiData.countries[y].name) > -1) {
+					data[x].value = apiData.countries[y].currencies.length;
+				} 	
+			}
+		}
+		return data;
+  }
+  
+  this.getLanguages = function(data, apiData) {
+    
+		for(var x in data) {
+			data[x].value = 1;
+		}
+		
+		for(var x in data) {
+			for(var y in apiData.countries) {
+				if(data[x].name.indexOf(apiData.countries[y].name) > -1) {
+					data[x].value = apiData.countries[y].languages.length;
 				} 	
 			}
 		}
