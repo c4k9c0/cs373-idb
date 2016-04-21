@@ -94,12 +94,14 @@ nflCsControllers.controller('ModalInstanceCtrl', ['$scope','searchStr', 'Search'
       return ary;
     }
 
-    $scope.assignFont = function assignFont(terms) {
+    $scope.assignFont = function assignFont(attribute) {
+      // terms = Ricky Williams
 
-      terms = terms.split();
+      var terms = $scope.searchDisplay.split(" ");
 
       for(var t in terms) {
-        if((terms[t].indexOf($scope.searchDisplay) > -1) || ($scope.searchDisplay.indexOf(terms[t]) > -1)) {
+        // RB, Ricky
+        if((terms[t].indexOf(attribute) > -1) || (attribute.indexOf(terms[t]) > -1)) {
           return "bold-match";
         }
       }
