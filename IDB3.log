@@ -1,3 +1,15 @@
+commit 23f8e2aff209990ecfa6c25184d68de94edbdf1d
+Author: Andy Medina <andymedina@utexas.edu>
+Date:   Thu Apr 21 13:36:00 2016 -0500
+
+    travis fix
+
+commit 4f5f3b011a5f4f330f51aef31aedcc8e0766d0f3
+Author: Andy Medina <andymedina@utexas.edu>
+Date:   Thu Apr 21 13:26:52 2016 -0500
+
+    update project 5 log
+
 commit b6edfc5c80ad5d3216fc455b93025088350f181e
 Merge: 91e25fb 87f92ed
 Author: Andy Medina <andymedina@utexas.edu>

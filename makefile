@@ -27,8 +27,8 @@ check:
 	fi;                                           \
 	echo "success";
 
-IDB2.log:
-	git log > IDB2.log
+IDB3.log:
+	git log > IDB3.log
 
 IDB2.html: models.py
 	pydoc3 -w models
