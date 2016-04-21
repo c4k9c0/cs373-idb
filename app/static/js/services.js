@@ -18,6 +18,15 @@ nflCsServices.factory('Teams',
   function($resource){
     return $resource('api/teams');
   });
+
+nflCsServices.factory('Search',
+  function($resource) {
+    return function(searchStr) {
+      //return "You got to the factory";
+      //console.log("In factory " + searchStr);
+      return $resource('search/' + searchStr);
+    }
+  })
   
 nflCsServices.factory('Tests',
   function($resource){

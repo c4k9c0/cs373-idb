@@ -15,7 +15,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 logger.debug("Welcome to Carina Guestbook")
 
-
+'''
 SQLALCHEMY_DATABASE_URI = \
     '{engine}://{username}:{password}@{hostname}/{database}'.format(
         engine='mysql+pymysql',
@@ -27,6 +27,11 @@ SQLALCHEMY_DATABASE_URI = \
         #password=os.getenv('MYSQL_PASSWORD'),
         #hostname=os.getenv('MYSQL_HOST'),
         #database=os.getenv('MYSQL_DATABASE'))
+'''
+
+SQLALCHEMY_DATABASE_URI = 'sqlite:////tmp/test.db'
+
+SQLALCHEMY_DATABASE_URI = 'sqlite:////tmp/test.db'
 
 logger.debug("The log statement below is for educational purposes only. Do *not* log credentials.")
 logger.debug("%s", SQLALCHEMY_DATABASE_URI)
@@ -52,18 +57,6 @@ def index():
     #     return redirect(url_for('index'))
 
     return send_file('index.html')
-
-
-class Guest(db.Model):
-    __tablename__ = 'guests'
-
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(256), nullable=False)
-
-    def __repr__(self):
-        return "[Guest: id={}, name={}]".format(self.id, self.name)
-
-####################################################################
 
 @manager.command
 def create_db():
@@ -109,4 +102,5 @@ def pop_teams():
 #     pop_players()
 
 if __name__ == '__main__':
+    create_db()
     manager.run()

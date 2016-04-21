@@ -20,3 +20,7 @@
 pre {
 	margin-top: 15px;
 }
+
+.bold-match {
+	font-weight: bold;
+}

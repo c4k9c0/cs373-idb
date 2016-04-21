@@ -5,6 +5,7 @@ import subprocess, os
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 
+
 SQLALCHEMY_DATABASE_URI = \
     '{engine}://{username}:{password}@{hostname}/{database}'.format(
         engine='mysql+pymysql',
@@ -13,7 +14,7 @@ SQLALCHEMY_DATABASE_URI = \
         hostname=os.getenv('MYSQL_HOST'),
         database=os.getenv('MYSQL_DATABASE'))
 
-# SQLALCHEMY_DATABASE_URI = 'sqlite:////tmp/test.db'
+#SQLALCHEMY_DATABASE_URI = 'sqlite:////tmp/test.db'
 
 app = Flask(__name__, static_url_path='')
 app.config['SQLALCHEMY_DATABASE_URI'] = SQLALCHEMY_DATABASE_URI

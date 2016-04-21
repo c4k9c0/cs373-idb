@@ -3,7 +3,7 @@ from sqlalchemy import ForeignKey
 from sqlalchemy.orm import relationship
 
 # This is only because models.py has to be in the root.
-from db import db
+from db import db, app
 import json
 from sqlalchemy.orm import relationship
 
@@ -26,6 +26,7 @@ def get_dict(obj):
 
 class Player(db.Model):
 	__tablename__ = 'Player'
+	__searchable__ = ['last_arrest', 'name', 'pos', 'first_name', 'last_name']
 
 	id     = Column(Integer, Sequence('player_id_seq'), primary_key = True)
 	
@@ -36,7 +37,7 @@ class Player(db.Model):
 	team_id       = db.Column(Integer, ForeignKey("Team.id"))
 	
 	last_name     = db.Column(String(15))
-	num_arrests   = db.Column(Integer)
+	num_arrests   = db.Column(db.Integer)
 	
 	team 	 	  = relationship("Team")
 
@@ -57,12 +58,12 @@ class Player(db.Model):
 	def serialize(self):
 		return get_dict(self)
 
-
 """
 Models for Team
 """
 class Team(db.Model):
 	__tablename__ = 'Team'
+	__searchable__ = ['city', 'state', 'mascot', 'division', 'name']
 
 	id       	  = db.Column(Integer, Sequence('team_id_seq'), primary_key = True)
 	city          = db.Column(String(20))
@@ -94,6 +95,7 @@ Models for Crime
 
 class Crime(db.Model):
 	__tablename__ = 'Crime'
+	__searchable__ = ['date', 'description', 'position', 'outcome', 'category', 'encounter']
 
 	id      = db.Column(db.Integer, Sequence('crime_id_seq'),primary_key = True)
 

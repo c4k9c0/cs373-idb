@@ -1,0 +1,134 @@
+<div class="modal-header">
+    <h3 class="modal-title">Results for <b>{{searchDisplay}}</b>:</h3>
+</div>
+<div class="modal-body">
+	<h2 ng-show="(searchDisplay.split(' ').length > 1)">And Results</h2>
+	<h5 ng-show="players_data.length < 1 && crimes_data.length < 1 && teams_data.length < 1"><i>No results here</i></h5>
+	<span ng-show="players_data.length > 0">
+		<h3> Players </h3>
+	    <table class="table">
+			<thead>
+				<th class="site_name">Name</th>
+		    	<th>First Name</th>
+		    	<th>Last Name</th>
+		    	<th>Last Arrest</th>
+		    	<th>Number Arrests</th>
+		    	<th>Position</th>
+			</thead>
+			<tr ng-repeat="player in players_data | limitTo:20">
+				<td ng-class="assignFont(player.name)"><a ng-click="forward('players/' + player.name)" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">{{player.name}}</a></td>
+				<td ng-bind-html="player.first_name | searchFilter:searchDisplay">{{player.first_name}}</td>
+				<td ng-bind-html="player.last_name | searchFilter:searchDisplay">{{player.last_name}}</td>
+				<td ng-bind-html="player.last_arrest | searchFilter:searchDisplay">{{player.last_arrest}}</td>
+				<td>{{player.num_arrests}}</td>
+				<td ng-bind-html="player.pos | searchFilter:searchDisplay">{{player.pos}}</td>
+	  		</tr>	
+		</table>
+	</span>
+	<span ng-show="crimes_data.length > 0">
+		<h3> Crimes </h3>
+	    <table class="table">
+		    <tr>
+		    	<th class="site_name">Category</th>
+		    	<th>Date</th>
+		    	<th>Encounter</th>
+		    	<th>Description</th>
+		    	<th>Outcome</th>
+		    	<th>Position</th>
+	    	</tr>
+	    	<tr ng-repeat="crime in crimes_data | limitTo:20">
+				<td ng-class="assignFont(crime.category)"><a ng-click="forward('crimes/' + crime.category)" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">{{crime.category}}</a></td>
+				<td ng-bind-html="crime.date | searchFilter:searchDisplay">{{crime.date}}</td>
+				<td ng-bind-html="crime.encounter | searchFilter:searchDisplay">{{crime.encounter}}</td>
+				<td ng-bind-html="crime.description | searchFilter:searchDisplay">{{crime.description}}</td>
+				<td ng-bind-html="crime.outcome | searchFilter:searchDisplay">{{crime.outcome}}</td>
+				<td ng-bind-html="crime.position | searchFilter:searchDisplay">{{crime.position}}</td>
+	  		</tr>
+		</table>
+	</span>
+	<span ng-show="teams_data.length > 0">
+		<h3> Teams </h3>
+	    <table class="table">
+		    <tr>
+		    	<th class="site_name">Name</th>
+		    	<th>City</th>
+		    	<th>State</th>
+		    	<th>Mascot</th>
+		    	<th>Division</th>
+		    	<th>Champtionships</th>
+	    	</tr>
+	    	<tr ng-repeat="team in teams_data | limitTo:20">
+				<td ng-class="assignFont(team.name)"><a ng-click="forward('teams/' + team.name)" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">{{team.name}}</a></td>
+				<td ng-bind-html="team.city | searchFilter:searchDisplay">{{team.city}}</td>
+				<td ng-bind-html="team.state | searchFilter:searchDisplay">{{team.state}}</td>
+				<td ng-bind-html="team.mascot | searchFilter:searchDisplay">{{team.mascot}}</td>
+				<td ng-bind-html="team.division | searchFilter:searchDisplay">{{team.division}}</td>
+				<td>{{team.championships}}</td>
+	  		</tr>
+		</table>
+	</span>
+	<h2 ng-show="searchDisplay.split(' ').length > 1">Or Results</h2>
+	<span ng-show="players_data_OR.length > 0">
+		<h3>Players</h3>
+	    <table class="table">
+			<thead>
+				<th class="site_name">Name</th>
+		    	<th>First Name</th>
+		    	<th>Last Name</th>
+		    	<th>Last Arrest</th>
+		    	<th>Number Arrests</th>
+		    	<th>Position</th>
+			</thead>
+			<tr ng-repeat="player in players_data_OR | limitTo:20">
+				<td ng-class="assignFont(player.name)"><a ng-click="forward('players/' + player.name)" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">{{player.name}}</a></td>
+				<td ng-bind-html="player.first_name | searchFilter:searchDisplay">{{player.first_name}}</td>
+				<td ng-bind-html="player.last_name | searchFilter:searchDisplay">{{player.last_name}}</td>
+				<td ng-bind-html="player.last_arrest | searchFilter:searchDisplay">{{player.last_arrest}}</td>
+				<td>{{player.num_arrests}}</td>
+				<td ng-bind-html="player.pos | searchFilter:searchDisplay">{{player.pos}}</td>
+	  		</tr>	
+		</table>
+	</span>
+	<span ng-show="crimes_data_OR.length > 0">
+		<h3> Crimes </h3>
+	    <table class="table">
+		    <tr>
+		    	<th class="site_name">Category</th>
+		    	<th>Date</th>
+		    	<th>Encounter</th>
+		    	<th>Description</th>
+		    	<th>Outcome</th>
+		    	<th>Position</th>
+	    	</tr>
+	    	<tr ng-repeat="crime in crimes_data_OR | limitTo:20">
+				<td ng-class="assignFont(crime.category)"><a ng-click="forward('crimes/' + crime.category)" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">{{crime.category}}</a></td>
+				<td ng-bind-html="crime.date | searchFilter:searchDisplay">{{crime.date}}</td>
+				<td ng-bind-html="crime.encounter | searchFilter:searchDisplay">{{crime.encounter}}</td>
+				<td ng-bind-html="crime.description | searchFilter:searchDisplay">{{crime.description}}</td>
+				<td ng-bind-html="crime.outcome | searchFilter:searchDisplay">{{crime.outcome}}</td>
+				<td ng-bind-html="crime.position | searchFilter:searchDisplay">{{crime.position}}</td>
+	  		</tr>
+		</table>
+	</span>
+	<span ng-show="teams_data_OR.length > 0">
+	<h3> Teams </h3>
+	    <table class="table">
+		    <tr>
+		    	<th class="site_name">Name</th>
+		    	<th>City</th>
+		    	<th>State</th>
+		    	<th>Mascot</th>
+		    	<th>Division</th>
+		    	<th>Champtionships</th>
+	    	</tr>
+	    	<tr ng-repeat="team in teams_data_OR | limitTo:20">
+				<td ng-class="assignFont(team.name)"><a ng-click="forward('teams/' + team.name)" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">{{team.name}}</a></td>
+				<td ng-bind-html="team.city | searchFilter:searchDisplay">{{team.city}}</td>
+				<td ng-bind-html="team.state | searchFilter:searchDisplay">{{team.state}}</td>
+				<td ng-bind-html="team.mascot | searchFilter:searchDisplay">{{team.mascot}}</td>
+				<td ng-bind-html="team.division | searchFilter:searchDisplay">{{team.division}}</td>
+				<td>{{team.championships}}</td>
+	  		</tr>
+		</table>
+	</span>
+</div>

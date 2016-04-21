@@ -5,7 +5,8 @@ var nflCsApp = angular.module('nflCsApp', [
   'ngRoute',
   'directive',
   'nflCsControllers',
-  'nflCsServices'
+  'nflCsServices',
+  'nflCsFilters'
 ]);
 
 nflCsApp.config(['$routeProvider',
