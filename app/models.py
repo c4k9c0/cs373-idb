@@ -1,7 +1,6 @@
 from sqlalchemy import *
 from sqlalchemy import ForeignKey
 from sqlalchemy.orm import relationship
-import flask.ext.whooshalchemy as whooshalchemy
 
 # This is only because models.py has to be in the root.
 from db import db, app
