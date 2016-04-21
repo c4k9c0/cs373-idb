@@ -1,3 +1,218 @@
+commit b6edfc5c80ad5d3216fc455b93025088350f181e
+Merge: 91e25fb 87f92ed
+Author: Andy Medina <andymedina@utexas.edu>
+Date:   Thu Apr 21 13:21:33 2016 -0500
+
+    fix charlie dev merge conflict
+
+commit 87f92eda91167939ff90bf66b6a0fb9b89adf74e
+Author: Andy Medina <andymedina@utexas.edu>
+Date:   Thu Apr 21 13:18:08 2016 -0500
+
+    remove debugging
+
+commit de5887ba5cbb6cf775a9ad5da0f21e0066a8e301
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Wed Apr 20 21:56:14 2016 -0500
+
+    Improved search on link attributes
+
+commit ff9269ee8203e02b8682bd13c374d1384bd9e08a
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Wed Apr 20 21:49:30 2016 -0500
+
+    Adding filters.js
+
+commit 7256bd3e07483ad39553ae69ac9489a7db5a5997
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Wed Apr 20 21:39:28 2016 -0500
+
+    Made search actually contextualized
+
+commit 91e25fb1663b57373847c6ab04e95645d816d0c6
+Merge: 2b16449 30bfc56
+Author: Hunter DeGroot <hunterdegroot@gmail.com>
+Date:   Wed Apr 20 14:15:42 2016 -0500
+
+    Merge remote-tracking branch 'origin/dev' into dev
+
+commit 2b1644925f1da4515a2da1b2dece7d1446e526a0
+Merge: 01f2ee1 fe90c27
+Author: Hunter DeGroot <hunterdegroot@gmail.com>
+Date:   Wed Apr 20 14:15:38 2016 -0500
+
+    Merge branch 'hunter' into dev
+
+commit fe90c27078807b158a06d0e57175adf520152032
+Author: Hunter DeGroot <hunterdegroot@gmail.com>
+Date:   Wed Apr 20 14:15:18 2016 -0500
+
+    Countries with multiple metrics
+
+commit 8044fddbf3a5ef379c472e816160d753a7d11119
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Tue Apr 19 22:59:55 2016 -0500
+
+    Made results prettier
+
+commit 0df53415876f2d94fec7cc52287c5d4a2693551f
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Tue Apr 19 21:19:41 2016 -0500
+
+    Implemented search. Highlited the matches
+
+commit 3852352560f61f0310f10fe0109cbd1f5f72d9a5
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Tue Apr 19 12:03:46 2016 -0500
+
+    Close search drop down when click model
+
+commit 46c2547da724fc93b16b0feb6a5e6eb93fbb2252
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Tue Apr 19 00:22:30 2016 -0500
+
+    Started to fix the overwrite bug %58
+
+commit 75c1915ae2b224f5943a0bcc1bfb0f66f4806e80
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Mon Apr 18 21:50:19 2016 -0500
+
+    allowed for single word search
+
+commit a71651092de62883b5a9c0c6e10d4cd803477d69
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Mon Apr 18 21:44:46 2016 -0500
+
+    Manually did search
+
+commit 30bfc56f1576e1f3fd073aacb20c024189484063
+Author: Gabriel Gontijo Moreira <gabrielgo.moreira@egmail.com>
+Date:   Mon Apr 18 19:51:44 2016 -0500
+
+    created critiques on fresh branch
+
+commit d2c6e1553e58782334bed96c016b7203ec220cd8
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Sun Apr 17 21:49:01 2016 -0500
+
+    Implemented search and formated the results #55 #56
+
+commit 01f2ee1e633ccd4e34b13fccb3697195725a14a1
+Merge: 491ff28 65cb241
+Author: Hunter DeGroot <hunterdegroot@gmail.com>
+Date:   Sun Apr 17 17:29:05 2016 -0500
+
+    Merge branch 'hunter' into dev
+
+commit 65cb2419734e153359aea29a5934b1227f2f8edc
+Author: Hunter DeGroot <hunterdegroot@gmail.com>
+Date:   Sun Apr 17 17:28:42 2016 -0500
+
+    Using countries api
+
+commit d5a5d0da28b07dbc666c63c9554ff064d912b4f1
+Merge: 1b6107b 2d0f73f
+Author: Hunter DeGroot <hunterdegroot@gmail.com>
+Date:   Sun Apr 17 13:46:04 2016 -0500
+
+    Merge branch 'master' into hunter
+
+commit 7471ea4c0ddc536287845fd11a76b64f3fa396f7
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Sat Apr 16 23:15:10 2016 -0500
+
+    implemented search in the back end
+
+commit 6c694761e2878e33f5a263af723b80a86b08b1aa
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Sat Apr 16 18:08:04 2016 -0500
+
+    Adding search template
+
+commit d61498b187896e3cb96bd6c29b9d488eb5e3f390
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Sat Apr 16 16:48:53 2016 -0500
+
+    fixed search to show original search term
+
+commit f4d2869b3dbab93d89086a72d7d971a4ede1c815
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Wed Apr 13 22:51:00 2016 -0500
+
+    Set up Search end point and Angular service
+
+commit a338cbf7b1bf47199e1efa2e3c29a0e64845ac20
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Wed Apr 13 20:49:54 2016 -0500
+
+    Change nav bar closes #57
+
+commit 4c5267e91ee417cb44b113cff5ead98fe66ec074
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Wed Apr 13 19:34:48 2016 -0500
+
+    Added search bar, connected it to modal #53 #56
+
+commit 05bad25c6218acd193c66bb3dc78c50a8979d3a9
+Merge: 49c06f3 2d0f73f
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Tue Apr 12 22:46:53 2016 -0500
+
+    Merge branch 'master' into charlie
+
+commit 49c06f3646483320d194dbdb8441ed87cedb9fe6
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Tue Apr 12 22:42:23 2016 -0500
+
+    Updating app.py
+
+commit e32062fe5c5275dbdadf8962ffaa6cfec960e0cd
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Tue Apr 12 22:35:38 2016 -0500
+
+    undoing pops
+
+commit 1d34a1a8741221b530bc0a98d88f767be92223f2
+Merge: 8a167e7 9cbd567
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Tue Apr 12 22:28:02 2016 -0500
+
+    Merge branch 'master' into charlie
+
+commit 8a167e72492b7717dae16c45a3a400ee208332ee
+Merge: b5890a3 661944a
+Author: c4k9c0 <charliecox17@yahoo.com>
+Date:   Tue Apr 12 17:04:03 2016 -0500
+
+    Merge remote-tracking branch 'origin/andy' into charlie
+    
+    Conflicts:
+    	app/tests.py
+
+commit 2d0f73fea0a6327ababc02d733cf47f1311b5944
+Author: Andy Medina <andymedina@utexas.edu>
+Date:   Wed Apr 6 22:46:52 2016 -0500
+
+    travis fix
+
+commit f7a2f8f69703f91cf2a125fb71e137b5e8983dd5
+Author: Andy Medina <andymedina@utexas.edu>
+Date:   Wed Apr 6 22:44:17 2016 -0500
+
+    coverage in tests; fixed travis
+
+commit 9098086f1fbe788d04aa707921e53c5e0cd2643e
+Author: Andy Medina <andymedina@utexas.edu>
+Date:   Wed Apr 6 22:39:15 2016 -0500
+
+    pydoc for model.html
+
+commit f79e09a0528bb3c3c4a8d1d903d70c7530a941c7
+Author: Andy Medina <andymedina@utexas.edu>
+Date:   Wed Apr 6 22:25:23 2016 -0500
+
+    final changes
+
 commit c3adb9b04b2822c1b8f247c358078e07b7ae44a6
 Author: Andy Medina <andymedina@utexas.edu>
 Date:   Wed Apr 6 21:31:08 2016 -0500
@@ -229,6 +444,12 @@ Author: Andy Medina <andymedina@utexas.edu>
 Date:   Wed Apr 6 04:15:29 2016 -0500
 
     fixed tests
+
+commit b5890a3e51e86f8c2f1ca010a53eb5163cb51f6b
+Author: Charlie Cox <charliecox17@yahoo.com>
+Date:   Tue Apr 5 22:37:31 2016 -0500
+
+    Updated tests to insert and delete #27
 
 commit 788e55c58d4d21b5d186eea90240242a60698073
 Author: Andy Medina <andymedina@utexas.edu>
