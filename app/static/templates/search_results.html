@@ -3,6 +3,7 @@
 </div>
 <div class="modal-body">
 	<h2 ng-show="(searchDisplay.split(' ').length > 1)">And Results</h2>
+	<h5 ng-show="players_data.length < 1 && crimes_data.length < 1 && teams_data.length < 1"><i>No results here</i></h5>
 	<span ng-show="players_data.length > 0">
 		<h3> Players </h3>
 	    <table class="table">

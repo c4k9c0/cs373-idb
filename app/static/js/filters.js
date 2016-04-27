@@ -5,7 +5,7 @@ nflCsFilters.filter('searchFilter', function() {
         	// input =Ricky Williams query = "Ricky RB"
         	var splitWords = query.split(" ");
 
-        	console.log(splitWords);
+        	// console.log(splitWords);
 
         	if(splitWords.length < 1) {
         		return input.replace(RegExp('('+ query + ')', 'g'), '<span class="bold-match">$1</span>');           

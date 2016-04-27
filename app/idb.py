@@ -8,7 +8,6 @@ import json
 from datetime import timedelta
 from initializing_db import create_nfl_db
 import logging
-import flask.ext.whooshalchemy
 
 logging.basicConfig(
 	level=logging.DEBUG,
@@ -55,35 +54,8 @@ def search(term):
 	results = search_players(player_result, term, results)
 	results = search_crimes(crimes_result, term, results)
 
-	logger.debug(results)
-	'''
-	player_result = Player.query.whoosh_search(term).all()
-	teams_result = Team.query.whoosh_search(term).all()
-	crimes_result = Crime.query.whoosh_search(term).all()
+	# logger.debug(results)
 
-	results["players"] = place_data(player_result, "name")
-	results["teams"] = place_data(teams_result, "name")
-	results["crimes"] = place_data(crimes_result, "id")
-
-	# need to also do OR
-	if len(term.split()) > 1:
-		
-		new_results = {}
-		new_results['AND'] = results
-		results = new_results
-
-		player_result = Player.query.whoosh_search(term, or_=True).all()
-		teams_result = Team.query.whoosh_search(term, or_=True).all()
-		crimes_result = Crime.query.whoosh_search(term, or_=True).all()
-
-		results['OR'] = {}
-
-		results['OR']['players'] = place_data(player_result, "name")
-		results['OR']['teams'] = place_data(teams_result, "name")
-		results['OR']['crimes'] = place_data(crimes_result, "id")
-
-	logger.debug(results)
-	'''
 	return jsonify(results)
 
 def search_crimes(crimes_list, terms, results):
@@ -267,7 +239,6 @@ def index():
 	return send_file('index.html')
 
 if __name__ == "__main__":
-	create_db()
 	manager.run()
 
 	#Commenting out this for now based on what
