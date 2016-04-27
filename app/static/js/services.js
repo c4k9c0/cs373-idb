@@ -35,7 +35,7 @@ nflCsServices.factory('Tests',
   
 nflCsServices.factory('Countries',
   function($resource){
-    return $resource('http://sweography.me/api/v1/country');
+    return $resource('/countries');
   });
   
 nflCsServices.service('Types',

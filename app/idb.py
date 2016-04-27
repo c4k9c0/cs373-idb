@@ -7,7 +7,7 @@ import subprocess
 import json
 from datetime import timedelta
 from initializing_db import create_nfl_db
-import logging
+import logging, requests
 
 logging.basicConfig(
 	level=logging.DEBUG,
@@ -35,6 +35,15 @@ def drop_db():
 	app.config['SQLALCHEMY_ECHO'] = True
 	db.drop_all()
 
+#----------
+# Search 
+#----------
+@app.route('/countries')
+def countries():
+	print("In this bitch")
+	country_rep = requests.get("http://sweography.me/api/v1/country")
+	print(country_rep)
+	return jsonify(country_rep)
 #----------
 # Search 
 #----------
@@ -239,6 +248,7 @@ def index():
 	return send_file('index.html')
 
 if __name__ == "__main__":
+	#create_db()
 	manager.run()
 
 	#Commenting out this for now based on what
