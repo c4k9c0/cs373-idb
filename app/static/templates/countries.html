@@ -1,0 +1,27 @@
+<div class="dropdown">
+  <button class="btn btn-primary dropdown-toggle" style="padding-top: 5em !important" type="button" data-toggle="dropdown">{{category}}
+  <span class="caret"></span></button>
+  <ul class="dropdown-menu">
+    <li><a ng-click="changeChart(0)">Population</a></li>
+    <li><a ng-click="changeChart(1)">Number of Currencies</a></li>
+    <li><a ng-click="changeChart(2)">Number of Languages</a></li>
+  </ul>
+</div>
+<div ng-show="a" id="containerA" style="width:100%; margin: 0px">
+    <div class="loading">
+        <i class="icon-spinner icon-spin icon-large"></i>
+        Loading data from Google Spreadsheets...
+    </div>
+</div>
+<div ng-show="b" id="containerB" style="width:100%; margin: 0px">
+    <div class="loading">
+        <i class="icon-spinner icon-spin icon-large"></i>
+        Loading data from Google Spreadsheets...
+    </div>
+</div>
+<div ng-show="c" id="containerC" style="width:100%; margin: 0px">
+    <div class="loading">
+        <i class="icon-spinner icon-spin icon-large"></i>
+        Loading data from Google Spreadsheets...
+    </div>
+</div>

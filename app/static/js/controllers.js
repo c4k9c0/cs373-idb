@@ -129,6 +129,339 @@ nflCsControllers.controller('ModalInstanceCtrl', ['$scope','searchStr', 'Search'
   }); 
 }])
 
+nflCsControllers.controller('CountriesCtrl', ['$scope', 'GetMapData', 'Countries', '$http',
+  function($scope, GetMapData, Countries, $http) {
+  	
+  	$scope.a = true;
+  	$scope.b = false;
+  	$scope.c = false;
+  	
+  	$scope.category = 'Population';
+  	
+  	$scope.changeChart = function(x) {
+  		$scope.a = false;
+  		$scope.b = false;
+  		$scope.c = false;
+  		switch(x) {
+  			
+  			case 0 :
+  				$scope.a = true;
+  				break;
+  			case 1 :
+  				$scope.b = true;
+  				break;
+  			case 2 :
+  				$scope.c = true;
+  				break;
+  			default :
+  				break;
+  				
+  		}
+  	}
+  	
+  	Countries.get(function(apiData){
+  	Highcharts.data({
+
+        googleSpreadsheetKey: '0AoIaUO7wH1HwdFJHaFI4eUJDYlVna3k5TlpuXzZubHc',
+
+        // custom handler when the spreadsheet is parsed
+        parsed: function (columns) {
+
+            // Read the columns into the data array
+            var data = [];
+            $.each(columns[0], function (i, code) {
+                data.push({
+                    code: code.toUpperCase(),
+                    value: parseFloat(columns[2][i]),
+                    name: columns[1][i]
+                });
+            });
+
+
+            // Initiate the chart
+            $('#containerA').highcharts('Map', {
+                chart : {
+                    borderWidth : 1
+                },
+
+                colors: ['rgba(19,64,117,0.05)', 'rgba(19,64,117,0.2)', 'rgba(19,64,117,0.4)',
+                    'rgba(19,64,117,0.5)', 'rgba(19,64,117,0.6)', 'rgba(19,64,117,0.8)', 'rgba(19,64,117,1)'],
+
+                title : {
+                    text : 'Population by Country'
+                },
+
+                mapNavigation: {
+                    enabled: true
+                },
+
+                legend: {
+                    title: {
+                        text: 'Population in Millions',
+                        style: {
+                            color: (Highcharts.theme && Highcharts.theme.textColor) || 'black'
+                        }
+                    },
+                    align: 'left',
+                    verticalAlign: 'bottom',
+                    floating: true,
+                    layout: 'vertical',
+                    valueDecimals: 0,
+                    backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || 'rgba(255, 255, 255, 0.85)',
+                    symbolRadius: 0,
+                    symbolHeight: 14
+                },
+
+                colorAxis: {
+                    dataClasses: [{
+                        to: 3
+                    }, {
+                        from: 3,
+                        to: 10
+                    }, {
+                        from: 10,
+                        to: 30
+                    }, {
+                        from: 30,
+                        to: 100
+                    }, {
+                        from: 100,
+                        to: 300
+                    }, {
+                        from: 300,
+                        to: 1000
+                    }, {
+                        from: 1000
+                    }]
+                },
+
+                series : [{
+                    data : GetMapData.getPopulation(data, apiData),
+                    mapData: Highcharts.maps['custom/world'],
+                    joinBy: ['iso-a2', 'code'],
+                    animation: true,
+                    name: 'Population',
+                    states: {
+                        hover: {
+                            color: '#BADA55'
+                        }
+                    },
+                    tooltip: {
+                        valueSuffix: ' Million People'
+                    }
+                }]
+            });
+        },
+        error: function () {
+            $('#container').html('<div class="loading">' +
+                '<i class="icon-frown icon-large"></i> ' +
+                'Error loading data from Google Spreadsheets' +
+                '</div>');
+        }
+    });});
+    
+    Countries.get(function(apiData){
+  	Highcharts.data({
+
+        googleSpreadsheetKey: '0AoIaUO7wH1HwdFJHaFI4eUJDYlVna3k5TlpuXzZubHc',
+
+        // custom handler when the spreadsheet is parsed
+        parsed: function (columns) {
+
+            // Read the columns into the data array
+            var data = [];
+            $.each(columns[0], function (i, code) {
+                data.push({
+                    code: code.toUpperCase(),
+                    value: parseFloat(columns[2][i]),
+                    name: columns[1][i]
+                });
+            });
+
+
+            // Initiate the chart
+            $('#containerB').highcharts('Map', {
+                chart : {
+                    borderWidth : 1
+                },
+
+                colors: ['rgba(19,64,117,0.05)', 'rgba(19,64,117,0.2)', 'rgba(19,64,117,0.4)',
+                    'rgba(19,64,117,0.5)', 'rgba(19,64,117,0.6)', 'rgba(19,64,117,0.8)', 'rgba(19,64,117,1)'],
+
+                title : {
+                    text : 'Number of Currencies by Country'
+                },
+
+                mapNavigation: {
+                    enabled: true
+                },
+
+                legend: {
+                    title: {
+                        text: 'Currencies',
+                        style: {
+                            color: (Highcharts.theme && Highcharts.theme.textColor) || 'black'
+                        }
+                    },
+                    align: 'left',
+                    verticalAlign: 'bottom',
+                    floating: true,
+                    layout: 'vertical',
+                    valueDecimals: 0,
+                    backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || 'rgba(255, 255, 255, 0.85)',
+                    symbolRadius: 0,
+                    symbolHeight: 14
+                },
+
+                colorAxis: {
+                    dataClasses: [{
+                        to: 1
+                    }, {
+                        from: 1,
+                        to: 2
+                    }, {
+                        from: 2,
+                        to: 3
+                    }, {
+                        from: 3,
+                        to: 4
+                    }, {
+                        from: 4,
+                        to: 5
+                    }, {
+                        from: 5,
+                        to: 6
+                    }, {
+                        from: 6
+                    }]
+                },
+
+                series : [{
+                    data : GetMapData.getCurrencies(data, apiData),
+                    mapData: Highcharts.maps['custom/world'],
+                    joinBy: ['iso-a2', 'code'],
+                    animation: true,
+                    name: 'Currencies',
+                    states: {
+                        hover: {
+                            color: '#BADA55'
+                        }
+                    },
+                    tooltip: {
+                        valueSuffix: ''
+                    }
+                }]
+            });
+        },
+        error: function () {
+            $('#container').html('<div class="loading">' +
+                '<i class="icon-frown icon-large"></i> ' +
+                'Error loading data from Google Spreadsheets' +
+                '</div>');
+        }
+    });});
+    Countries.get(function(apiData){
+  	Highcharts.data({
+
+        googleSpreadsheetKey: '0AoIaUO7wH1HwdFJHaFI4eUJDYlVna3k5TlpuXzZubHc',
+
+        // custom handler when the spreadsheet is parsed
+        parsed: function (columns) {
+
+            // Read the columns into the data array
+            var data = [];
+            $.each(columns[0], function (i, code) {
+                data.push({
+                    code: code.toUpperCase(),
+                    value: parseFloat(columns[2][i]),
+                    name: columns[1][i]
+                });
+            });
+
+
+            // Initiate the chart
+            $('#containerC').highcharts('Map', {
+                chart : {
+                    borderWidth : 1
+                },
+
+                colors: ['rgba(19,64,117,0.05)', 'rgba(19,64,117,0.2)', 'rgba(19,64,117,0.4)',
+                    'rgba(19,64,117,0.5)', 'rgba(19,64,117,0.6)', 'rgba(19,64,117,0.8)', 'rgba(19,64,117,1)'],
+
+                title : {
+                    text : 'Number of Languages by Country'
+                },
+
+                mapNavigation: {
+                    enabled: true
+                },
+
+                legend: {
+                    title: {
+                        text: 'Languages',
+                        style: {
+                            color: (Highcharts.theme && Highcharts.theme.textColor) || 'black'
+                        }
+                    },
+                    align: 'left',
+                    verticalAlign: 'bottom',
+                    floating: true,
+                    layout: 'vertical',
+                    valueDecimals: 0,
+                    backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || 'rgba(255, 255, 255, 0.85)',
+                    symbolRadius: 0,
+                    symbolHeight: 14
+                },
+
+                colorAxis: {
+                    dataClasses: [{
+                        to: 1
+                    }, {
+                        from: 1,
+                        to: 2
+                    }, {
+                        from: 2,
+                        to: 3
+                    }, {
+                        from: 3,
+                        to: 4
+                    }, {
+                        from: 4,
+                        to: 5
+                    }, {
+                        from: 5,
+                        to: 6
+                    }, {
+                        from: 6
+                    }]
+                },
+
+                series : [{
+                    data : GetMapData.getLanguages(data, apiData),
+                    mapData: Highcharts.maps['custom/world'],
+                    joinBy: ['iso-a2', 'code'],
+                    animation: true,
+                    name: 'Languages',
+                    states: {
+                        hover: {
+                            color: '#BADA55'
+                        }
+                    },
+                    tooltip: {
+                        valueSuffix: ''
+                    }
+                }]
+            });
+        },
+        error: function () {
+            $('#container').html('<div class="loading">' +
+                '<i class="icon-frown icon-large"></i> ' +
+                'Error loading data from Google Spreadsheets' +
+                '</div>');
+        }
+    });});
+  }]);
+
 nflCsControllers.controller('PlayersCtrl', ['$scope', 'Players',
   function($scope, Players) {
     
