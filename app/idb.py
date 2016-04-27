@@ -40,9 +40,7 @@ def drop_db():
 #----------
 @app.route('/countries')
 def countries():
-	print("In this bitch")
 	country_rep = requests.get("http://sweography.me/api/v1/country").json();
-	print(country_rep)
 	return jsonify(country_rep)
 #----------
 # Search 
