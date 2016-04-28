@@ -7,7 +7,7 @@ services:
     extends:
       file: docker-compose-common.yml
       service: lb
-    image: amedina/pythonwebapp_lb
+    image: amedina/nflarrests_lb
     environment:
       # Always deploy to n1 so the lb always has the same IP address. This is
       # just for convenience and isn't strictly necessary.
@@ -17,11 +17,12 @@ services:
     extends:
       file: docker-compose-common.yml
       service: app
-    image: amedina/pythonwebapp_app
+    image: amedina/nflarrests_app
     expose:
       # Expose port 8000 so it's only visibile on the container, not the host
       - "8000"
     env_file: pythonwebapp-mysql-prod.env
+
     command: gunicorn idb:app --bind 0.0.0.0:8000
       # Run Gunicorn to serve app requests
 
@@ -29,7 +30,7 @@ services:
     extends:
       file: docker-compose-common.yml
       service: db
-    image: amedina/pythonwebapp_db
+    image: amedina/nflarrests_db
     expose:
       # Expose port 3306 so it's only visibile on the container, not the host
       - "3306"

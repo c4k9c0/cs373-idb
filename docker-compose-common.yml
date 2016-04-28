@@ -1,11 +1,10 @@
 version: "2"
-
 # A Docker Compose file for common configuration between development and production environments
 
 services:
   lb:
     # The load balancer container. Built from the lb/Dockerfile.
-    container_name: pythonwebapp_lb
+    container_name: nflarrests_lb
     build: lb
     restart: unless-stopped
     networks:
@@ -29,7 +28,7 @@ services:
 
   db:
     # The database container. Built from the db/Dockerfile.
-    container_name: pythonwebapp_db
+    container_name: nflarrests_db
     build: db
     restart: unless-stopped
     networks:
@@ -39,7 +38,7 @@ services:
       - MYSQL_DATABASE=guestbook
 
   data:
-    container_name: pythonwebapp_db_data
+    container_name: nflarrests_db_data
     # The Data Volume Container used to mount a volume to store our persistent data
     # https://getcarina.com/docs/tutorials/data-volume-containers/
     image: cirros
