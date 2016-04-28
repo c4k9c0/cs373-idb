@@ -4,3 +4,4 @@ Flask-SQLAlchemy~=2.0
 PyMySQL~=0.6
 gunicorn~=19.3
 Flask-Testing
+requests
